@@ -1,0 +1,201 @@
+[  195.124059] Unable to handle kernel paging request at virtual address 000000010000017f
+[  195.131912] Mem abort info:
+[  195.132803]   ESR = 0x96000005
+[  195.134642]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  195.141431]   SET = 0, FnV = 0
+[  195.144859]   EA = 0, S1PTW = 0
+[  195.146163] Data abort info:
+[  195.147955]   ISV = 0, ISS = 0x00000005
+[  195.149375]   CM = 0, WnR = 0
+[  195.151691] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b27ca000
+[  195.153084] [000000010000017f] pgd=00000000b950c003, pud=0000000000000000
+[  195.156494] Internal error: Oops: 96000005 [#1] PREEMPT SMP
+[  195.161259] Modules linked in:
+[  195.163939] CPU: 0 PID: 490 Comm: python3 Tainted: G        W         5.4.18 #2
+[  195.165666] Hardware name: linux,dummy-virt (DT)
+[  195.168305] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  195.171975] pc : ip_output+0x44/0x1b0
+[  195.173497] lr : ip_local_out+0x44/0x58
+[  195.175198] sp : ffff800011f93a30
+[  195.179407] x29: ffff800011f93a30 x28: 000000000000001a 
+[  195.181119] x27: ffff800011f93d80 x26: 0000000000000011 
+[  195.181683] x25: 0000000000000012 x24: ffff00007a5ba424 
+[  195.183581] x23: ffff00007bf32ec0 x22: ffff000073d30000 
+[  195.185790] x21: 00000000ffffffff x20: ffff00007810c900 
+[  195.187423] x19: ffff00007810c900 x18: 0000000000000000 
+[  195.188314] x17: 0000000000000000 x16: 0000000000000000 
+[  195.189316] x15: ffff8000117d2000 x14: ffff800011992f70 
+[  195.192285] x13: 0000000000000000 x12: ffff800011992000 
+[  195.192712] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  195.193069] x9 : ffff000073d30000 x8 : ffff800011f93c30 
+[  195.193357] x7 : 0000000017300000 x6 : 0000000000000000 
+[  195.193918] x5 : ffff00007a5ba424 x4 : ffff00007a5ba424 
+[  195.195243] x3 : ffff0000715bc000 x2 : ffff000073d30000 
+[  195.195969] x1 : ffff00007bf32ec0 x0 : 0000000000000001 
+[  195.196718] Call trace:
+[  195.197051]  ip_output+0x44/0x1b0
+[  195.197461]  ip_local_out+0x44/0x58
+[  195.198060]  ip_send_skb+0x1c/0xa8
+[  195.200002]  udp_send_skb.isra.0+0x11c/0x368
+[  195.200490]  udp_sendmsg+0x710/0x860
+[  195.201304]  inet_sendmsg+0x40/0x68
+[  195.201813]  __sys_sendto+0xd4/0x150
+[  195.203412]  __arm64_sys_sendto+0x24/0x30
+[  195.204166]  el0_svc_common.constprop.0+0x68/0x160
+[  195.204746]  el0_svc_handler+0x20/0x80
+[  195.205245]  el0_svc+0x8/0xc
+[  195.209232] Code: f9402e83 b9401040 927ff863 11000400 (f940c2b3) 
+[  195.220749] ---[ end trace 5dc7fe58202be9f0 ]---
+[  195.408580] ------------[ cut here ]------------
+[  195.417934] refcount_t: underflow; use-after-free.
+[  195.419733] WARNING: CPU: 2 PID: 267 at lib/refcount.c:190 refcount_sub_and_test_checked+0xb4/0xc0
+[  195.428962] Modules linked in:
+[  195.448388] CPU: 2 PID: 267 Comm: dbus-daemon Tainted: G      D W         5.4.18 #2
+[  195.461842] Hardware name: linux,dummy-virt (DT)
+[  195.463330] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  195.471744] pc : refcount_sub_and_test_checked+0xb4/0xc0
+[  195.474940] lr : refcount_sub_and_test_checked+0xb4/0xc0
+[  195.475913] sp : ffff800011d93980
+[  195.476447] x29: ffff800011d93980 x28: 0000000000000000 
+[  195.484849] x27: ffff00007aa56528 x26: 00000000000000dc 
+[  195.492238] x25: ffff0000796c98d0 x24: ffff00007aa56500 
+[  195.494112] x23: 00000000000000dc x22: ffff0000796c9b48 
+[  195.507044] x21: 0000000000000724 x20: ffff00007b6e953c 
+[  195.512882] x19: 0000000000000000 x18: 0000000000000010 
+[  195.520999] x17: 0000000000000000 x16: 0000000000000000 
+[  195.532204] x15: ffff00007a45ca70 x14: ffffffffffffffff 
+[  195.547278] x13: ffff800091d936e7 x12: ffff800011d936ef 
+[  195.555936] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  195.564573] x9 : 0000000000000000 x8 : ffff800011993000 
+[  195.570491] x7 : ffff800010691a68 x6 : 00000000000001a6 
+[  195.573331] x5 : ffff00007db69180 x4 : 0000000000000001 
+[  195.584344] x3 : ffff00007db69180 x2 : 0000000000000007 
+[  195.590202] x1 : 0000000000000000 x0 : 0000000000000000 
+[  195.595240] Call trace:
+[  195.600385]  refcount_sub_and_test_checked+0xb4/0xc0
+[  195.602670]  sock_wfree+0x4c/0x90
+[  195.604542]  unix_destruct_scm+0x6c/0xc8
+[  195.605462]  skb_release_head_state+0x40/0xc8
+[  195.606898]  skb_release_all+0x14/0x30
+[  195.608378]  consume_skb+0x2c/0x58
+[  195.609471]  unix_stream_read_generic+0x6a0/0x778
+[  195.615497]  unix_stream_recvmsg+0x4c/0x70
+[  195.616435]  sock_recvmsg+0x1c/0x28
+[  195.617029]  ____sys_recvmsg+0x94/0x2c0
+[  195.618511]  ___sys_recvmsg+0x78/0xd8
+[  195.619373]  __sys_recvmsg+0x60/0xb8
+[  195.620658]  __arm64_sys_recvmsg+0x20/0x28
+[  195.621981]  el0_svc_common.constprop.0+0x68/0x160
+[  195.623995]  el0_svc_handler+0x20/0x80
+[  195.625006]  el0_svc+0x8/0xc
+[  195.625829] ---[ end trace 5dc7fe58202be9f1 ]---
+[  195.631384] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  195.633529] Mem abort info:
+[  195.635985]   ESR = 0x86000004
+[  195.637132]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  195.639954]   SET = 0, FnV = 0
+[  195.641019]   EA = 0, S1PTW = 0
+[  195.643917] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b718f000
+[  195.647695] [0000000000000000] pgd=0000000000000000
+[  195.649115] Internal error: Oops: 86000004 [#2] PREEMPT SMP
+[  195.650933] Modules linked in:
+[  195.652568] CPU: 2 PID: 267 Comm: dbus-daemon Tainted: G      D W         5.4.18 #2
+[  195.654869] Hardware name: linux,dummy-virt (DT)
+[  195.656065] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  195.659039] pc : 0x0
+[  195.661442] lr : sock_wfree+0x60/0x90
+[  195.664352] sp : ffff800011d939a0
+[  195.666406] x29: ffff800011d939a0 x28: 0000000000000000 
+[  195.668321] x27: ffff00007aa56528 x26: 00000000000000dc 
+[  195.670237] x25: ffff0000796c98d0 x24: ffff00007aa56500 
+[  195.671811] x23: 00000000000000dc x22: ffff0000796c9b48 
+[  195.674377] x21: 0000000000000724 x20: ffff00007b6e953c 
+[  195.678651] x19: ffff00007b6e9400 x18: 0000000000000010 
+[  195.679864] x17: 0000000000000000 x16: 0000000000000000 
+[  195.681393] x15: ffff00007a45ca70 x14: ffffffffffffffff 
+[  195.683743] x13: ffff800091d936e7 x12: ffff800011d936ef 
+[  195.686289] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  195.687728] x9 : 0000000000000000 x8 : ffff800011993000 
+[  195.691687] x7 : ffff800010691a68 x6 : 00000000000001a6 
+[  195.692843] x5 : ffff00007db69180 x4 : 0000000000000001 
+[  195.694232] x3 : ffff00007db69180 x2 : 0000000000000007 
+[  195.695852] x1 : 0000000000000000 x0 : ffff00007b6e9400 
+[  195.697092] Call trace:
+[  195.699087]  0x0
+[  195.699551]  unix_destruct_scm+0x6c/0xc8
+[  195.700412]  skb_release_head_state+0x40/0xc8
+[  195.701367]  skb_release_all+0x14/0x30
+[  195.703086]  consume_skb+0x2c/0x58
+[  195.703947]  unix_stream_read_generic+0x6a0/0x778
+[  195.704855]  unix_stream_recvmsg+0x4c/0x70
+[  195.706304]  sock_recvmsg+0x1c/0x28
+[  195.707492]  ____sys_recvmsg+0x94/0x2c0
+[  195.708481]  ___sys_recvmsg+0x78/0xd8
+[  195.709739]  __sys_recvmsg+0x60/0xb8
+[  195.710722]  __arm64_sys_recvmsg+0x20/0x28
+[  195.711358]  el0_svc_common.constprop.0+0x68/0x160
+[  195.712377]  el0_svc_handler+0x20/0x80
+[  195.713180]  el0_svc+0x8/0xc
+[  195.723728] Code: bad PC value
+[  195.725171] ---[ end trace 5dc7fe58202be9f2 ]---
+[  195.900834] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  195.923352] Mem abort info:
+[  195.928761]   ESR = 0x86000004
+[  195.929199]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  195.929690]   SET = 0, FnV = 0
+[  195.935156]   EA = 0, S1PTW = 0
+[  195.949247] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b3c0d000
+[  195.985302] [0000000000000000] pgd=0000000000000000
+[  196.007739] Internal error: Oops: 86000004 [#3] PREEMPT SMP
+[  196.009571] Modules linked in:
+[  196.010758] CPU: 6 PID: 267 Comm: dbus-daemon Tainted: G      D W         5.4.18 #2
+[  196.018392] Hardware name: linux,dummy-virt (DT)
+[  196.024508] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  196.025450] Mem abort info:
+[  196.044705] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  196.045311] pc : 0x0
+[  196.045576] lr : sock_wfree+0x60/0x90
+[  196.046535] sp : ffff800011d933e0
+[  196.049809]   ESR = 0x86000004
+[  196.049893]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  196.049940]   SET = 0, FnV = 0
+[  196.050067]   EA = 0, S1PTW = 0
+[  196.051859] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b9b97000
+[  196.054087] x29: ffff800011d933e0 x28: ffff00007a45c600 
+[  196.054743] x27: ffff00007aa56528 x26: 0000000000000003 
+[  196.057000] [0000000000000000] pgd=0000000000000000
+[  196.057535] x25: 0000000000000001 x24: ffff0000796c9880 
+[  196.057597] x23: ffff00007a45c600 x22: ffff0000796c98d0 
+[  196.136762] x21: 0000000000000001 x20: ffff00007b6e953c 
+[  196.145309] x19: ffff00007b6e9400 x18: 0000000000000000 
+[  196.159172] x17: 0000000000000000 x16: 0000000000000000 
+[  196.164969] x15: 0000000000000233 x14: 0000000000000001 
+[  196.165975] x13: 0000000000000001 x12: 0000000000000001 
+[  196.166890] x11: 0000000000000400 x10: 000000000140243b 
+[  196.167804] x9 : 000000000000006a x8 : ffff00007db5cdc0 
+[  196.168813] x7 : ffff000079b84700 x6 : 0000000000000000 
+[  196.169720] x5 : 00000000000008ff x4 : ffff00007b6e953c 
+[  196.170691] x3 : 0000000000000000 x2 : 00000000fffff701 
+[  196.182060] x1 : 0000000000000000 x0 : ffff00007b6e9400 
+[  196.205276] Call trace:
+[  196.208156]  0x0
+[  196.215189]  unix_destruct_scm+0x6c/0xc8
+[  196.221775]  skb_release_head_state+0x40/0xc8
+[  196.230752]  skb_release_all+0x14/0x30
+[  196.231200]  kfree_skb+0x2c/0x58
+[  196.231586]  unix_release_sock+0x168/0x2b0
+[  196.232015]  unix_release+0x20/0x38
+[  196.232574]  __sock_release+0x40/0xb8
+[  196.232979]  sock_close+0x14/0x20
+[  196.233380]  __fput+0x88/0x228
+[  196.233737]  ____fput+0xc/0x18
+[  196.234172]  task_work_run+0x80/0x130
+[  196.234596]  do_exit+0x2dc/0x980
+[  196.237206]  die+0x208/0x248
+[  196.237580]  die_kernel_fault+0x60/0x70
+[  196.242651]  __do_kernel_fault+0x84/0x120
+[  196.245098]  do_page_fault+0x1b4/0x460
+[  196.246858]  do_translation_fault+0x5c/0x78
+[  196.247595]  do_mem_abort+0x3c/0x98
+[  196.249007]  el1_da+0x1c/0x90
+[  196.251462]  0x0

@@ -1,0 +1,44 @@
+[  193.618078] BUG: scheduling while atomic: python3/493/0xfffffe01
+[  193.620952] Unable to handle kernel paging request at virtual address 00000000000041c8
+[  193.621559] Mem abort info:
+[  193.621661]   ESR = 0x96000006
+[  193.621907]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.622014]   SET = 0, FnV = 0
+[  193.622119]   EA = 0, S1PTW = 0
+[  193.622254] Data abort info:
+[  193.622374]   ISV = 0, ISS = 0x00000006
+[  193.622473]   CM = 0, WnR = 0
+[  193.623374] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b3a3f000
+[  193.623832] [00000000000041c8] pgd=00000000b1666003, pud=00000000b3a36003, pmd=0000000000000000
+[  193.626842] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  193.627671] Modules linked in:
+[  193.630422] CPU: 4 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  193.630647] Hardware name: linux,dummy-virt (DT)
+[  193.632208] pstate: 20000085 (nzCv daIf -PAN -UAO)
+[  193.636578] pc : cpuacct_charge+0x2c/0x88
+[  193.636735] lr : update_curr+0x88/0x110
+[  193.636894] sp : ffff800011f73110
+[  193.637027] x29: ffff800011f73110 x28: ffff80001016e788 
+[  193.637383] x27: ffff00007db9b840 x26: 0000000000000000 
+[  193.637508] x25: 0000000000000001 x24: ffff8000117d1258 
+[  193.637627] x23: ffff00007db9ed40 x22: ffff00007802e200 
+[  193.637788] x21: ffff00007802e200 x20: 0000000000021290 
+[  193.637909] x19: 0000000000000001 x18: 0000000000000010 
+[  193.638028] x17: 0000000000000000 x16: 0000000000000000 
+[  193.638147] x15: ffff00007802e670 x14: 0000000000000004 
+[  193.638268] x13: 0000000000000000 x12: 00000000000002f0 
+[  193.638387] x11: 0000000000000000 x10: 0000000000000000 
+[  193.638508] x9 : 0000000000000002 x8 : ffff00007db9ed40 
+[  193.638629] x7 : ffff00007db9f800 x6 : ffff00007abd4400 
+[  193.638749] x5 : 0000000000000000 x4 : 0000000000000001 
+[  193.638868] x3 : 0000000000021290 x2 : 0000000055deabf0 
+[  193.638987] x1 : 0000000000003ec0 x0 : 00000000000040c0 
+[  193.639951] Call trace:
+[  193.642813] Code: d287d801 f9401000 8b010000 b4000080 (f9408400) 
+[  193.650969] ---[ end trace 095b50c7de5c2d25 ]---
+[  193.653441] Kernel panic - not syncing: Fatal exception in interrupt
+[  193.654560] SMP: stopping secondary CPUs
+[  193.657846] Kernel Offset: disabled
+[  193.658701] CPU features: 0x0002,20006000
+[  193.659061] Memory Limit: none
+[  193.700043] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

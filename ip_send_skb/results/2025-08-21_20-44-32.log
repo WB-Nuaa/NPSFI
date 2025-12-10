@@ -1,0 +1,59 @@
+[  212.650217] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000003
+[  212.658493] Mem abort info:
+[  212.660013]   ESR = 0x86000004
+[  212.666207]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  212.673120]   SET = 0, FnV = 0
+[  212.677731]   EA = 0, S1PTW = 0
+[  212.678706] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b82c4000
+[  212.682504] [0000000000000003] pgd=0000000000000000
+[  212.688337] Internal error: Oops: 86000004 [#1] PREEMPT SMP
+[  212.690975] Modules linked in:
+[  212.693774] CPU: 0 PID: 0 Comm: swapper/0 Tainted: G        W         5.4.18 #2
+[  212.698911] Hardware name: linux,dummy-virt (DT)
+[  212.700295] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  212.703777] pc : 0x3
+[  212.705000] lr : sock_wfree+0x60/0x90
+[  212.705818] sp : ffff800010003cb0
+[  212.706892] x29: ffff800010003cb0 x28: 0000000000000082 
+[  212.708329] x27: ffff000079b50c30 x26: ffff000079b50000 
+[  212.708934] x25: 000000000000003c x24: 0000000000000001 
+[  212.712259] x23: ffff00007abf5b80 x22: ffff000079b50670 
+[  212.715307] x21: 0000000000000040 x20: ffff000076e26e3c 
+[  212.716707] x19: ffff000076e26d00 x18: 000000000000000e 
+[  212.720283] x17: 0000000000000001 x16: 0000000000000019 
+[  212.721066] x15: ffff8000117d2000 x14: ffff800011992f70 
+[  212.722498] x13: 0000000000000000 x12: ffff800011992000 
+[  212.724128] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  212.729184] x9 : 0000000000000000 x8 : 0000000000000000 
+[  212.730671] x7 : 0000000000000004 x6 : 000000000000014e 
+[  212.731999] x5 : 0000000000000000 x4 : 0000000000000001 
+[  212.732880] x3 : ffff8000117bca98 x2 : 0000000000000008 
+[  212.736894] x1 : 0000000000000003 x0 : ffff000076e26d00 
+[  212.740766] Call trace:
+[  212.741276]  0x3
+[  212.741518]  skb_release_head_state+0x40/0xc8
+[  212.741896]  skb_release_all+0x14/0x30
+[  212.742820]  consume_skb+0x2c/0x58
+[  212.743532]  __dev_kfree_skb_any+0x3c/0x48
+[  212.743941]  e1000_unmap_and_free_tx_resource.isra.0+0x58/0x80
+[  212.745442]  e1000_clean+0x138/0x970
+[  212.745918]  net_rx_action+0x114/0x340
+[  212.747524]  __do_softirq+0x124/0x240
+[  212.748482]  irq_exit+0xb8/0xd8
+[  212.749201]  __handle_domain_irq+0x64/0xb8
+[  212.751634]  gic_handle_irq+0x50/0xa0
+[  212.752646]  el1_irq+0xb8/0x180
+[  212.753280]  arch_cpu_idle+0x10/0x18
+[  212.754085]  do_idle+0x204/0x288
+[  212.754889]  cpu_startup_entry+0x20/0x40
+[  212.755765]  rest_init+0xd4/0xe0
+[  212.757468]  arch_call_rest_init+0xc/0x14
+[  212.758789]  start_kernel+0x420/0x450
+[  212.762862] Code: bad PC value
+[  212.769727] ---[ end trace 0a818d3baf355c54 ]---
+[  212.772778] Kernel panic - not syncing: Fatal exception in interrupt
+[  212.778758] SMP: stopping secondary CPUs
+[  212.784179] Kernel Offset: disabled
+[  212.786851] CPU features: 0x0002,20006000
+[  212.787990] Memory Limit: none
+[  212.789806] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

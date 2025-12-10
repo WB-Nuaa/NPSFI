@@ -1,0 +1,202 @@
+[  192.963901] Unable to handle kernel NULL pointer dereference at virtual address 000000000000048a
+[  192.999850] Mem abort info:
+[  193.001680]   ESR = 0x96000006
+[  193.003609]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.004128]   SET = 0, FnV = 0
+[  193.004456]   EA = 0, S1PTW = 0
+[  193.005250] Data abort info:
+[  193.010544]   ISV = 0, ISS = 0x00000006
+[  193.014486]   CM = 0, WnR = 0
+[  193.015131] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b0f09000
+[  193.015677] [000000000000048a] pgd=00000000b23bd003, pud=00000000ae4d9003, pmd=0000000000000000
+[  193.028936] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  193.034643] Modules linked in:
+[  193.042944] CPU: 2 PID: 503 Comm: python3 Not tainted 5.4.18 #2
+[  193.053862] Hardware name: linux,dummy-virt (DT)
+[  193.062711] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  193.075860] pc : tcp_v4_rcv+0x48/0xa58
+[  193.083623] lr : tcp_v4_rcv+0x9ec/0xa58
+[  193.086477] sp : ffff800011fbbb20
+[  193.088557] x29: ffff800011fbbb20 x28: 000000000000001a 
+[  193.096251] x27: ffff800011fbbd80 x26: ffff800010bb6f10 
+[  193.101005] x25: ffff800011fbbcf0 x24: 0000000000000000 
+[  193.103519] x23: ffff800011fbbc68 x22: ffff00007b2cb300 
+[  193.104428] x21: 0000000000000000 x20: 000000000000048a 
+[  193.106940] x19: ffff000079bf4e00 x18: 0000000000000000 
+[  193.108222] x17: 0000000000000000 x16: 0000000000000000 
+[  193.110849] x15: 0000000000000001 x14: 0000000000000000 
+[  193.112127] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.114819] x11: 0000000000000000 x10: 0000000000000068 
+[  193.127624] x9 : 000000000000002e x8 : 0000000000000000 
+[  193.129607] x7 : 0000000000000000 x6 : 0000000000000002 
+[  193.132021] x5 : 0000000000000001 x4 : ffff00007b2cb380 
+[  193.135306] x3 : 0000000000000002 x2 : 0000000000000001 
+[  193.142711] x1 : 0000000000000002 x0 : 0000000000000000 
+[  193.156928] Call trace:
+[  193.167851]  tcp_v4_rcv+0x48/0xa58
+[  193.171317]  udp_sendmsg+0x710/0x860
+[  193.176203]  inet_sendmsg+0x40/0x68
+[  193.181890]  __sys_sendto+0xd4/0x150
+[  193.188956]  __arm64_sys_sendto+0x24/0x30
+[  193.190443]  el0_svc_common.constprop.0+0x68/0x160
+[  193.191312]  el0_svc_handler+0x20/0x80
+[  193.192005]  el0_svc+0x8/0xc
+[  193.196639] Code: 52800015 97fd9149 9111c294 f9404fe0 (f9400281) 
+[  193.220429] ---[ end trace 6ba993c65c5763b6 ]---
+[  193.565742] ------------[ cut here ]------------
+[  193.569931] WARNING: CPU: 2 PID: 503 at include/net/sock.h:666 udp_lib_unhash+0x120/0x128
+[  193.578379] Modules linked in:
+[  193.583072] CPU: 2 PID: 503 Comm: python3 Tainted: G      D           5.4.18 #2
+[  193.588445] Hardware name: linux,dummy-virt (DT)
+[  193.593262] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.593860] pc : udp_lib_unhash+0x120/0x128
+[  193.598404] lr : udp_lib_unhash+0x54/0x128
+[  193.603408] sp : ffff800011fbb640
+[  193.609955] x29: ffff800011fbb640 x28: ffff0000770ed400 
+[  193.615516] x27: ffff800011fbbd80 x26: ffff800010bb6f10 
+[  193.622761] x25: ffff800011fbbcf0 x24: ffff00007ab14000 
+[  193.627204] x23: 00000000000003ff x22: ffff00007ab13a1c 
+[  193.629372] x21: ffff00007ab13a10 x20: 00000000000044a5 
+[  193.631743] x19: ffff00007b2cb300 x18: 0000000000000010 
+[  193.634040] x17: 0000000000000000 x16: 0000000000000000 
+[  193.637247] x15: ffff0000770ed870 x14: 00000000f0000000 
+[  193.639778] x13: ffff00007dbf0800 x12: ffffffffffffffff 
+[  193.642568] x11: 0000000000000002 x10: 0000000000000000 
+[  193.645538] x9 : 0000000000000010 x8 : ffff00007db76be8 
+[  193.646643] x7 : 0000000044040000 x6 : 0000000000000000 
+[  193.648133] x5 : 0000000000000000 x4 : 0000000000000000 
+[  193.651555] x3 : ffff00007ab13a1c x2 : 0000000000000001 
+[  193.654955] x1 : 0000000000000000 x0 : 0000000000000001 
+[  193.656905] Call trace:
+[  193.658368]  udp_lib_unhash+0x120/0x128
+[  193.659640]  sk_common_release+0x34/0x90
+[  193.660640]  udp_lib_close+0xc/0x18
+[  193.662087]  inet_release+0x40/0x68
+[  193.662853]  __sock_release+0x40/0xb8
+[  193.664061]  sock_close+0x14/0x20
+[  193.666845]  __fput+0x88/0x228
+[  193.671973]  ____fput+0xc/0x18
+[  193.672587]  task_work_run+0x80/0x130
+[  193.676660]  do_exit+0x2dc/0x980
+[  193.677421]  die+0x208/0x248
+[  193.678369]  die_kernel_fault+0x60/0x70
+[  193.679468]  __do_kernel_fault+0x84/0x120
+[  193.680293]  do_page_fault+0x1b4/0x460
+[  193.680991]  do_translation_fault+0x5c/0x78
+[  193.682012]  do_mem_abort+0x3c/0x98
+[  193.683007]  el1_da+0x1c/0x90
+[  193.683542]  tcp_v4_rcv+0x48/0xa58
+[  193.687225]  udp_sendmsg+0x710/0x860
+[  193.691972]  inet_sendmsg+0x40/0x68
+[  193.695458]  __sys_sendto+0xd4/0x150
+[  193.697992]  __arm64_sys_sendto+0x24/0x30
+[  193.703423]  el0_svc_common.constprop.0+0x68/0x160
+[  193.706627]  el0_svc_handler+0x20/0x80
+[  193.707532]  el0_svc+0x8/0xc
+[  193.708139] ---[ end trace 6ba993c65c5763b7 ]---
+[  193.714386] ------------[ cut here ]------------
+[  193.720633] refcount_t: decrement hit 0; leaking memory.
+[  193.737342] WARNING: CPU: 2 PID: 503 at lib/refcount.c:236 refcount_dec_checked+0x48/0x50
+[  193.747944] Modules linked in:
+[  193.757222] CPU: 2 PID: 503 Comm: python3 Tainted: G      D W         5.4.18 #2
+[  193.764166] Hardware name: linux,dummy-virt (DT)
+[  193.764552] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.764936] pc : refcount_dec_checked+0x48/0x50
+[  193.765286] lr : refcount_dec_checked+0x48/0x50
+[  193.770330] sp : ffff800011fbb630
+[  193.774545] x29: ffff800011fbb630 x28: ffff0000770ed400 
+[  193.776636] x27: ffff800011fbbd80 x26: ffff800010bb6f10 
+[  193.782899] x25: ffff800011fbbcf0 x24: ffff00007ab14000 
+[  193.793064] x23: 00000000000003ff x22: ffff00007ab13a1c 
+[  193.798337] x21: ffff00007ab13a10 x20: 00000000000044a5 
+[  193.803025] x19: ffff00007b2cb300 x18: 0000000000000010 
+[  193.812094] x17: 0000000000000000 x16: 0000000000000000 
+[  193.813761] x15: ffff0000770ed870 x14: ffffffffffffffff 
+[  193.818880] x13: ffff800091fbb397 x12: ffff800011fbb39f 
+[  193.823947] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  193.829113] x9 : 0000000000000000 x8 : ffff800011993000 
+[  193.830307] x7 : ffff0000770ed400 x6 : 00000000000001a7 
+[  193.834634] x5 : 0000000000000000 x4 : ffff00007db69188 
+[  193.835593] x3 : ffff00007db6ff20 x2 : ffff00007db69188 
+[  193.835888] x1 : 0000000000000000 x0 : 0000000000000000 
+[  193.839632] Call trace:
+[  193.841931]  refcount_dec_checked+0x48/0x50
+[  193.844203]  udp_lib_unhash+0x8c/0x128
+[  193.849609]  sk_common_release+0x34/0x90
+[  193.853716]  udp_lib_close+0xc/0x18
+[  193.854898]  inet_release+0x40/0x68
+[  193.859399]  __sock_release+0x40/0xb8
+[  193.860469]  sock_close+0x14/0x20
+[  193.863056]  __fput+0x88/0x228
+[  193.866484]  ____fput+0xc/0x18
+[  193.868446]  task_work_run+0x80/0x130
+[  193.869889]  do_exit+0x2dc/0x980
+[  193.871073]  die+0x208/0x248
+[  193.872632]  die_kernel_fault+0x60/0x70
+[  193.874077]  __do_kernel_fault+0x84/0x120
+[  193.875795]  do_page_fault+0x1b4/0x460
+[  193.877860]  do_translation_fault+0x5c/0x78
+[  193.879149]  do_mem_abort+0x3c/0x98
+[  193.880441]  el1_da+0x1c/0x90
+[  193.882290]  tcp_v4_rcv+0x48/0xa58
+[  193.884230]  udp_sendmsg+0x710/0x860
+[  193.886705]  inet_sendmsg+0x40/0x68
+[  193.887689]  __sys_sendto+0xd4/0x150
+[  193.890343]  __arm64_sys_sendto+0x24/0x30
+[  193.893027]  el0_svc_common.constprop.0+0x68/0x160
+[  193.895138]  el0_svc_handler+0x20/0x80
+[  193.896059]  el0_svc+0x8/0xc
+[  193.896658] ---[ end trace 6ba993c65c5763b8 ]---
+[  193.905311] ------------[ cut here ]------------
+[  193.909230] refcount_t: underflow; use-after-free.
+[  193.912384] WARNING: CPU: 3 PID: 503 at lib/refcount.c:190 refcount_sub_and_test_checked+0xb4/0xc0
+[  193.915563] Modules linked in:
+[  193.917328] CPU: 3 PID: 503 Comm: python3 Tainted: G      D W         5.4.18 #2
+[  193.918705] Hardware name: linux,dummy-virt (DT)
+[  193.919723] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.920930] pc : refcount_sub_and_test_checked+0xb4/0xc0
+[  193.921848] lr : refcount_sub_and_test_checked+0xb4/0xc0
+[  193.922747] sp : ffff800011fbb650
+[  193.923101] x29: ffff800011fbb650 x28: ffff0000770ed400 
+[  193.926428] x27: ffff800011fbbd80 x26: ffff800010bb6f10 
+[  193.928056] x25: ffff800011fbbcf0 x24: ffff00006e015240 
+[  193.929348] x23: ffff00007b0a0a20 x22: 0000000000000008 
+[  193.930778] x21: 0000000000000000 x20: ffff00007b2cb518 
+[  193.931270] x19: 0000000000000000 x18: 0000000000000010 
+[  193.933390] x17: 0000000000000000 x16: 0000000000000000 
+[  193.934476] x15: ffff0000770ed870 x14: ffffffffffffffff 
+[  193.937245] x13: ffff800091fbb3b7 x12: ffff800011fbb3bf 
+[  193.937986] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  193.938398] x9 : 0000000000000000 x8 : ffff800011993000 
+[  193.939546] x7 : ffff800010691a68 x6 : 00000000000001dc 
+[  193.944764] x5 : 0000000000000000 x4 : ffff00007db7f188 
+[  193.946813] x3 : ffff00007db85f20 x2 : ffff00007db7f188 
+[  193.950151] x1 : 0000000000000000 x0 : 0000000000000000 
+[  193.952715] Call trace:
+[  193.954353]  refcount_sub_and_test_checked+0xb4/0xc0
+[  193.956265]  refcount_dec_and_test_checked+0x14/0x20
+[  193.957269]  sk_common_release+0x68/0x90
+[  193.957773]  udp_lib_close+0xc/0x18
+[  193.959474]  inet_release+0x40/0x68
+[  193.962361]  __sock_release+0x40/0xb8
+[  193.965386]  sock_close+0x14/0x20
+[  193.966790]  __fput+0x88/0x228
+[  193.969798]  ____fput+0xc/0x18
+[  193.971889]  task_work_run+0x80/0x130
+[  193.972061]  do_exit+0x2dc/0x980
+[  193.972492]  die+0x208/0x248
+[  193.977184]  die_kernel_fault+0x60/0x70
+[  193.979582]  __do_kernel_fault+0x84/0x120
+[  193.981297]  do_page_fault+0x1b4/0x460
+[  193.985282]  do_translation_fault+0x5c/0x78
+[  193.988592]  do_mem_abort+0x3c/0x98
+[  193.991246]  el1_da+0x1c/0x90
+[  193.993425]  tcp_v4_rcv+0x48/0xa58
+[  193.995935]  udp_sendmsg+0x710/0x860
+[  193.999111]  inet_sendmsg+0x40/0x68
+[  194.002508]  __sys_sendto+0xd4/0x150
+[  194.003686]  __arm64_sys_sendto+0x24/0x30
+[  194.004521]  el0_svc_common.constprop.0+0x68/0x160
+[  194.005582]  el0_svc_handler+0x20/0x80
+[  194.009042]  el0_svc+0x8/0xc
+[  194.010510] ---[ end trace 6ba993c65c5763b9 ]---

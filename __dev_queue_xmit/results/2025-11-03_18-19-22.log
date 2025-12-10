@@ -1,0 +1,50 @@
+[  193.365948] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  193.378945] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  193.381612] Modules linked in:
+[  193.386721] CPU: 6 PID: 496 Comm: python3 Not tainted 5.4.18 #2
+[  193.387773] Hardware name: linux,dummy-virt (DT)
+[  193.390041] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  193.395381] pc : do_undefinstr+0x2ec/0x310
+[  193.396128] lr : do_undefinstr+0x1e0/0x310
+[  193.396909] sp : ffff800011fab750
+[  193.397534] x29: ffff800011fab750 x28: ffff0000782f4600 
+[  193.398793] x27: ffff800011fabd80 x26: 0000000000000011 
+[  193.399640] x25: ffff000078037cc8 x24: 0000000000000000 
+[  193.400514] x23: 0000000060000005 x22: ffff800010b1a964 
+[  193.401339] x21: ffff800011fab8f0 x20: ffff0000782f4600 
+[  193.402205] x19: ffff800011fab7b0 x18: 0000000000000000 
+[  193.403047] x17: 0000000000000000 x16: 0000000000000000 
+[  193.403858] x15: 0000000000000001 x14: 0000000000000000 
+[  193.405511] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.407200] x11: 0000000000000000 x10: 0000000000000068 
+[  193.408765] x9 : ffff0000782f4600 x8 : ffff800011fabc30 
+[  193.412124] x7 : 0000000000000003 x6 : ffff800011fab7a8 
+[  193.413198] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  193.414017] x3 : 0000000089000000 x2 : 0000000000000000 
+[  193.415011] x1 : ffff0000782f4600 x0 : 0000000060000005 
+[  193.416828] Call trace:
+[  193.417606]  do_undefinstr+0x2ec/0x310
+[  193.418405]  el1_undef+0x10/0x84
+[  193.418989]  __dev_queue_xmit+0x14/0x7f0
+[  193.420419]  dev_queue_xmit+0x10/0x18
+[  193.421073]  ip_finish_output2+0x31c/0x588
+[  193.421833]  __ip_finish_output+0x1b0/0x1e0
+[  193.422490]  ip_output+0xf4/0x1b0
+[  193.423037]  ip_local_out+0x44/0x58
+[  193.423848]  ip_send_skb+0x1c/0xa8
+[  193.424486]  udp_send_skb.isra.0+0x11c/0x368
+[  193.425322]  udp_sendmsg+0x710/0x860
+[  193.426047]  inet_sendmsg+0x40/0x68
+[  193.426639]  __sys_sendto+0xd4/0x150
+[  193.427224]  __arm64_sys_sendto+0x24/0x30
+[  193.427927]  el0_svc_common.constprop.0+0x68/0x160
+[  193.428645]  el0_svc_handler+0x20/0x80
+[  193.429249]  el0_svc+0x8/0xc
+[  193.431146] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  193.442658] ---[ end trace 022ba5e40219e7ec ]---
+[  193.444463] Kernel panic - not syncing: Fatal exception in interrupt
+[  193.445891] SMP: stopping secondary CPUs
+[  193.450778] Kernel Offset: disabled
+[  193.451875] CPU features: 0x0002,20006000
+[  193.452807] Memory Limit: none
+[  193.456048] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

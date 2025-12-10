@@ -1,0 +1,83 @@
+[  194.363481] Unable to handle kernel paging request at virtual address ffff800011406960
+[  194.364490] Unable to handle kernel paging request at virtual address ffff800000046138
+[  194.375739] Mem abort info:
+[  194.376663]   ESR = 0x96000006
+[  194.377192]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.377762]   SET = 0, FnV = 0
+[  194.378160]   EA = 0, S1PTW = 0
+[  194.378766] Data abort info:
+[  194.379462]   ISV = 0, ISS = 0x00000006
+[  194.380185]   CM = 0, WnR = 0
+[  194.381501] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  194.383012] [ffff800000046138] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0000000000000000
+[  194.387396] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  194.390134] Modules linked in:
+[  194.393885] CPU: 0 PID: 495 Comm: python3 Not tainted 5.4.18 #2
+[  194.394777] Hardware name: linux,dummy-virt (DT)
+[  194.396713] pstate: 60000085 (nZCv daIf -PAN -UAO)
+[  194.401890] pc : scheduler_tick+0x6c/0x100
+[  194.402593] lr : scheduler_tick+0x5c/0x100
+[  194.403482] sp : ffff800010003dc0
+[  194.404034] x29: ffff800010003dc0 x28: ffff80001016e788 
+[  194.404928] x27: ffff00007db43840 x26: 0000000000000002 
+[  194.406144] x25: 0000000000000001 x24: 0000000000000080 
+[  194.406554] x23: ffff00007a98e200 x22: 0000000000000000 
+[  194.406844] x21: ffff8000117b98e0 x20: ffff800011405d40 
+[  194.407169] x19: ffff00007db46d40 x18: 0000000000000030 
+[  194.407530] x17: 0000000000000000 x16: 0000000000000000 
+[  194.408019] x15: ffff8000117d2000 x14: 0000000000000000 
+[  194.408312] x13: 0000000000000111 x12: 00000000000000f3 
+[  194.408707] x11: 0000000000044dbe x10: 0000000000000111 
+[  194.409003] x9 : 0000000000000001 x8 : ffff00007db46d40 
+[  194.409421] x7 : ffff00007db47800 x6 : 0000000000000005 
+[  194.409945] x5 : 0000000000000111 x4 : 00000028abcdd6c0 
+[  194.410405] x3 : ffff8000000460b8 x2 : 0000000000000000 
+[  194.410865] x1 : ffff00007a98e200 x0 : ffff00007db46d40 
+[  194.411748] Call trace:
+[  194.412294]  scheduler_tick+0x6c/0x100
+[  194.412657]  update_process_times+0x54/0x68
+[  194.412995]  tick_sched_handle.isra.0+0x30/0x50
+[  194.413336]  tick_sched_timer+0x48/0x98
+[  194.413674]  __hrtimer_run_queues+0x110/0x1b0
+[  194.414000]  hrtimer_interrupt+0xe4/0x240
+[  194.414367]  arch_timer_handler_virt+0x30/0x40
+[  194.414704]  handle_percpu_devid_irq+0x80/0x140
+[  194.415029]  generic_handle_irq+0x24/0x38
+[  194.415325]  __handle_domain_irq+0x60/0xb8
+[  194.415653]  gic_handle_irq+0x50/0xa0
+[  194.415931]  el1_irq+0xb8/0x180
+[  194.416189]  vprintk_emit+0xd4/0x278
+[  194.416461]  vprintk_default+0x38/0x40
+[  194.416740]  vprintk_func+0xe4/0x220
+[  194.417010]  printk+0x5c/0x80
+[  194.417252]  die_kernel_fault+0x3c/0x70
+[  194.417570]  __do_kernel_fault+0x84/0x120
+[  194.417877]  do_translation_fault+0x40/0x78
+[  194.418179]  do_mem_abort+0x3c/0x98
+[  194.418519]  el1_da+0x1c/0x90
+[  194.418769]  queued_spin_lock_slowpath+0x270/0x3b8
+[  194.419127]  _raw_spin_lock+0x5c/0x68
+[  194.419417]  sch_direct_xmit+0xfc/0x340
+[  194.419829]  __dev_queue_xmit+0x67c/0x7f0
+[  194.420139]  dev_queue_xmit+0x10/0x18
+[  194.420425]  ip_finish_output2+0x31c/0x588
+[  194.421183]  __ip_finish_output+0x1b0/0x1e0
+[  194.421927]  ip_output+0xf4/0x1b0
+[  194.422280]  ip_local_out+0x44/0x58
+[  194.422536]  ip_send_skb+0x1c/0xa8
+[  194.422744]  udp_send_skb.isra.0+0x11c/0x368
+[  194.422997]  udp_sendmsg+0x710/0x860
+[  194.423667]  inet_sendmsg+0x40/0x68
+[  194.424280]  __sys_sendto+0xd4/0x150
+[  194.424879]  __arm64_sys_sendto+0x24/0x30
+[  194.425523]  el0_svc_common.constprop.0+0x68/0x160
+[  194.425869]  el0_svc_handler+0x20/0x80
+[  194.426154]  el0_svc+0x8/0xc
+[  194.427404] Code: f94042e3 aa1703e1 52800002 aa1303e0 (f9404063) 
+[  194.430853] ---[ end trace b7204829b1dfaf4e ]---
+[  194.432434] Kernel panic - not syncing: Fatal exception in interrupt
+[  194.433874] SMP: stopping secondary CPUs
+[  194.438465] Kernel Offset: disabled
+[  194.438772] CPU features: 0x0002,20006000
+[  194.438968] Memory Limit: none
+[  194.439872] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

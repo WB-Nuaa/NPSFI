@@ -1,0 +1,66 @@
+[  193.812882] Unable to handle kernel paging request at virtual address ffff800011d03988
+[  193.822742] Mem abort info:
+[  193.823949]   ESR = 0x96000007
+[  193.825057]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.826208]   SET = 0, FnV = 0
+[  193.826943]   EA = 0, S1PTW = 0
+[  193.829283] Data abort info:
+[  193.831799]   ISV = 0, ISS = 0x00000007
+[  193.832742]   CM = 0, WnR = 0
+[  193.834338] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  193.836184] [ffff800011d03988] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=00000000ba83c003, pte=0f1ddf6d9cec9ba5
+[  193.844250] Unable to handle kernel paging request at virtual address 00baa0d000baa048
+[  193.847544] Mem abort info:
+[  193.847649] Internal error: Oops: 96000007 [#1] PREEMPT SMP
+[  193.848655]   ESR = 0x86000004
+[  193.850256]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  193.850470] Modules linked in:
+[  193.851247]   SET = 0, FnV = 0
+[  193.852420]   EA = 0, S1PTW = 0
+[  193.853160] [00baa0d000baa048] address between user and kernel address ranges
+[  193.854654] CPU: 1 PID: 510 Comm: python3 Not tainted 5.4.18 #2
+[  193.854928] Hardware name: linux,dummy-virt (DT)
+[  193.855952] pstate: 60000085 (nZCv daIf -PAN -UAO)
+[  193.858137] pc : timerqueue_add+0x44/0xc0
+[  193.858484] lr : __hrtimer_run_queues+0x150/0x1b0
+[  193.859305] sp : ffff80001000be40
+[  193.859857] x29: ffff80001000be40 x28: 0000000000000001 
+[  193.860326] x27: ffff00007db59840 x26: 0000000000000000 
+[  193.861145] x25: 0000000000000001 x24: 0000000000000080 
+[  193.861894] x23: 0000002cf4fe3915 x22: ffff00007db598a0 
+[  193.862388] x21: ffff00007db59840 x20: ffff00007db59d70 
+[  193.862848] x19: 0000000000000001 x18: ffff800011fa3b40 
+[  193.863584] x17: 0000000000000000 x16: 0000000000000000 
+[  193.864645] x15: 0000000000000001 x14: 0000000000000000 
+[  193.865122] x13: 0000000000000001 x12: 0000000000000004 
+[  193.865671] x11: 0000000000000400 x10: 0000000000397c00 
+[  193.866681] x9 : 0000000000000200 x8 : 0000002cf4f11000 
+[  193.867640] x7 : 7fffffffffffffff x6 : 0000002cf52e1900 
+[  193.868456] x5 : ffff00007db59d70 x4 : 0000000000000000 
+[  193.869065] x3 : 0000000000000001 x2 : ffff800011d03970 
+[  193.869637] x1 : ffff00007db598a0 x0 : ffff00007db59d70 
+[  193.870774] Call trace:
+[  193.871474]  timerqueue_add+0x44/0xc0
+[  193.871915]  __hrtimer_run_queues+0x150/0x1b0
+[  193.872403]  hrtimer_interrupt+0xe4/0x240
+[  193.872804]  arch_timer_handler_virt+0x30/0x40
+[  193.873221]  handle_percpu_devid_irq+0x80/0x140
+[  193.873643]  generic_handle_irq+0x24/0x38
+[  193.874023]  __handle_domain_irq+0x60/0xb8
+[  193.874459]  gic_handle_irq+0x50/0xa0
+[  193.875660]  el1_irq+0xb8/0x180
+[  193.876028]  __memcpy+0x110/0x180
+[  193.876234]  skb_copy_and_csum_bits+0x29c/0x2e8
+[  193.876478]  __ip_append_data.isra.0+0x9f4/0xc30
+[  193.876721]  ip_make_skb+0xec/0x140
+[  193.876980]  udp_sendmsg+0x6ec/0x860
+[  193.877189]  inet_sendmsg+0x40/0x68
+[  193.877530]  __sys_sendto+0xd4/0x150
+[  193.877793]  __arm64_sys_sendto+0x24/0x30
+[  193.878020]  el0_svc_common.constprop.0+0x68/0x160
+[  193.878273]  el0_svc_handler+0x20/0x80
+[  193.878483]  el0_svc+0x8/0xc
+[  193.879539] Code: f9400843 91004044 b4000123 aa0303e2 (f9400c43) 
+[  193.883652] ---[ end trace eb4300076a7d45c7 ]---
+[  193.885000] Kernel panic - not syncing: Fatal exception in interrupt
+[  193.886079] SMP: stopping secondary CPUs

@@ -1,0 +1,46 @@
+[  193.829236] Unable to handle kernel paging request at virtual address ffff800014ba1b20
+[  193.834383] Mem abort info:
+[  193.834848]   ESR = 0x86000006
+[  193.835510]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  193.836299]   SET = 0, FnV = 0
+[  193.836745]   EA = 0, S1PTW = 0
+[  193.839598] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  193.840466] [ffff800014ba1b20] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0000000000000000
+[  193.858355] Internal error: Oops: 86000006 [#1] PREEMPT SMP
+[  193.860834] Modules linked in:
+[  193.863869] CPU: 5 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  193.866479] Hardware name: linux,dummy-virt (DT)
+[  193.874356] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.881180] pc : 0xffff800014ba1b20
+[  193.886387] lr : ip_output+0x58/0x1b0
+[  193.888398] sp : ffff800011dcba30
+[  193.891959] x29: ffff800011dcba30 x28: 000000000000001a 
+[  193.895160] x27: ffff800011dcbd80 x26: 0000000000000011 
+[  193.897520] x25: 0000000000000012 x24: ffff00007b1d4000 
+[  193.902787] x23: ffff00007b2cc840 x22: ffff000076f91c00 
+[  193.904165] x21: ffff800011963ac0 x20: ffff000079078f00 
+[  193.907745] x19: ffff80001140c380 x18: 0000000000000000 
+[  193.912491] x17: 0000000000000000 x16: 0000000000000000 
+[  193.914484] x15: 0000000000000001 x14: 0000000000000000 
+[  193.915451] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.916969] x11: 0000000000000000 x10: 0000000000000068 
+[  193.924410] x9 : ffff000076f91c00 x8 : ffff800011dcbc30 
+[  193.930026] x7 : 0000000048200000 x6 : 000000000000569b 
+[  193.931672] x5 : ffff00007810f424 x4 : 0000000000000001 
+[  193.938137] x3 : ffff000076db9000 x2 : ffff000076f91c00 
+[  193.943349] x1 : ffff00007b2cc840 x0 : 0000000000000001 
+[  193.947566] Call trace:
+[  193.948459]  0xffff800014ba1b20
+[  193.949087]  ip_local_out+0x44/0x58
+[  193.950609]  ip_send_skb+0x1c/0xa8
+[  193.951515]  udp_send_skb.isra.0+0x11c/0x368
+[  193.952022]  udp_sendmsg+0x710/0x860
+[  193.953795]  inet_sendmsg+0x40/0x68
+[  193.955298]  __sys_sendto+0xd4/0x150
+[  193.956205]  __arm64_sys_sendto+0x24/0x30
+[  193.956895]  el0_svc_common.constprop.0+0x68/0x160
+[  193.961334]  el0_svc_handler+0x20/0x80
+[  193.963106]  el0_svc+0x8/0xc
+[  193.966421] Code: bad PC value
+[  193.972441] ---[ end trace 3b374b5f0c3c7a5a ]---
+[  193.974965] note: python3[493] exited with preempt_count 1

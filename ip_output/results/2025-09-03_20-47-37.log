@@ -1,0 +1,191 @@
+[  194.100889] Unable to handle kernel paging request at virtual address 0003400000000000
+[  194.112278] Mem abort info:
+[  194.113308]   ESR = 0x96000004
+[  194.114264]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.116434]   SET = 0, FnV = 0
+[  194.123779]   EA = 0, S1PTW = 0
+[  194.126918] Data abort info:
+[  194.134152]   ISV = 0, ISS = 0x00000004
+[  194.140223]   CM = 0, WnR = 0
+[  194.154427] [0003400000000000] address between user and kernel address ranges
+[  194.169671] Internal error: Oops: 96000004 [#1] PREEMPT SMP
+[  194.183219] Modules linked in:
+[  194.188684] CPU: 6 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  194.189480] Hardware name: linux,dummy-virt (DT)
+[  194.191912] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  194.199655] pc : dev_get_by_index_rcu+0x8/0x40
+[  194.200265] lr : ip_route_output_key_hash_rcu+0x260/0x668
+[  194.201253] sp : ffff800011fd3940
+[  194.201884] x29: ffff800011fd3940 x28: 0000000000000000 
+[  194.203612] x27: 0000000000000000 x26: 0000000000000000 
+[  194.205008] x25: 0000000000000012 x24: 00000000ffff0000 
+[  194.205560] x23: 0000000000000000 x22: ffff000079402640 
+[  194.206309] x21: ffff000079402640 x20: ffff800011fd39e8 
+[  194.206876] x19: ffff00007a92b800 x18: 0000000000000000 
+[  194.212094] x17: 0000000000000000 x16: 0000000000000000 
+[  194.214552] x15: 0000000000000001 x14: 0000000000000000 
+[  194.217536] x13: 0000000000000006 x12: 00000000c0a80164 
+[  194.218762] x11: 0000000000000000 x10: 0000000000000068 
+[  194.221967] x9 : ffff00007a92b800 x8 : ffff800011fd3c30 
+[  194.224788] x7 : 00000000ea200000 x6 : 0000000000000000 
+[  194.225341] x5 : 0000000000000000 x4 : 0000000000000001 
+[  194.227321] x3 : 0000000000000000 x2 : 0000000000000000 
+[  194.227895] x1 : 00000000ffff0000 x0 : 0003400000000000 
+[  194.230902] Call trace:
+[  194.232981]  dev_get_by_index_rcu+0x8/0x40
+[  194.235582]  ip_route_output_key_hash+0x74/0xa8
+[  194.246396]  ip_route_output_flow+0x10/0x18
+[  194.252932]  __ip_queue_xmit+0x32c/0x390
+[  194.256508]  ip_local_out+0x44/0x58
+[  194.260842]  ip_send_skb+0x1c/0xa8
+[  194.262639]  udp_send_skb.isra.0+0x11c/0x368
+[  194.264894]  udp_sendmsg+0x710/0x860
+[  194.266530]  inet_sendmsg+0x40/0x68
+[  194.268839]  __sys_sendto+0xd4/0x150
+[  194.271047]  __arm64_sys_sendto+0x24/0x30
+[  194.273537]  el0_svc_common.constprop.0+0x68/0x160
+[  194.274563]  el0_svc_handler+0x20/0x80
+[  194.276763]  el0_svc+0x8/0xc
+[  194.284856] Code: d65f03c0 d503201f f9409800 92401c22 (f8627800) 
+[  194.293412] ---[ end trace ef92d87592c33808 ]---
+[  194.461884] ------------[ cut here ]------------
+[  194.473303] refcount_t: increment on 0; use-after-free.
+[  194.482048] WARNING: CPU: 7 PID: 1 at lib/refcount.c:156 refcount_inc_checked+0x40/0x48
+[  194.486122] Modules linked in:
+[  194.489358] CPU: 7 PID: 1 Comm: systemd Tainted: G      D           5.4.18 #2
+[  194.489901] Hardware name: linux,dummy-virt (DT)
+[  194.490504] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.491418] pc : refcount_inc_checked+0x40/0x48
+[  194.493047] lr : refcount_inc_checked+0x40/0x48
+[  194.493665] sp : ffff80001005b9f0
+[  194.494144] x29: ffff80001005b9f0 x28: ffff00007b0a8000 
+[  194.494535] x27: 000000000020000c x26: ffff00007b0a0ca0 
+[  194.494770] x25: 0000000000000002 x24: 00000000fffffff6 
+[  194.495137] x23: ffff80001005bb30 x22: ffff00007b0a8000 
+[  194.496948] x21: ffff000073795758 x20: ffff00007b1e7600 
+[  194.497607] x19: ffff00007a92b800 x18: 0000000000000010 
+[  194.497977] x17: 0000000000000000 x16: 0000000000000000 
+[  194.498450] x15: ffff00007b0a8470 x14: ffffffffffffffff 
+[  194.498756] x13: ffff80009005b757 x12: ffff80001005b75f 
+[  194.501150] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  194.501820] x9 : 0000000000000000 x8 : ffff800011993000 
+[  194.502843] x7 : ffff800010691a68 x6 : 000000000000017d 
+[  194.506457] x5 : ffff00007dbd7180 x4 : 0000000000000001 
+[  194.508187] x3 : ffff00007dbd7180 x2 : 0000000000000007 
+[  194.508597] x1 : 0000000000000000 x0 : 0000000000000000 
+[  194.509077] Call trace:
+[  194.509476]  refcount_inc_checked+0x40/0x48
+[  194.509706]  get_pid_task+0x44/0x70
+[  194.509844]  pid_revalidate+0x28/0x88
+[  194.510007]  lookup_fast+0x2e0/0x2f0
+[  194.510184]  walk_component+0x44/0x378
+[  194.510421]  link_path_walk.part.0+0x2e4/0x508
+[  194.510789]  path_openat+0x88/0x1280
+[  194.511169]  do_filp_open+0x74/0xf8
+[  194.511498]  do_sys_open+0x16c/0x220
+[  194.512865]  __arm64_sys_openat+0x20/0x28
+[  194.513467]  el0_svc_common.constprop.0+0x68/0x160
+[  194.519049]  el0_svc_handler+0x20/0x80
+[  194.521433]  el0_svc+0x8/0xc
+[  194.522420] ---[ end trace ef92d87592c33809 ]---
+[  194.525014] ------------[ cut here ]------------
+[  194.526214] refcount_t: underflow; use-after-free.
+[  194.533386] WARNING: CPU: 7 PID: 1 at lib/refcount.c:190 refcount_sub_and_test_checked+0xb4/0xc0
+[  194.538930] Modules linked in:
+[  194.541892] CPU: 7 PID: 1 Comm: systemd Tainted: G      D W         5.4.18 #2
+[  194.550368] Hardware name: linux,dummy-virt (DT)
+[  194.558448] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.561936] pc : refcount_sub_and_test_checked+0xb4/0xc0
+[  194.562448] lr : refcount_sub_and_test_checked+0xb4/0xc0
+[  194.563036] sp : ffff80001005b9f0
+[  194.564333] x29: ffff80001005b9f0 x28: ffff00007b0a8000 
+[  194.568623] x27: 000000000020000c x26: ffff00007b0a0ca0 
+[  194.572414] x25: 0000000000000002 x24: 00000000fffffff6 
+[  194.574273] x23: ffff80001005bb30 x22: ffff00007b0a8000 
+[  194.576462] x21: ffff000073795758 x20: 0000000000000001 
+[  194.577325] x19: 0000000000000000 x18: 0000000000000010 
+[  194.587292] x17: 0000000000000000 x16: 0000000000000000 
+[  194.592316] x15: ffff00007b0a8470 x14: ffffffffffffffff 
+[  194.593309] x13: ffff80009005b757 x12: ffff80001005b75f 
+[  194.593657] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  194.594010] x9 : 0000000000000000 x8 : ffff800011993000 
+[  194.594603] x7 : ffff800010691a68 x6 : 00000000000001a5 
+[  194.597985] x5 : 0000000000000000 x4 : ffff00007dbd7188 
+[  194.600456] x3 : ffff00007dbddf20 x2 : ffff00007dbd7188 
+[  194.602378] x1 : 0000000000000000 x0 : 0000000000000000 
+[  194.605025] Call trace:
+[  194.613981]  refcount_sub_and_test_checked+0xb4/0xc0
+[  194.620142]  refcount_dec_and_test_checked+0x14/0x20
+[  194.621620]  pid_revalidate+0x58/0x88
+[  194.622417]  lookup_fast+0x2e0/0x2f0
+[  194.624972]  walk_component+0x44/0x378
+[  194.629362]  link_path_walk.part.0+0x2e4/0x508
+[  194.633642]  path_openat+0x88/0x1280
+[  194.635144]  do_filp_open+0x74/0xf8
+[  194.637292]  do_sys_open+0x16c/0x220
+[  194.643321]  __arm64_sys_openat+0x20/0x28
+[  194.647099]  el0_svc_common.constprop.0+0x68/0x160
+[  194.654066]  el0_svc_handler+0x20/0x80
+[  194.654575]  el0_svc+0x8/0xc
+[  194.654899] ---[ end trace ef92d87592c3380a ]---
+[  195.154296] Unable to handle kernel paging request at virtual address 7fff80006c7c5077
+[  195.156816] Mem abort info:
+[  195.157429]   ESR = 0x96000021
+[  195.158328]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  195.161488]   SET = 0, FnV = 0
+[  195.166288]   EA = 0, S1PTW = 0
+[  195.168496] Data abort info:
+[  195.170329]   ISV = 0, ISS = 0x00000021
+[  195.174263]   CM = 0, WnR = 0
+[  195.177882] [7fff80006c7c5077] address between user and kernel address ranges
+[  195.180932] Internal error: Oops: 96000021 [#2] PREEMPT SMP
+[  195.182600] Modules linked in:
+[  195.183198] CPU: 6 PID: 213 Comm: systemd-journal Tainted: G      D W         5.4.18 #2
+[  195.190155] Hardware name: linux,dummy-virt (DT)
+[  195.191180] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  195.194572] pc : __ip_queue_xmit+0x1a0/0x390
+[  195.197571] lr : __ip_queue_xmit+0x17c/0x390
+[  195.198736] sp : ffff800010033a50
+[  195.199096] x29: ffff800010033a50 x28: ffff00007aa63790 
+[  195.201006] x27: ffff0000782da500 x26: 0000000000000000 
+[  195.201723] x25: 0000000000000001 x24: ffff00007a99a000 
+[  195.202467] x23: ffff00007aa63480 x22: ffff00007b258e00 
+[  195.203711] x21: ffffffffffffffea x20: ffff0000782da500 
+[  195.204280] x19: ffff80001140c380 x18: 0000000000000000 
+[  195.204865] x17: 0000000000000000 x16: 0000000000000000 
+[  195.205426] x15: 0000000000000001 x14: 0000000000000000 
+[  195.206085] x13: 0000000000000006 x12: 00000000c0a8016e 
+[  195.206586] x11: 0000000000000000 x10: 0000000000000068 
+[  195.208305] x9 : ffff00007b258e00 x8 : 000000002297b800 
+[  195.209054] x7 : 0000000000000000 x6 : 00000000000000b6 
+[  195.209859] x5 : 000000000000ffff x4 : 0000000000000001 
+[  195.210823] x3 : 0000000000000001 x2 : ffff80006c7c5000 
+[  195.211218] x1 : ffff00007b258e00 x0 : 7fff80006c7c5077 
+[  195.211578] Call trace:
+[  195.211989]  __ip_queue_xmit+0x1a0/0x390
+[  195.212612]  ip_local_out+0x44/0x58
+[  195.212840]  ip_send_skb+0x1c/0xa8
+[  195.213051]  ip_push_pending_frames+0x2c/0x48
+[  195.213402]  icmp_push_reply+0xf4/0x148
+[  195.213714]  __icmp_send+0x358/0x4b0
+[  195.214041]  ipv4_link_failure+0xe4/0x1b8
+[  195.214423]  arp_error_report+0x30/0x40
+[  195.214785]  neigh_invalidate+0xc8/0x170
+[  195.215099]  neigh_timer_handler+0x254/0x288
+[  195.215452]  call_timer_fn.isra.0+0x20/0x78
+[  195.215783]  run_timer_softirq+0x1a0/0x410
+[  195.216993]  __do_softirq+0x124/0x240
+[  195.217439]  irq_exit+0xb8/0xd8
+[  195.217736]  __handle_domain_irq+0x64/0xb8
+[  195.218053]  gic_handle_irq+0x50/0xa0
+[  195.218378]  el1_irq+0xb8/0x180
+[  195.218662]  ptep_set_access_flags+0x78/0xe4
+[  195.219042]  do_wp_page+0x444/0x648
+[  195.219321]  __handle_mm_fault+0x900/0x1088
+[  195.219932]  handle_mm_fault+0xdc/0x1a8
+[  195.220276]  do_page_fault+0x130/0x460
+[  195.220751]  do_mem_abort+0x3c/0x98
+[  195.221190]  el0_da+0x1c/0x20
+[  195.221557] Code: d538d082 d2800023 9101e000 8b020000 (c85f7c05) 
+[  195.222044] ---[ end trace ef92d87592c3380b ]---
+[  195.223896] note: systemd-journal[213] exited with preempt_count 1

@@ -1,0 +1,50 @@
+[  193.474300] Unable to handle kernel paging request at virtual address 00000000004fe174
+[  193.478114] Mem abort info:
+[  193.478286]   ESR = 0x96000004
+[  193.478469]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.478671]   SET = 0, FnV = 0
+[  193.478800]   EA = 0, S1PTW = 0
+[  193.479020] Data abort info:
+[  193.479154]   ISV = 0, ISS = 0x00000004
+[  193.480148]   CM = 0, WnR = 0
+[  193.482358] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000ba4be000
+[  193.483078] [00000000004fe174] pgd=0000000000000000
+[  193.485950] Internal error: Oops: 96000004 [#1] PREEMPT SMP
+[  193.486828] Modules linked in:
+[  193.488333] CPU: 0 PID: 1 Comm: systemd Not tainted 5.4.18 #2
+[  193.489330] Hardware name: linux,dummy-virt (DT)
+[  193.490186] pstate: 80000085 (Nzcv daIf -PAN -UAO)
+[  193.494862] pc : cset_cgroup_from_root+0x50/0x78
+[  193.496649] lr : proc_cgroup_show+0x150/0x288
+[  193.496990] sp : ffff80001005bc90
+[  193.497334] x29: ffff80001005bc90 x28: ffff00007b150d80 
+[  193.497828] x27: 0000000000000009 x26: ffff000075c86000 
+[  193.498186] x25: 0000000000000002 x24: ffff8000110d72c0 
+[  193.498535] x23: ffff8000117d7d20 x22: ffff8000111c1b20 
+[  193.498885] x21: ffff8000117d6dd8 x20: 0000000000000001 
+[  193.499237] x19: ffff00007ab4a000 x18: 0000000000000001 
+[  193.499623] x17: 0000000000000000 x16: 0000000000000000 
+[  193.502169] x15: ffff00007b0a8470 x14: ffffffffffffffff 
+[  193.502565] x13: ffff000075c88000 x12: ffff000075c87000 
+[  193.502917] x11: 0000000000000000 x10: 0000000000000000 
+[  193.503373] x9 : 00000000fffffffe x8 : ffff000075c88000 
+[  193.503733] x7 : 000000000000000a x6 : 0000000000000100 
+[  193.504644] x5 : ffff00007b1cb800 x4 : ffff00007ab48000 
+[  193.505576] x3 : ffff000076f46368 x2 : ffff000079522280 
+[  193.506003] x1 : ffff00007ab4a000 x0 : 00000000004fdf8c 
+[  193.506671] Call trace:
+[  193.507026]  cset_cgroup_from_root+0x50/0x78
+[  193.507373]  proc_single_show+0x54/0xa8
+[  193.507691]  seq_read+0x140/0x4d8
+[  193.509291]  __vfs_read+0x18/0x40
+[  193.509605]  vfs_read+0xc8/0x1a0
+[  193.509845]  ksys_read+0x68/0xf8
+[  193.510084]  __arm64_sys_read+0x18/0x20
+[  193.510373]  el0_svc_common.constprop.0+0x68/0x160
+[  193.510694]  el0_svc_handler+0x20/0x80
+[  193.510992]  el0_svc+0x8/0xc
+[  193.512734] Code: eb02007f d1008042 54000160 f9400040 (f940f404) 
+[  193.518183] ---[ end trace 496c6e6ce92f682f ]---
+[  193.518672] note: systemd[1] exited with preempt_count 1
+[  193.520231] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  193.520928] SMP: stopping secondary CPUs

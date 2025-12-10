@@ -1,0 +1,58 @@
+[  196.232214] Unable to handle kernel paging request at virtual address ffff80000000003c
+[  196.233887] Mem abort info:
+[  196.235466]   ESR = 0x86000006
+[  196.237035]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  196.239417]   SET = 0, FnV = 0
+[  196.239803]   EA = 0, S1PTW = 0
+[  196.240500] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  196.242085] [ffff80000000003c] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0000000000000000
+[  196.246345] Internal error: Oops: 86000006 [#1] PREEMPT SMP
+[  196.250613] Modules linked in:
+[  196.254270] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.4.18 #2
+[  196.255551] Hardware name: linux,dummy-virt (DT)
+[  196.258092] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  196.261002] pc : 0xffff80000000003c
+[  196.261941] lr : skb_release_head_state+0x40/0xc8
+[  196.263360] sp : ffff800010003cd0
+[  196.264198] x29: ffff800010003cd0 x28: 00000000000000a5 
+[  196.265641] x27: ffff00007a09cc30 x26: ffff00007a09c000 
+[  196.266796] x25: 000000000000003c x24: 0000000000000001 
+[  196.267871] x23: ffff00007a452700 x22: ffff00007a09c670 
+[  196.269038] x21: 0000000000000040 x20: 0000000000000002 
+[  196.270372] x19: ffff00007aa0da00 x18: 000000000000000e 
+[  196.271560] x17: 0000000000000001 x16: 0000000000000019 
+[  196.273395] x15: 0000000000000033 x14: 000000000000004c 
+[  196.275856] x13: 0000000000000068 x12: ffff800010e23e08 
+[  196.276770] x11: ffff00007db455f0 x10: ffff80006c741000 
+[  196.277606] x9 : 000000002a0d7b05 x8 : 000000000000000b 
+[  196.278428] x7 : 000000000000000b x6 : 0000000000000001 
+[  196.279525] x5 : 000000000000003c x4 : 0000000000000000 
+[  196.280581] x3 : 0000000000000000 x2 : ffff00007aa0da00 
+[  196.281846] x1 : ffff80000000003c x0 : ffff00007aa0da00 
+[  196.283955] Call trace:
+[  196.285433]  0xffff80000000003c
+[  196.286327]  skb_release_all+0x14/0x30
+[  196.287307]  consume_skb+0x2c/0x58
+[  196.288013]  __dev_kfree_skb_any+0x3c/0x48
+[  196.289104]  e1000_unmap_and_free_tx_resource.isra.0+0x58/0x80
+[  196.290134]  e1000_clean+0x138/0x970
+[  196.290831]  net_rx_action+0x114/0x340
+[  196.292114]  __do_softirq+0x124/0x240
+[  196.293132]  irq_exit+0xb8/0xd8
+[  196.293924]  __handle_domain_irq+0x64/0xb8
+[  196.294756]  gic_handle_irq+0x50/0xa0
+[  196.295604]  el1_irq+0xb8/0x180
+[  196.296331]  arch_cpu_idle+0x10/0x18
+[  196.297206]  do_idle+0x204/0x288
+[  196.297921]  cpu_startup_entry+0x24/0x40
+[  196.298766]  rest_init+0xd4/0xe0
+[  196.299580]  arch_call_rest_init+0xc/0x14
+[  196.300497]  start_kernel+0x420/0x450
+[  196.303878] Code: bad PC value
+[  196.307714] ---[ end trace 220d0fdeeecf831a ]---
+[  196.310325] Kernel panic - not syncing: Fatal exception in interrupt
+[  196.312243] SMP: stopping secondary CPUs
+[  196.318427] Kernel Offset: disabled
+[  196.319176] CPU features: 0x0002,20006000
+[  196.319863] Memory Limit: none
+[  196.322159] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

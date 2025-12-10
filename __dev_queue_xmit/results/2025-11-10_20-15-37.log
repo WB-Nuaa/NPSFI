@@ -1,0 +1,59 @@
+[  193.876616] Unable to handle kernel paging request at virtual address ffff80006c741000
+[  193.882803] Mem abort info:
+[  193.883575]   ESR = 0x96000045
+[  193.884252]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.884860]   SET = 0, FnV = 0
+[  193.886923]   EA = 0, S1PTW = 0
+[  193.887755] Data abort info:
+[  193.888242]   ISV = 0, ISS = 0x00000045
+[  193.890630]   CM = 0, WnR = 1
+[  193.895100] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  193.905565] [ffff80006c741000] pgd=00000000bdfff003, pud=0000000000000000
+[  193.929289] Internal error: Oops: 96000045 [#1] PREEMPT SMP
+[  193.944373] Modules linked in:
+[  193.950540] CPU: 0 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  193.951425] Hardware name: linux,dummy-virt (DT)
+[  193.953093] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  193.959250] pc : _raw_spin_unlock+0x4/0x40
+[  193.959830] lr : sch_direct_xmit+0x58/0x340
+[  193.960570] sp : ffff800011ee3880
+[  193.960984] x29: ffff800011ee3880 x28: 000000000000001a 
+[  193.968031] x27: ffff00007901b628 x26: 0000000000000011 
+[  193.970085] x25: 0000000000000001 x24: ffff0000781a5400 
+[  193.976214] x23: ffff00007a59a000 x22: ffff00007a912a00 
+[  193.979956] x21: ffff80006c741000 x20: 0000000000000000 
+[  193.986066] x19: ffff000075d04400 x18: 0000000000000000 
+[  193.992287] x17: 0000000000000000 x16: 0000000000000000 
+[  193.994681] x15: 0000000000000001 x14: 0000000000000000 
+[  194.004094] x13: 0000000000000006 x12: 00000000c0a80164 
+[  194.006514] x11: 0000000000000000 x10: 0000000000000068 
+[  194.007200] x9 : ffff0000781a5400 x8 : 0000000000000000 
+[  194.007927] x7 : fffffdffbfe9b870 x6 : 0000000000000010 
+[  194.010657] x5 : 0000000000000001 x4 : ffff80006c741000 
+[  194.013521] x3 : ffff00007a912a00 x2 : ffff00007a59a000 
+[  194.014437] x1 : 0000000000000000 x0 : ffff80006c741000 
+[  194.015547] Call trace:
+[  194.016629]  _raw_spin_unlock+0x4/0x40
+[  194.019791]  __dev_queue_xmit+0x67c/0x7f0
+[  194.020567]  dev_queue_xmit+0x10/0x18
+[  194.021257]  ip_finish_output2+0x31c/0x588
+[  194.022493]  __ip_finish_output+0x1b0/0x1e0
+[  194.023687]  ip_output+0xf4/0x1b0
+[  194.024715]  ip_local_out+0x44/0x58
+[  194.026910]  ip_send_skb+0x1c/0xa8
+[  194.030173]  udp_send_skb.isra.0+0x11c/0x368
+[  194.032996]  udp_sendmsg+0x710/0x860
+[  194.037741]  inet_sendmsg+0x40/0x68
+[  194.039036]  __sys_sendto+0xd4/0x150
+[  194.039883]  __arm64_sys_sendto+0x24/0x30
+[  194.040667]  el0_svc_common.constprop.0+0x68/0x160
+[  194.042950]  el0_svc_handler+0x20/0x80
+[  194.044555]  el0_svc+0x8/0xc
+[  194.049943] Code: d50342ff d503201f d65f03c0 52800001 (089ffc01) 
+[  194.060063] ---[ end trace 10a600f2fca6fb81 ]---
+[  194.068036] Kernel panic - not syncing: Fatal exception in interrupt
+[  194.071769] SMP: stopping secondary CPUs
+[  194.074920] Kernel Offset: disabled
+[  194.077824] CPU features: 0x0002,20006000
+[  194.081847] Memory Limit: none
+[  194.087293] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

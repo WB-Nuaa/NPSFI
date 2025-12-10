@@ -1,0 +1,114 @@
+[  193.902725] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  193.910601] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  193.911652] Modules linked in:
+[  193.913429] CPU: 5 PID: 490 Comm: python3 Not tainted 5.4.18 #2
+[  193.913800] Hardware name: linux,dummy-virt (DT)
+[  193.914514] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  193.916405] pc : do_undefinstr+0x2ec/0x310
+[  193.916684] lr : do_undefinstr+0x1e0/0x310
+[  193.916956] sp : ffff800011f03840
+[  193.917248] x29: ffff800011f03840 x28: ffff00007a519c00 
+[  193.917669] x27: 000000000000001a x26: 0000000000000000 
+[  193.918024] x25: ffff00007a44aec0 x24: 0000000000000000 
+[  193.918354] x23: 0000000060000005 x22: ffff800010afeb80 
+[  193.918685] x21: ffff800011f039e0 x20: ffff00007a519c00 
+[  193.919012] x19: ffff800011f038a0 x18: 0000000000000000 
+[  193.919440] x17: 0000000000000000 x16: 0000000000000000 
+[  193.919745] x15: 0000000000000001 x14: 0000000000000000 
+[  193.920809] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.921704] x11: 0000000000000000 x10: 0000000000000068 
+[  193.922753] x9 : 0000000000000000 x8 : ffff00007a537400 
+[  193.923551] x7 : 0000000000000001 x6 : ffff800011f03898 
+[  193.924385] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  193.925146] x3 : 000000000b000000 x2 : 0000000000000000 
+[  193.925905] x1 : ffff00007a519c00 x0 : 0000000060000005 
+[  193.927353] Call trace:
+[  193.928687]  do_undefinstr+0x2ec/0x310
+[  193.929276]  el1_undef+0x10/0x84
+[  193.929758]  skb_put+0x18/0x60
+[  193.930243]  ip_make_skb+0xec/0x140
+[  193.930703]  udp_sendmsg+0x6ec/0x860
+[  193.931169]  inet_sendmsg+0x40/0x68
+[  193.931618]  __sys_sendto+0xd4/0x150
+[  193.932116]  __arm64_sys_sendto+0x24/0x30
+[  193.932659]  el0_svc_common.constprop.0+0x68/0x160
+[  193.933245]  el0_svc_handler+0x20/0x80
+[  193.933678]  el0_svc+0x8/0xc
+[  193.935074] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  193.937412] ---[ end trace 4dc2f3afcc9fb699 ]---
+[  193.938472] note: python3[490] exited with preempt_count 1
+[  193.979003] ------------[ cut here ]------------
+[  193.979671] WARNING: CPU: 5 PID: 0 at kernel/rcu/tree.c:569 rcu_idle_enter+0x74/0x80
+[  193.980223] Modules linked in:
+[  193.980756] CPU: 5 PID: 0 Comm: swapper/5 Tainted: G      D           5.4.18 #2
+[  193.981367] Hardware name: linux,dummy-virt (DT)
+[  193.981713] pstate: 200003c5 (nzCv DAIF -PAN -UAO)
+[  193.983136] pc : rcu_idle_enter+0x74/0x80
+[  193.983464] lr : do_idle+0x200/0x288
+[  193.983720] sp : ffff800011a6bf20
+[  193.983916] x29: ffff800011a6bf20 x28: 0000000000000000 
+[  193.984273] x27: 0000000000000000 x26: 0000000000000000 
+[  193.986753] x25: 0000000000000000 x24: ffff8000117ba214 
+[  193.987973] x23: ffff00007b0c5400 x22: ffff800011404ab8 
+[  193.991107] x21: ffff8000117ba1f0 x20: 0000000000000005 
+[  193.992725] x19: ffff8000117ba118 x18: 0000000000000010 
+[  193.995219] x17: 0000000000000000 x16: 0000000000000000 
+[  193.998739] x15: ffff00007a51a070 x14: 0000000000000000 
+[  194.008278] x13: 0000000000000001 x12: 0000000000000000 
+[  194.011457] x11: 0000000000000400 x10: 00000000000009c0 
+[  194.012290] x9 : ffff800011a6be90 x8 : ffff00007b0c5e20 
+[  194.013701] x7 : 0000000000000005 x6 : 00000016feade760 
+[  194.014432] x5 : 00ffffffffffffff x4 : ffff80006c7af000 
+[  194.015641] x3 : 4000000000000002 x2 : 4000000000000000 
+[  194.016432] x1 : ffff800011406980 x0 : ffff00007dbb5980 
+[  194.017264] Call trace:
+[  194.017469]  rcu_idle_enter+0x74/0x80
+[  194.018846]  do_idle+0x200/0x288
+[  194.019133]  cpu_startup_entry+0x20/0x40
+[  194.019367]  secondary_start_kernel+0x154/0x190
+[  194.019677] ---[ end trace 4dc2f3afcc9fb69a ]---
+[  194.022867] ------------[ cut here ]------------
+[  194.023773] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  194.027367] Internal error: Oops - BUG: 0 [#2] PREEMPT SMP
+[  194.028446] Modules linked in:
+[  194.028921] CPU: 7 PID: 1 Comm: systemd Tainted: G      D W         5.4.18 #2
+[  194.030636] Hardware name: linux,dummy-virt (DT)
+[  194.031204] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  194.031539] pc : do_undefinstr+0x2ec/0x310
+[  194.031768] lr : do_undefinstr+0x1e0/0x310
+[  194.031995] sp : ffff80001005b990
+[  194.032227] x29: ffff80001005b990 x28: ffff00007b0a8000 
+[  194.034728] x27: ffff000077203400 x26: ffff80001005be00 
+[  194.035476] x25: 0000000000000000 x24: 0000000000000000 
+[  194.036005] x23: 0000000040000005 x22: ffff800010afeb80 
+[  194.037507] x21: ffff80001005bb30 x20: ffff00007b0a8000 
+[  194.038005] x19: ffff80001005b9f0 x18: 0000000000000000 
+[  194.039774] x17: 0000000000000000 x16: 0000000000000000 
+[  194.041072] x15: 0000000000000000 x14: 0000ffffa11782f9 
+[  194.043851] x13: 0000000000000010 x12: 0000aaaae6e52620 
+[  194.044300] x11: 0000000000000001 x10: 0000000000400100 
+[  194.045152] x9 : ffff00007b0a8000 x8 : 0000ffffffffffff 
+[  194.046671] x7 : 0000000000000001 x6 : ffff80001005b9e8 
+[  194.047077] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  194.047376] x3 : 000000000b000000 x2 : 0000000000000000 
+[  194.047820] x1 : ffff00007b0a8000 x0 : 0000000040000005 
+[  194.048424] Call trace:
+[  194.048963]  do_undefinstr+0x2ec/0x310
+[  194.050518]  el1_undef+0x10/0x84
+[  194.051068]  skb_put+0x18/0x60
+[  194.051407]  ____sys_sendmsg+0x240/0x280
+[  194.051800]  ___sys_sendmsg+0x80/0xe0
+[  194.054976]  __sys_sendmsg+0x64/0xc0
+[  194.056185]  __arm64_sys_sendmsg+0x20/0x28
+[  194.057071]  el0_svc_common.constprop.0+0x68/0x160
+[  194.057476]  el0_svc_handler+0x20/0x80
+[  194.057826]  el0_svc+0x8/0xc
+[  194.058789] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  194.062641] ---[ end trace 4dc2f3afcc9fb69b ]---
+[  194.063482] note: systemd[1] exited with preempt_count 1
+[  194.064372] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  194.066581] SMP: stopping secondary CPUs
+[  194.068755] Kernel Offset: disabled
+[  194.069253] CPU features: 0x0002,20006000
+[  194.070178] Memory Limit: none
+[  194.072596] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

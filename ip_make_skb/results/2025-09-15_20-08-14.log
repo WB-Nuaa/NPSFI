@@ -1,0 +1,45 @@
+[  193.068851] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
+[  193.072070] Mem abort info:
+[  193.072621]   ESR = 0x96000046
+[  193.073290]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.073878]   SET = 0, FnV = 0
+[  193.074298]   EA = 0, S1PTW = 0
+[  193.074868] Data abort info:
+[  193.080102]   ISV = 0, ISS = 0x00000046
+[  193.080990]   CM = 0, WnR = 1
+[  193.087688] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b97e4000
+[  193.093793] [0000000000000008] pgd=00000000b6ef6003, pud=00000000b947a003, pmd=0000000000000000
+[  193.115654] Internal error: Oops: 96000046 [#1] PREEMPT SMP
+[  193.123095] Modules linked in:
+[  193.127330] CPU: 7 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  193.137584] Hardware name: linux,dummy-virt (DT)
+[  193.140861] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  193.143641] pc : ip_make_skb+0x50/0x140
+[  193.144491] lr : udp_sendmsg+0x6ec/0x860
+[  193.145050] sp : ffff800011d8bad0
+[  193.145828] x29: ffff800011d8bae0 x28: ffff800011d8bb40 
+[  193.147548] x27: ffff800011d8bd80 x26: ffff800011d8bd80 
+[  193.149229] x25: ffff800010b762e8 x24: 0000000000000000 
+[  193.150654] x23: ffff800011d8bc30 x22: ffff800011d8bc68 
+[  193.151627] x21: ffff800011d8bc68 x20: ffff0000795caa00 
+[  193.155039] x19: ffff00007b3bc400 x18: 0000000000000000 
+[  193.158338] x17: 0000000000000000 x16: 0000000000000000 
+[  193.164304] x15: 0000000000000001 x14: 0000000000000000 
+[  193.164902] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.166830] x11: 0000000000000000 x10: 0000000000000068 
+[  193.168446] x9 : 0000000000000000 x8 : 0000000000000000 
+[  193.168988] x7 : ffff800011d8bc00 x6 : ffff800011d8bc08 
+[  193.175433] x5 : 0000000000000008 x4 : 000000000000001a 
+[  193.179942] x3 : ffff800011d8bd80 x2 : ffff800010b762e8 
+[  193.180976] x1 : ffff800011d8bc30 x0 : ffff00007b3bc400 
+[  193.181629] Call trace:
+[  193.182519]  ip_make_skb+0x50/0x140
+[  193.182849]  udp_sendmsg+0x6ec/0x860
+[  193.183129]  inet_sendmsg+0x40/0x68
+[  193.183401]  __sys_sendto+0xd4/0x150
+[  193.183671]  __arm64_sys_sendto+0x24/0x30
+[  193.184155]  el0_svc_common.constprop.0+0x68/0x160
+[  193.188304]  el0_svc_handler+0x20/0x80
+[  193.190005]  el0_svc+0x8/0xc
+[  193.198220] Code: aa0203f9 a90673fb aa0303fa 9101c3fc (a9007cbf) 
+[  193.213154] ---[ end trace 646e6fdcc152f4ae ]---

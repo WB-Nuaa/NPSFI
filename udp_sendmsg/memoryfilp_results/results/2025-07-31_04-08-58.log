@@ -1,0 +1,96 @@
+[  194.336263] Unable to handle kernel write to read-only memory at virtual address ffff800010b762ee
+[  194.345634] Mem abort info:
+[  194.349064]   ESR = 0x9600004e
+[  194.350140]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.357316]   SET = 0, FnV = 0
+[  194.359777]   EA = 0, S1PTW = 0
+[  194.367660] Data abort info:
+[  194.375991]   ISV = 0, ISS = 0x0000004e
+[  194.383020]   CM = 0, WnR = 1
+[  194.392424] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  194.400214] [ffff800010b762ee] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0040000040a00791
+[  194.420724] Internal error: Oops: 9600004e [#1] PREEMPT SMP
+[  194.421380] Modules linked in:
+[  194.424430] CPU: 5 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  194.425092] Hardware name: linux,dummy-virt (DT)
+[  194.426792] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  194.431361] pc : udp4_hwcsum+0xac/0x108
+[  194.432072] lr : udp4_hwcsum+0x98/0x108
+[  194.432800] sp : ffff800011f3bb60
+[  194.433358] x29: ffff800011f3bb70 x28: 0000000000000012 
+[  194.436011] x27: ffff800011f3bd80 x26: 0000000000000011 
+[  194.436952] x25: 0000000000000012 x24: ffff00007b266d88 
+[  194.437773] x23: 000000006401a8c0 x22: 0000000000000000 
+[  194.439022] x21: ffff00007a43c600 x20: ffff800010b762e8 
+[  194.440078] x19: ffff00007b266a40 x18: 0000000000000000 
+[  194.441059] x17: 0000000000000000 x16: 0000000000000000 
+[  194.441864] x15: 0000000000000000 x14: 0000000000000000 
+[  194.445750] x13: 0000000000000000 x12: 0000000000000000 
+[  194.448065] x11: 0000000000000000 x10: 0000000000000000 
+[  194.449204] x9 : 000000006401a8c0 x8 : 0000000000000000 
+[  194.450182] x7 : 0000000000000000 x6 : ffff800011f3bde8 
+[  194.452514] x5 : ffff800011f3bde8 x4 : 0000000000000000 
+[  194.453449] x3 : 0000000000000011 x2 : 0000000043c61100 
+[  194.455247] x1 : 00000000b9c0a7c7 x0 : 0000000000009e77 
+[  194.459479] Call trace:
+[  194.462744]  udp4_hwcsum+0xac/0x108
+[  194.464681]  inet_sendmsg+0x40/0x68
+[  194.465087]  __sys_sendto+0xd4/0x150
+[  194.465828]  __arm64_sys_sendto+0x24/0x30
+[  194.466707]  el0_svc_common.constprop.0+0x68/0x160
+[  194.467197]  el0_svc_handler+0x20/0x80
+[  194.467713]  el0_svc+0x8/0xc
+[  194.471852] Code: 0b000020 2a6043e0 72003c00 5a9f1000 (79000e80) 
+[  194.492998] ---[ end trace 1ca5e76ffc225f28 ]---
+[  194.567418] ------------[ cut here ]------------
+[  194.569678] refcount_t: underflow; use-after-free.
+[  194.595584] WARNING: CPU: 5 PID: 493 at lib/refcount.c:190 refcount_sub_and_test_checked+0xb4/0xc0
+[  194.600738] Modules linked in:
+[  194.610534] CPU: 5 PID: 493 Comm: python3 Tainted: G      D           5.4.18 #2
+[  194.623609] Hardware name: linux,dummy-virt (DT)
+[  194.627183] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.628959] pc : refcount_sub_and_test_checked+0xb4/0xc0
+[  194.639948] lr : refcount_sub_and_test_checked+0xb4/0xc0
+[  194.641099] sp : ffff800011f3b660
+[  194.643225] x29: ffff800011f3b660 x28: ffff00007a43c600 
+[  194.648033] x27: ffff800011f3bd80 x26: 0000000000000011 
+[  194.655134] x25: 0000000000000012 x24: ffff00007ab84000 
+[  194.657704] x23: 00000000000003ff x22: ffff00007ab80b1c 
+[  194.666517] x21: ffff00007ab80b10 x20: 000000000000456b 
+[  194.675535] x19: 0000000000000000 x18: 0000000000000010 
+[  194.686508] x17: 0000000000000000 x16: 0000000000000000 
+[  194.687422] x15: ffff00007a43ca70 x14: ffffffffffffffff 
+[  194.687907] x13: ffff800091f3b3c7 x12: ffff800011f3b3cf 
+[  194.688600] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  194.691381] x9 : 0000000000000000 x8 : ffff800011993000 
+[  194.692632] x7 : ffff800010691a68 x6 : 0000000000000179 
+[  194.693430] x5 : 0000000000000000 x4 : ffff00007dbab188 
+[  194.694508] x3 : ffff00007dbb1f20 x2 : ffff00007dbab188 
+[  194.696974] x1 : 0000000000000000 x0 : 0000000000000000 
+[  194.702662] Call trace:
+[  194.702884]  refcount_sub_and_test_checked+0xb4/0xc0
+[  194.704474]  refcount_dec_checked+0x14/0x50
+[  194.704984]  udp_lib_unhash+0x8c/0x128
+[  194.705552]  sk_common_release+0x34/0x90
+[  194.705829]  udp_lib_close+0xc/0x18
+[  194.707414]  inet_release+0x40/0x68
+[  194.708770]  __sock_release+0x40/0xb8
+[  194.710946]  sock_close+0x14/0x20
+[  194.712794]  __fput+0x88/0x228
+[  194.713281]  ____fput+0xc/0x18
+[  194.713579]  task_work_run+0x80/0x130
+[  194.713772]  do_exit+0x2dc/0x980
+[  194.715510]  die+0x208/0x248
+[  194.716599]  die_kernel_fault+0x60/0x70
+[  194.717107]  __do_kernel_fault+0x84/0x120
+[  194.717632]  do_page_fault+0x1b4/0x460
+[  194.718645]  do_mem_abort+0x3c/0x98
+[  194.719129]  el1_da+0x1c/0x90
+[  194.719303]  udp4_hwcsum+0xac/0x108
+[  194.719718]  inet_sendmsg+0x40/0x68
+[  194.719903]  __sys_sendto+0xd4/0x150
+[  194.721541]  __arm64_sys_sendto+0x24/0x30
+[  194.723727]  el0_svc_common.constprop.0+0x68/0x160
+[  194.727927]  el0_svc_handler+0x20/0x80
+[  194.731811]  el0_svc+0x8/0xc
+[  194.733454] ---[ end trace 1ca5e76ffc225f29 ]---

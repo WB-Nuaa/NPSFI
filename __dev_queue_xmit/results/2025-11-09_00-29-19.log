@@ -1,0 +1,62 @@
+[  147.117890] Unable to handle kernel write to read-only memory at virtual address ffff800010b1ad3c
+[  147.131416] Mem abort info:
+[  147.132260]   ESR = 0x9600004e
+[  147.135581]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  147.137126]   SET = 0, FnV = 0
+[  147.137968]   EA = 0, S1PTW = 0
+[  147.138845] Data abort info:
+[  147.139545]   ISV = 0, ISS = 0x0000004e
+[  147.140469]   CM = 0, WnR = 1
+[  147.142295] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  147.144469] [ffff800010b1ad3c] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0040000040a00791
+[  147.154419] Internal error: Oops: 9600004e [#1] PREEMPT SMP
+[  147.158062] Modules linked in:
+[  147.170487] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.4.18 #2
+[  147.171525] Hardware name: linux,dummy-virt (DT)
+[  147.175846] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  147.192005] pc : dst_alloc+0x130/0x140
+[  147.192530] lr : skb_release_head_state+0xb0/0xc8
+[  147.195871] sp : ffff800010003ca0
+[  147.197615] x29: ffff800010003ca0 x28: 0000000000000051 
+[  147.198543] x27: ffff000079b98c30 x26: ffff000079b98000 
+[  147.198862] x25: 000000000000003c x24: 0000000000000001 
+[  147.199210] x23: ffff00007a42c900 x22: ffff000079b98670 
+[  147.200399] x21: 0000000000000040 x20: 0000000000000002 
+[  147.200751] x19: ffff800010b1acfc x18: 000000000000000e 
+[  147.201674] x17: 0000000000000001 x16: 0000000000000019 
+[  147.203078] x15: 0000000000000033 x14: 000000000000004c 
+[  147.204647] x13: 0000000000000068 x12: ffff800010e23e08 
+[  147.205152] x11: ffff00007db455f0 x10: ffff80006c741000 
+[  147.205789] x9 : 000000009bc4346a x8 : 0000000000000018 
+[  147.206347] x7 : 0000000000000018 x6 : 0000000000000001 
+[  147.206757] x5 : 000000000000003c x4 : 0000000000000000 
+[  147.207181] x3 : 000000003707f69f x2 : ffff800010b1ad3c 
+[  147.207597] x1 : 0000000000000001 x0 : 0000000000000001 
+[  147.212759] Call trace:
+[  147.215539]  dst_alloc+0x130/0x140
+[  147.216792]  skb_release_head_state+0xb0/0xc8
+[  147.217070]  skb_release_all+0x14/0x30
+[  147.217300]  consume_skb+0x2c/0x58
+[  147.217513]  __dev_kfree_skb_any+0x3c/0x48
+[  147.219077]  e1000_unmap_and_free_tx_resource.isra.0+0x58/0x80
+[  147.219610]  e1000_clean+0x138/0x970
+[  147.219880]  net_rx_action+0x114/0x340
+[  147.220586]  __do_softirq+0x124/0x240
+[  147.221066]  irq_exit+0xb8/0xd8
+[  147.221693]  __handle_domain_irq+0x64/0xb8
+[  147.222028]  gic_handle_irq+0x50/0xa0
+[  147.222325]  el1_irq+0xb8/0x180
+[  147.222643]  arch_cpu_idle+0x10/0x18
+[  147.223124]  do_idle+0x204/0x288
+[  147.224533]  cpu_startup_entry+0x20/0x40
+[  147.226204]  rest_init+0xd4/0xe0
+[  147.229258]  arch_call_rest_init+0xc/0x14
+[  147.229620]  start_kernel+0x420/0x450
+[  147.236673] Code: 17fffee3 f9800051 885f7c43 4b000063 (8801fc43) 
+[  147.254835] ---[ end trace 665c6f9e52e4a119 ]---
+[  147.259300] Kernel panic - not syncing: Fatal exception in interrupt
+[  147.262856] SMP: stopping secondary CPUs
+[  147.269025] Kernel Offset: disabled
+[  147.270509] CPU features: 0x0002,20006000
+[  147.272547] Memory Limit: none
+[  147.275533] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

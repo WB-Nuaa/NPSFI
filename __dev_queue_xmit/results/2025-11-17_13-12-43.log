@@ -1,0 +1,51 @@
+[  192.269720] BUG: scheduling while atomic: python3/491/0x00000000
+[  192.374046] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000040
+[  192.385988] Mem abort info:
+[  192.387024]   ESR = 0x96000006
+[  192.387941]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  192.390745]   SET = 0, FnV = 0
+[  192.391509]   EA = 0, S1PTW = 0
+[  192.394098] Data abort info:
+[  192.398924]   ISV = 0, ISS = 0x00000006
+[  192.403239]   CM = 0, WnR = 0
+[  192.405293] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b6d45000
+[  192.407307] [0000000000000040] pgd=00000000b8021003, pud=00000000b8024003, pmd=0000000000000000
+[  192.416040] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  192.422949] Modules linked in:
+[  192.428591] CPU: 5 PID: 491 Comm: python3 Tainted: G        W         5.4.18 #2
+[  192.430661] Hardware name: linux,dummy-virt (DT)
+[  192.431036] pstate: 60000085 (nZCv daIf -PAN -UAO)
+[  192.431404] pc : set_next_entity+0x14/0x90
+[  192.432410] lr : pick_next_task_fair+0x9c/0x2d8
+[  192.434351] sp : ffff800011ecb6f0
+[  192.435380] x29: ffff800011ecb6f0 x28: 0000000000000000 
+[  192.437715] x27: ffff800011ecb7e0 x26: ffff00007ab9d980 
+[  192.439805] x25: ffff800010c660b8 x24: ffff800010c2fcd8 
+[  192.442607] x23: 0000000000000000 x22: ffff8000113fa018 
+[  192.443759] x21: 0000000000000000 x20: ffff00007db46dc0 
+[  192.445097] x19: 0000000000000000 x18: 0000000000000060 
+[  192.445518] x17: 0000000000000000 x16: 0000000000000000 
+[  192.445949] x15: 00000000000000c7 x14: 0000000000000000 
+[  192.446375] x13: 0000000000000002 x12: 00000000000000c7 
+[  192.446772] x11: 0000000000000001 x10: 0000000000000001 
+[  192.447502] x9 : 000000000000038e x8 : 0000000000000000 
+[  192.448474] x7 : 0000000000000346 x6 : 0000000e103dbd53 
+[  192.450649] x5 : 0000002cc90ab7a0 x4 : 0000000000000000 
+[  192.451362] x3 : ffff80001011f8c8 x2 : 0000000000000000 
+[  192.454787] x1 : 0000000000000000 x0 : ffff00007db46dc0 
+[  192.455192] Call trace:
+[  192.458733]  set_next_entity+0x14/0x90
+[  192.459456]  pick_next_task_fair+0x9c/0x2d8
+[  192.460019]  __schedule+0x4ac/0x578
+[  192.461117]  schedule+0x40/0xe0
+[  192.461463]  schedule_hrtimeout_range_clock+0x9c/0x118
+[  192.462802]  schedule_hrtimeout_range+0x10/0x18
+[  192.463528]  do_select+0x414/0x5e0
+[  192.465312]  core_sys_select+0x354/0x4d0
+[  192.465673]  __arm64_sys_pselect6+0x17c/0x240
+[  192.466107]  el0_svc_common.constprop.0+0x68/0x160
+[  192.468680]  el0_svc_handler+0x20/0x80
+[  192.470582]  el0_svc+0x8/0xc
+[  192.474405] Code: 910003fd a90153f3 aa0003f4 aa0103f3 (b9404020) 
+[  192.477654] ---[ end trace bae19faf954d54e9 ]---
+[  192.484420] note: python3[491] exited with preempt_count 2

@@ -1,0 +1,49 @@
+[  199.013439] Unable to handle kernel paging request at virtual address ffff80001140c3b1
+[  199.026518] Mem abort info:
+[  199.027431]   ESR = 0x96000021
+[  199.033189]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  199.038321]   SET = 0, FnV = 0
+[  199.040024]   EA = 0, S1PTW = 0
+[  199.044655] Data abort info:
+[  199.047073]   ISV = 0, ISS = 0x00000021
+[  199.048338]   CM = 0, WnR = 0
+[  199.050061] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  199.056222] [ffff80001140c3b1] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0000000000000000
+[  199.071640] Internal error: Oops: 96000021 [#1] PREEMPT SMP
+[  199.081578] Modules linked in:
+[  199.084981] CPU: 1 PID: 495 Comm: python3 Not tainted 5.4.18 #2
+[  199.085731] Hardware name: linux,dummy-virt (DT)
+[  199.088378] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  199.094643] pc : ip_output+0xa8/0x1b0
+[  199.104613] lr : ip_local_out+0x44/0x58
+[  199.110015] sp : ffff800011f83a30
+[  199.111478] x29: ffff800011f83a30 x28: 000000000000001a 
+[  199.118710] x27: ffff800011f83d80 x26: 0000000000000011 
+[  199.121393] x25: 0000000000000012 x24: ffff00007b31e000 
+[  199.123008] x23: ffff00007aab3fc0 x22: ffff00007a404600 
+[  199.125782] x21: ffff800011963ac0 x20: ffff00007991f100 
+[  199.126247] x19: ffff80001140c380 x18: 0000000000000000 
+[  199.128250] x17: 0000000000000000 x16: 0000000000000000 
+[  199.128627] x15: 0000000000000001 x14: 0000000000000000 
+[  199.132210] x13: 0000000000000006 x12: 00000000c0a80164 
+[  199.134460] x11: 0000000000000000 x10: 0000000000000068 
+[  199.136674] x9 : ffff00007a404600 x8 : ffff800011f83c30 
+[  199.137091] x7 : 0000000001300000 x6 : 0000000000009d94 
+[  199.137476] x5 : 0000000000000088 x4 : 000000000000002e 
+[  199.139345] x3 : ffff80001140c3b0 x2 : ffff00007a404600 
+[  199.140744] x1 : ffff80006c757000 x0 : ffff80001140c3b1 
+[  199.143178] Call trace:
+[  199.144355]  ip_output+0xa8/0x1b0
+[  199.144965]  ip_local_out+0x44/0x58
+[  199.145896]  ip_send_skb+0x1c/0xa8
+[  199.149393]  udp_send_skb.isra.0+0x11c/0x368
+[  199.153157]  udp_sendmsg+0x710/0x860
+[  199.155391]  inet_sendmsg+0x40/0x68
+[  199.155747]  __sys_sendto+0xd4/0x150
+[  199.156072]  __arm64_sys_sendto+0x24/0x30
+[  199.157025]  el0_svc_common.constprop.0+0x68/0x160
+[  199.160335]  el0_svc_handler+0x20/0x80
+[  199.162311]  el0_svc+0x8/0xc
+[  199.164838] Code: 9100c263 b9407284 d538d081 8b000060 (c85f7c05) 
+[  199.171063] ---[ end trace 5aefb778379e99d2 ]---
+[  199.172827] note: python3[495] exited with preempt_count 1

@@ -1,0 +1,119 @@
+[  193.442480] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  193.452795] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  193.454463] Modules linked in:
+[  193.460010] CPU: 4 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  193.464847] Hardware name: linux,dummy-virt (DT)
+[  193.469897] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  193.476152] pc : do_undefinstr+0x2ec/0x310
+[  193.479497] lr : do_undefinstr+0x1e0/0x310
+[  193.482131] sp : ffff800011f9b980
+[  193.482706] x29: ffff800011f9b980 x28: ffff0000794e8e00 
+[  193.483337] x27: ffff800011f9bd80 x26: 0000000000000011 
+[  193.483810] x25: 0000000000000012 x24: 0000000000000000 
+[  193.484460] x23: 0000000080000005 x22: ffff800010ba9354 
+[  193.486976] x21: ffff800011f9bb20 x20: ffff0000794e8e00 
+[  193.487938] x19: ffff800011f9b9e0 x18: 0000000000000000 
+[  193.489741] x17: 0000000000000000 x16: 0000000000000000 
+[  193.490270] x15: 0000000000000001 x14: 0000000000000000 
+[  193.490784] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.491377] x11: 0000000000000000 x10: 0000000000000068 
+[  193.492215] x9 : ffff0000794e8e00 x8 : ffff800011f9bc30 
+[  193.494711] x7 : 00000000d7500000 x6 : ffff800011f9b9d8 
+[  193.495256] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  193.496834] x3 : 0000000089400000 x2 : 0000000000000000 
+[  193.500138] x1 : ffff0000794e8e00 x0 : 0000000080000005 
+[  193.508628] Call trace:
+[  193.514626]  do_undefinstr+0x2ec/0x310
+[  193.515488]  el1_undef+0x10/0x84
+[  193.518445]  udp_send_skb.isra.0+0x1c/0x368
+[  193.519408]  udp_sendmsg+0x710/0x860
+[  193.521445]  inet_sendmsg+0x40/0x68
+[  193.523143]  __sys_sendto+0xd4/0x150
+[  193.523760]  __arm64_sys_sendto+0x24/0x30
+[  193.524808]  el0_svc_common.constprop.0+0x68/0x160
+[  193.527900]  el0_svc_handler+0x20/0x80
+[  193.531097]  el0_svc+0x8/0xc
+[  193.532049] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  193.534637] ---[ end trace c4a2c5b5fd93ea24 ]---
+[  193.535998] note: python3[493] exited with preempt_count 1
+[  193.641983] ------------[ cut here ]------------
+[  193.654989] WARNING: CPU: 4 PID: 0 at kernel/rcu/tree.c:569 rcu_idle_enter+0x74/0x80
+[  193.657375] Modules linked in:
+[  193.658288] CPU: 4 PID: 0 Comm: swapper/4 Tainted: G      D           5.4.18 #2
+[  193.659024] Hardware name: linux,dummy-virt (DT)
+[  193.659648] pstate: 200003c5 (nzCv DAIF -PAN -UAO)
+[  193.660880] pc : rcu_idle_enter+0x74/0x80
+[  193.662350] lr : do_idle+0x200/0x288
+[  193.663447] sp : ffff800011a63f20
+[  193.664583] x29: ffff800011a63f20 x28: 0000000000000000 
+[  193.668955] x27: 0000000000000000 x26: 0000000000000000 
+[  193.670258] x25: 0000000000000000 x24: ffff8000117ba214 
+[  193.671113] x23: ffff00007b0c4600 x22: ffff800011404ab8 
+[  193.671817] x21: ffff8000117ba1f0 x20: 0000000000000004 
+[  193.674326] x19: ffff8000117ba118 x18: 0000000000000010 
+[  193.674805] x17: 0000000000000000 x16: 0000000000000000 
+[  193.675394] x15: 0000000000000371 x14: 0000000000000000 
+[  193.676636] x13: 0000000000000001 x12: 0000000000000000 
+[  193.677574] x11: 0000000000000400 x10: 00000000000009c0 
+[  193.678603] x9 : ffff800011a63e90 x8 : ffff00007b0c5020 
+[  193.679194] x7 : 0000000000000000 x6 : 000001abe5896601 
+[  193.681176] x5 : 00ffffffffffffff x4 : ffff80006c799000 
+[  193.682847] x3 : 4000000000000002 x2 : 4000000000000000 
+[  193.686357] x1 : ffff800011406980 x0 : ffff00007db9f980 
+[  193.687094] Call trace:
+[  193.687290]  rcu_idle_enter+0x74/0x80
+[  193.688403]  do_idle+0x200/0x288
+[  193.688941]  cpu_startup_entry+0x20/0x40
+[  193.689350]  secondary_start_kernel+0x154/0x190
+[  193.689763] ---[ end trace c4a2c5b5fd93ea25 ]---
+[  193.999909] ------------[ cut here ]------------
+[  194.002855] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  194.003656] Internal error: Oops - BUG: 0 [#2] PREEMPT SMP
+[  194.004655] Modules linked in:
+[  194.007150] CPU: 7 PID: 261 Comm: systemd-timesyn Tainted: G      D W         5.4.18 #2
+[  194.017737] Hardware name: linux,dummy-virt (DT)
+[  194.019118] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  194.019904] pc : do_undefinstr+0x2ec/0x310
+[  194.020478] lr : do_undefinstr+0x1e0/0x310
+[  194.024806] sp : ffff800011e23980
+[  194.026878] x29: ffff800011e23980 x28: ffff00007a4b1c00 
+[  194.035460] x27: ffff800011e23d80 x26: 0000000000000011 
+[  194.040959] x25: 0000000000000030 x24: 0000000000000000 
+[  194.046185] x23: 0000000080000005 x22: ffff800010ba9354 
+[  194.055775] x21: ffff800011e23b20 x20: ffff00007a4b1c00 
+[  194.065168] x19: ffff800011e239e0 x18: 0000000000000000 
+[  194.067529] x17: 0000000000000000 x16: 0000000000000000 
+[  194.073756] x15: 0000000000000001 x14: 0000000000000000 
+[  194.086297] x13: 0000000000000000 x12: 00000000b97dbe39 
+[  194.096105] x11: 0000000000000000 x10: 0000000000000068 
+[  194.104221] x9 : ffff00007a4b1c00 x8 : ffff800011e23c30 
+[  194.108450] x7 : 00000000a7600000 x6 : ffff800011e239d8 
+[  194.115509] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  194.125144] x3 : 0000000089400000 x2 : 0000000000000000 
+[  194.127149] x1 : ffff00007a4b1c00 x0 : 0000000080000005 
+[  194.128294] Call trace:
+[  194.130288]  do_undefinstr+0x2ec/0x310
+[  194.130967]  el1_undef+0x10/0x84
+[  194.131742]  udp_send_skb.isra.0+0x1c/0x368
+[  194.132374]  udp_sendmsg+0x710/0x860
+[  194.132886]  inet_sendmsg+0x40/0x68
+[  194.139604]  __sys_sendto+0xd4/0x150
+[  194.142680]  __arm64_sys_sendto+0x24/0x30
+[  194.146271]  el0_svc_common.constprop.0+0x68/0x160
+[  194.147276]  el0_svc_handler+0x20/0x80
+Welcome to Ubu[  194.1ntu 2047976].04.1   el0_svcL+0xT8/0xc
+S (GN[U/Linux 5.4.18 aar  ch64)194.150658] Code: f9401bf7 17ffff7c a9025bf5 f
+9
+ * Documentatio001bf7 (d4210000) 
+n:  https://help.ubuntu.com[  194.157633] ---[ end trace c4a2c5b5fd93ea26 ]---
+
+ * Management:     https://landscape.canonical.com[  194.171340] note: systemd-timesyn[261] exited with preempt_count 1
+
+ * Support:        https://ubuntu.com/advantage
+
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Fri Aug 22 22:57:17 CST 2025 on ttyAMA0

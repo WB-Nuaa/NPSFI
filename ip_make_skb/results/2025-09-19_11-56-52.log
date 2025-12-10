@@ -1,0 +1,50 @@
+[  193.016323] Unable to handle kernel paging request at virtual address ffff00007a48c996
+[  193.034088] Mem abort info:
+[  193.043019]   ESR = 0x96000021
+[  193.047124]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.055947]   SET = 0, FnV = 0
+[  193.060033]   EA = 0, S1PTW = 0
+[  193.061134] Data abort info:
+[  193.061568]   ISV = 0, ISS = 0x00000021
+[  193.062003]   CM = 0, WnR = 0
+[  193.063000] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  193.064751] [ffff00007a48c996] pgd=00000000bdff8003, pud=00000000bddfe003, pmd=00000000bdc2b003, pte=00680000ba48c713
+[  193.079416] Internal error: Oops: 96000021 [#1] PREEMPT SMP
+[  193.083546] Modules linked in:
+[  193.087419] CPU: 5 PID: 503 Comm: python3 Not tainted 5.4.18 #2
+[  193.087959] Hardware name: linux,dummy-virt (DT)
+[  193.088862] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  193.090087] pc : refcount_dec_and_mutex_lock+0x60/0xe8
+[  193.097830] lr : refcount_add_checked+0xc/0x48
+[  193.099726] sp : ffff800011f23900
+[  193.102728] x29: ffff800011f23900 x28: 0000000000000000 
+[  193.105249] x27: 0000000000000000 x26: 0000000000000000 
+[  193.107315] x25: ffff00007a48c85a x24: ffff800011f23ac4 
+[  193.110839] x23: ffff00007a432a00 x22: ffff8000101271d8 
+[  193.112453] x21: 0000000000000000 x20: ffff00007a48c85a 
+[  193.115221] x19: ffff000079b76000 x18: 0000000000000060 
+[  193.116228] x17: 0000000000000000 x16: 0000000000000000 
+[  193.119311] x15: ffff8000117d2000 x14: ffff800011992f70 
+[  193.122021] x13: 0000000000000000 x12: ffff800011992000 
+[  193.123754] x11: ffff8000117d2000 x10: fffffe0001a1ad08 
+[  193.125777] x9 : 0000000000000000 x8 : ffff0000706b4200 
+[  193.126905] x7 : ffffffffc9980000 x6 : 00000000c9980300 
+[  193.129868] x5 : 0000000000000300 x4 : ffff00007a48c996 
+[  193.133164] x3 : 00000000c9980000 x2 : 00000000c9980300 
+[  193.133792] x1 : 00000000c9980000 x0 : 0000000000000300 
+[  193.134328] Call trace:
+[  193.134612]  refcount_dec_and_mutex_lock+0x60/0xe8
+[  193.134901]  skb_set_owner_w+0x60/0xa8
+[  193.135444]  sock_alloc_send_pskb+0x258/0x260
+[  193.138084]  sock_alloc_send_skb+0x1c/0x28
+[  193.141358]  __ip_append_data.isra.0+0x788/0xc30
+[  193.141841]  ip_make_skb+0xec/0x140
+[  193.142200]  udp_sendmsg+0x6ec/0x860
+[  193.142626]  inet_sendmsg+0x40/0x68
+[  193.143224]  __sys_sendto+0xd4/0x150
+[  193.144336]  __arm64_sys_sendto+0x24/0x30
+[  193.146883]  el0_svc_common.constprop.0+0x68/0x160
+[  193.150382]  el0_svc_handler+0x20/0x80
+[  193.151229]  el0_svc+0x8/0xc
+[  193.155871] Code: aa1303e0 941f2c1d 17fffff3 f9800091 (885f7c83) 
+[  193.163755] ---[ end trace 16a035e74627a3e6 ]---

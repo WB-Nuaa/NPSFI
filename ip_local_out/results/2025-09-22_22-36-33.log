@@ -1,0 +1,48 @@
+[  193.393339] Unable to handle kernel paging request at virtual address a8ff7f806c8ad0eb
+[  193.399787] Mem abort info:
+[  193.401195]   ESR = 0x96000021
+[  193.403487]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.404801]   SET = 0, FnV = 0
+[  193.405433]   EA = 0, S1PTW = 0
+[  193.406714] Data abort info:
+[  193.408646]   ISV = 0, ISS = 0x00000021
+[  193.409767]   CM = 0, WnR = 0
+[  193.415930] [a8ff7f806c8ad0eb] address between user and kernel address ranges
+[  193.432704] Internal error: Oops: 96000021 [#1] PREEMPT SMP
+[  193.441798] Modules linked in:
+[  193.449524] CPU: 4 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  193.450075] Hardware name: linux,dummy-virt (DT)
+[  193.451857] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.459620] pc : ip_output+0x60/0x1b0
+[  193.461175] lr : ip_local_out+0x44/0x58
+[  193.461964] sp : ffff8000121c3a30
+[  193.464122] x29: ffff8000121c3a30 x28: 000000000000001a 
+[  193.471096] x27: ffff8000121c3d80 x26: 0000000000000011 
+[  193.473516] x25: 0000000000000012 x24: ffff00007a60a000 
+[  193.481569] x23: ffff00007b22e1c0 x22: ffff00007949d400 
+[  193.482663] x21: ffff800011963ac1 x20: ffff00007806ce00 
+[  193.493283] x19: a8ffff80001140c3 x18: 0000000000000000 
+[  193.500644] x17: 0000000000000000 x16: 0000000000000000 
+[  193.503844] x15: 0000000000000001 x14: 0000000000000000 
+[  193.504738] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.511738] x11: 0000000000000000 x10: 0000000000000068 
+[  193.515426] x9 : ffff00007949d400 x8 : ffff8000121c3c30 
+[  193.519230] x7 : 00000000ffc00000 x6 : 0000000000007886 
+[  193.520065] x5 : ffff0000797f8c24 x4 : 0000000000000001 
+[  193.522060] x3 : a8ffff80001140eb x2 : ffff00007949d400 
+[  193.525010] x1 : ffff00007b22e1c0 x0 : a8ff7f806c8ad0eb 
+[  193.526595] Call trace:
+[  193.528381]  ip_output+0x60/0x1b0
+[  193.529337]  ip_local_out+0x44/0x58
+[  193.530009]  ip_send_skb+0x1c/0xa8
+[  193.532471]  udp_send_skb.isra.0+0x11c/0x368
+[  193.533048]  udp_sendmsg+0x710/0x860
+[  193.533941]  inet_sendmsg+0x40/0x68
+[  193.535896]  __sys_sendto+0xd4/0x150
+[  193.536402]  __arm64_sys_sendto+0x24/0x30
+[  193.537107]  el0_svc_common.constprop.0+0x68/0x160
+[  193.537808]  el0_svc_handler+0x20/0x80
+[  193.539571]  el0_svc+0x8/0xc
+[  193.545317] Code: d2800024 9100a263 d538d080 8b000060 (c85f7c05) 
+[  193.551179] ---[ end trace 308614682ce2c877 ]---
+[  193.573051] note: python3[494] exited with preempt_count 1

@@ -1,0 +1,164 @@
+[  192.920022] Unable to handle kernel paging request at virtual address 006c65487a8fcf60
+[  192.925345] Mem abort info:
+[  192.926191]   ESR = 0x96000004
+[  192.927009]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  192.927891]   SET = 0, FnV = 0
+[  192.928566]   EA = 0, S1PTW = 0
+[  192.929234] Data abort info:
+[  192.929850]   ISV = 0, ISS = 0x00000004
+[  192.932811]   CM = 0, WnR = 0
+[  192.940284] [006c65487a8fcf60] address between user and kernel address ranges
+[  192.943807] Internal error: Oops: 96000004 [#1] PREEMPT SMP
+[  192.948700] Modules linked in:
+[  192.960645] CPU: 3 PID: 495 Comm: python3 Not tainted 5.4.18 #2
+[  192.965910] Hardware name: linux,dummy-virt (DT)
+[  192.972093] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  192.981325] pc : udp_send_skb.isra.0+0x30/0x368
+[  192.982183] lr : udp_sendmsg+0x710/0x860
+[  192.982861] sp : ffff800012093b20
+[  192.984194] x29: ffff800012093b20 x28: 000000000000001a 
+[  192.985819] x27: ffff800012093d80 x26: 0000000000000011 
+[  192.989378] x25: 0000000000000012 x24: ffff000070101e24 
+[  192.991483] x23: ffff800012093c30 x22: 6c6c65487a8fcc80 
+[  192.998070] x21: ffff0000781c8000 x20: 000000000000002e 
+[  193.003545] x19: ffff000078315500 x18: 0000000000000000 
+[  193.006228] x17: 0000000000000000 x16: ffff000070101e10 
+[  193.006706] x15: 0000000000000001 x14: 0000000000000000 
+[  193.009989] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.013728] x11: 0000000000000000 x10: 0000000000000068 
+[  193.018254] x9 : ffff0000781c8000 x8 : ffff800012093c30 
+[  193.018722] x7 : 000000007eb00000 x6 : 0000000000000000 
+[  193.019039] x5 : ffff000070101e00 x4 : 0000000000000024 
+[  193.019344] x3 : ffff800012093c8e x2 : ffff800012093c78 
+[  193.019774] x1 : ffff000070101e10 x0 : ffff000078315500 
+[  193.020971] Call trace:
+[  193.025815]  udp_send_skb.isra.0+0x30/0x368
+[  193.028247]  udp_sendmsg+0x710/0x860
+[  193.028756]  inet_sendmsg+0x40/0x68
+[  193.029126]  __sys_sendto+0xd4/0x150
+[  193.031241]  __arm64_sys_sendto+0x24/0x30
+[  193.034631]  el0_svc_common.constprop.0+0x68/0x160
+[  193.036737]  el0_svc_handler+0x20/0x80
+[  193.037631]  el0_svc+0x8/0xc
+[  193.047443] Code: f9400c16 79415404 b9407014 8b0400b8 (7945c2c6) 
+[  193.072684] ---[ end trace f647536e7e43dce2 ]---
+[  193.332360] ------------[ cut here ]------------
+[  193.334851] WARNING: CPU: 7 PID: 1 at net/netlink/af_netlink.c:1271 netlink_trim+0xd4/0xe0
+[  193.338038] Modules linked in:
+[  193.340982] CPU: 7 PID: 1 Comm: systemd Tainted: G      D           5.4.18 #2
+[  193.343646] Hardware name: linux,dummy-virt (DT)
+[  193.344362] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  193.345115] pc : netlink_trim+0xd4/0xe0
+[  193.346210] lr : netlink_unicast+0x50/0x200
+[  193.346548] sp : ffff80001005bc10
+[  193.346934] x29: ffff80001005bc10 x28: 0000000000000000 
+[  193.347551] x27: ffff0000780fcd00 x26: 0000000000000000 
+[  193.348227] x25: 0000000000000008 x24: 0000000000000000 
+[  193.349675] x23: ffff00007b0a8000 x22: 0000000000000070 
+[  193.350999] x21: ffff000079483000 x20: 0000000000000cc0 
+[  193.351959] x19: ffff0000780fcd00 x18: 0000000000000000 
+[  193.352611] x17: 0000000000000000 x16: ffff000078212400 
+[  193.353283] x15: 0000000000000000 x14: 79732f646d657473 
+[  193.357911] x13: 79732f62696c2f72 x12: 73752f223d657865 
+[  193.358583] x11: 2022646d65747379 x10: 73223d6d6d6f6320 
+[  193.359624] x9 : 7064753d74696e75 x8 : 000064656c696166 
+[  193.360624] x7 : 0000000000000070 x6 : ffff0000780fcd70 
+[  193.361298] x5 : 0000000000000000 x4 : 0000000000000000 
+[  193.362009] x3 : 0000000000000000 x2 : 0000000000000a20 
+[  193.362372] x1 : 0000000000000cc0 x0 : 73223d6d6d6f6320 
+[  193.362879] Call trace:
+[  193.363154]  netlink_trim+0xd4/0xe0
+[  193.363769]  netlink_unicast+0x50/0x200
+[  193.364570]  netlink_sendmsg+0x184/0x328
+[  193.366852]  __sys_sendto+0xd4/0x150
+[  193.367745]  __arm64_sys_sendto+0x24/0x30
+[  193.369670]  el0_svc_common.constprop.0+0x68/0x160
+[  193.370992]  el0_svc_handler+0x20/0x80
+[  193.372590]  el0_svc+0x8/0xc
+[  193.373026] ---[ end trace f647536e7e43dce3 ]---
+[  193.376006] ------------[ cut here ]------------
+[  193.378460] WARNING: CPU: 7 PID: 1 at net/netlink/af_netlink.c:376 netlink_skb_set_owner_r+0x68/0x70
+[  193.379552] Modules linked in:
+[  193.379978] CPU: 7 PID: 1 Comm: systemd Tainted: G      D W         5.4.18 #2
+[  193.380582] Hardware name: linux,dummy-virt (DT)
+[  193.382185] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  193.382551] pc : netlink_skb_set_owner_r+0x68/0x70
+[  193.382976] lr : netlink_unicast+0x158/0x200
+[  193.383511] sp : ffff80001005bc40
+[  193.383771] x29: ffff80001005bc40 x28: 0000000000000000 
+[  193.384598] x27: ffff0000780fcd00 x26: 0000000000000000 
+[  193.387661] x25: 0000000000000008 x24: 0000000000000000 
+[  193.391955] x23: ffff00007b0a8000 x22: ffff0000780fcd00 
+[  193.394348] x21: ffff000079483000 x20: 0000000000000070 
+[  193.395167] x19: ffff00007b368800 x18: 0000000000000000 
+[  193.396473] x17: 0000000000000000 x16: ffff000078212400 
+[  193.398509] x15: 0000000000000000 x14: 79732f646d657473 
+[  193.403050] x13: 79732f62696c2f72 x12: 73752f223d657865 
+[  193.405078] x11: 2022646d65747379 x10: 73223d6d6d6f6320 
+[  193.407270] x9 : 7064753d74696e75 x8 : 000064656c696166 
+[  193.407849] x7 : ffff0000797ea0f9 x6 : fffffffffffffc20 
+[  193.408520] x5 : 0000000000000000 x4 : 0000000000000002 
+[  193.410155] x3 : ffff00007b368880 x2 : 73223d6d6d6f6320 
+[  193.410979] x1 : ffff00007b368800 x0 : ffff0000780fcd00 
+[  193.411406] Call trace:
+[  193.411648]  netlink_skb_set_owner_r+0x68/0x70
+[  193.412135]  netlink_sendmsg+0x184/0x328
+[  193.413910]  __sys_sendto+0xd4/0x150
+[  193.414798]  __arm64_sys_sendto+0x24/0x30
+[  193.415315]  el0_svc_common.constprop.0+0x68/0x160
+[  193.416195]  el0_svc_handler+0x20/0x80
+[  193.416761]  el0_svc+0x8/0xc
+[  193.417644] ---[ end trace f647536e7e43dce4 ]---
+[  193.420414] Unable to handle kernel paging request at virtual address 006e696d72657460
+[  193.421779] Mem abort info:
+[  193.422324]   ESR = 0x96000004
+[  193.422591]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.423700]   SET = 0, FnV = 0
+[  193.423842]   EA = 0, S1PTW = 0
+[  193.428877] Data abort info:
+[  193.430642]   ISV = 0, ISS = 0x00000004
+[  193.432225]   CM = 0, WnR = 0
+[  193.434048] [006e696d72657460] address between user and kernel address ranges
+[  193.435475] Internal error: Oops: 96000004 [#2] PREEMPT SMP
+[  193.436464] Modules linked in:
+[  193.438226] CPU: 4 PID: 1 Comm: systemd Tainted: G      D W         5.4.18 #2
+[  193.440442] Hardware name: linux,dummy-virt (DT)
+[  193.444372] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.450025] pc : dst_alloc+0x128/0x140
+[  193.450233] lr : skb_release_head_state+0xb0/0xc8
+[  193.451922] sp : ffff80001005bbb0
+[  193.452181] x29: ffff80001005bbb0 x28: 0000000000000000 
+[  193.452782] x27: ffff0000780fcd00 x26: 0000000000000000 
+[  193.453478] x25: 0000000000000008 x24: 0000000000000000 
+[  193.454043] x23: ffff00007b0a8000 x22: ffff0000780fcd00 
+[  193.454270] x21: ffff000079483000 x20: 0000000000000070 
+[  193.454555] x19: 616e696d72657420 x18: 0000000000000000 
+[  193.454796] x17: 0000000000000000 x16: ffff000078212400 
+[  193.455175] x15: 0000000000000000 x14: 79732f646d657473 
+[  193.455648] x13: 79732f62696c2f72 x12: 73752f223d657865 
+[  193.456152] x11: 2022646d65747379 x10: 73223d6d6d6f6320 
+[  193.456392] x9 : 7064753d74696e75 x8 : 000064656c696166 
+[  193.456752] x7 : ffff0000797ea0f9 x6 : fffffffffffffc20 
+[  193.456958] x5 : ffff00007b3688e8 x4 : 0000000000000000 
+[  193.457265] x3 : ffff8000119b7fb8 x2 : 616e696d72657460 
+[  193.458503] x1 : ffff00007b0a8000 x0 : 0000000000000001 
+[  193.458781] Call trace:
+[  193.459020]  dst_alloc+0x128/0x140
+[  193.459336]  skb_release_head_state+0xb0/0xc8
+[  193.459681]  skb_release_all+0x14/0x30
+[  193.459934]  consume_skb+0x2c/0x58
+[  193.460203]  netlink_unicast+0x180/0x200
+[  193.460571]  netlink_sendmsg+0x184/0x328
+[  193.462083]  __sys_sendto+0xd4/0x150
+[  193.462547]  __arm64_sys_sendto+0x24/0x30
+[  193.463098]  el0_svc_common.constprop.0+0x68/0x160
+[  193.463316]  el0_svc_handler+0x20/0x80
+[  193.463502]  el0_svc+0x8/0xc
+[  193.463649] Code: 35ffffa1 d5033bbf 17fffee3 f9800051 (885f7c43) 
+[  193.465966] ---[ end trace f647536e7e43dce5 ]---
+[  193.467060] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  193.468237] SMP: stopping secondary CPUs
+[  193.470011] Kernel Offset: disabled
+[  193.471618] CPU features: 0x0002,20006000
+[  193.473091] Memory Limit: none
+[  193.475157] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

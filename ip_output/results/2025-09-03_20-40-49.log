@@ -1,0 +1,88 @@
+[  194.758313] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000d9
+[  194.760137] Mem abort info:
+[  194.760662]   ESR = 0x96000006
+[  194.761532]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.763763]   SET = 0, FnV = 0
+[  194.766742]   EA = 0, S1PTW = 0
+[  194.768288] Data abort info:
+[  194.773123]   ISV = 0, ISS = 0x00000006
+[  194.773661]   CM = 0, WnR = 0
+[  194.775104] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b17e9000
+[  194.778631] [00000000000000d9] pgd=00000000b264b003, pud=00000000b7091003, pmd=0000000000000000
+[  194.796035] Unable to handle kernel paging request at virtual address 000000770000001a
+[  194.802542] Mem abort info:
+[  194.806262]   ESR = 0x96000045
+[  194.810566]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.815287]   SET = 0, FnV = 0
+[  194.825784]   EA = 0, S1PTW = 0
+[  194.830765] Data abort info:
+[  194.836589]   ISV = 0, ISS = 0x00000045
+[  194.839966]   CM = 0, WnR = 1
+[  194.840320] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b17e9000
+[  194.846463] [000000770000001a] pgd=00000000b264b003, pud=0000000000000000
+[  194.849445] Internal error: Oops: 96000045 [#1] PREEMPT SMP
+[  194.853404] Modules linked in:
+[  194.858358] CPU: 4 PID: 495 Comm: python3 Not tainted 5.4.18 #2
+[  194.865716] Hardware name: linux,dummy-virt (DT)
+[  194.869526] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  194.871715] pc : ip_do_fragment+0x4b0/0x5c8
+[  194.875315] lr : ip_output+0xf4/0x1b0
+[  194.881011] sp : ffff800010023a50
+[  194.886209] x29: ffff800010023a50 x28: ffff800011963ac0 
+[  194.886941] x27: ffff0000797ce010 x26: ffff800010023c60 
+[  194.889842] x25: 0000000000000001 x24: ffff00007a9ca000 
+[  194.896784] x23: ffff00007aaa2d00 x22: ffff00007950aa00 
+[  194.902758] x21: ffff800011963ac0 x20: ffff000079441a00 
+[  194.904036] x19: ffff80001140c380 x18: 0000000000000010 
+[  194.906640] x17: 0000000000000000 x16: 0000000000000000 
+[  194.908205] x15: 0000000000000001 x14: 0000000000000000 
+[  194.910029] x13: 0000000000000006 x12: 00000000c0a8016e 
+[  194.912284] x11: 0000000000000000 x10: 0000000000000068 
+[  194.913982] x9 : ffff00007950aa00 x8 : 00000000ae4df800 
+[  194.916214] x7 : 0000000000000000 x6 : ffff0000797cc424 
+[  194.919377] x5 : 00000000000046a2 x4 : 000000000000004a 
+[  194.920147] x3 : 0000000000000002 x2 : ffff000079441a00 
+[  194.924666] x1 : 0000000075c6c002 x0 : 0000007700000002 
+[  194.932168] Call trace:
+[  194.936311]  ip_do_fragment+0x4b0/0x5c8
+[  194.939307]  ip_local_out+0x44/0x58
+[  194.940035]  ip_send_skb+0x1c/0xa8
+[  194.941170]  ip_push_pending_frames+0x2c/0x48
+[  194.945409]  icmp_push_reply+0xf4/0x148
+[  194.949394]  __icmp_send+0x358/0x4b0
+[  194.951293]  ipv4_link_failure+0xe4/0x1b8
+[  194.955971]  arp_error_report+0x30/0x40
+[  194.959339]  neigh_invalidate+0xc8/0x170
+[  194.962511]  neigh_timer_handler+0x254/0x288
+[  194.965058]  call_timer_fn.isra.0+0x20/0x78
+[  194.969942]  run_timer_softirq+0x1a0/0x410
+[  194.971054]  __do_softirq+0x124/0x240
+[  194.971748]  irq_exit+0xb8/0xd8
+[  194.972368]  __handle_domain_irq+0x64/0xb8
+[  194.979288]  gic_handle_irq+0x50/0xa0
+[  194.979719]  el1_irq+0xb8/0x180
+[  194.979900]  die+0x0/0x248
+[  194.980608]  __do_kernel_fault+0x84/0x120
+[  194.982940]  do_page_fault+0x1b4/0x460
+[  194.983688]  do_translation_fault+0x5c/0x78
+[  194.987052]  do_mem_abort+0x3c/0x98
+[  194.988291]  el1_da+0x1c/0x90
+[  194.996927]  ip_do_fragment+0x4bc/0x5c8
+[  195.003513]  ip_local_out+0x44/0x58
+[  195.007496]  ip_send_skb+0x1c/0xa8
+[  195.012030]  udp_send_skb.isra.0+0x11c/0x368
+[  195.014381]  udp_sendmsg+0x710/0x860
+[  195.019049]  inet_sendmsg+0x40/0x68
+[  195.023029]  __sys_sendto+0xd4/0x150
+[  195.023870]  __arm64_sys_sendto+0x24/0x30
+[  195.026032]  el0_svc_common.constprop.0+0x68/0x160
+[  195.030456]  el0_svc_handler+0x20/0x80
+[  195.036871]  el0_svc+0x8/0xc
+[  195.041284] Code: f100001f fa491004 54000880 d503201f (f9000c1f) 
+[  195.056796] ---[ end trace 911e5e8af8b97d5b ]---
+[  195.062719] Kernel panic - not syncing: Fatal exception in interrupt
+[  195.067649] SMP: stopping secondary CPUs
+[  195.072786] Kernel Offset: disabled
+[  195.076415] CPU features: 0x0002,20006000
+[  195.080777] Memory Limit: none
+[  195.088211] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

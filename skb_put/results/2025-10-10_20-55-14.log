@@ -1,0 +1,50 @@
+[  192.615076] kernel BUG at net/core/skbuff.c:1862!
+[  192.621074] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  192.625140] Modules linked in:
+[  192.633355] CPU: 2 PID: 0 Comm: swapper/2 Not tainted 5.4.18 #2
+[  192.634452] Hardware name: linux,dummy-virt (DT)
+[  192.638959] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  192.644156] pc : skb_put+0x3c/0x60
+[  192.644422] lr : __nla_reserve+0x28/0x68
+[  192.644683] sp : ffff800010013c70
+[  192.644908] x29: ffff800010013c70 x28: ffff800010013e80 
+[  192.645293] x27: ffff00007a5ac000 x26: ffff000078236898 
+[  192.645591] x25: ffff000078236828 x24: 00000000ffff9600 
+[  192.645887] x23: ffff00007b0c2a00 x22: 0000000000000002 
+[  192.646217] x21: 000000000000000c x20: 0000000000000006 
+[  192.646517] x19: 0000000000000006 x18: 0000000000000000 
+[  192.646811] x17: 0000000000000000 x16: 0000000000000000 
+[  192.647106] x15: 0000000000000000 x14: 003d08f30214d0c1 
+[  192.647398] x13: 00001e8480000000 x12: 0000000000000000 
+[  192.647716] x11: 00001e847980cac0 x10: 0000008000000000 
+[  192.648185] x9 : 0000000000000001 x8 : ffff000078236224 
+[  192.648591] x7 : 0000000000000000 x6 : ffff800010013d4e 
+[  192.648981] x5 : ffff000078236224 x4 : 000000000000000c 
+[  192.649366] x3 : 0000000000000024 x2 : 0000000000000006 
+[  192.649755] x1 : 000000000000000c x0 : ffff00007991cc00 
+[  192.650657] Call trace:
+[  192.651980]  skb_put+0x3c/0x60
+[  192.652578]  __nla_put+0x18/0x38
+[  192.652785]  nla_put+0x30/0x48
+[  192.652979]  neigh_fill_info+0x210/0x298
+[  192.653201]  __neigh_notify+0x60/0xe0
+[  192.653411]  neigh_timer_handler+0xc8/0x288
+[  192.653653]  call_timer_fn.isra.0+0x20/0x78
+[  192.653886]  run_timer_softirq+0x1a0/0x410
+[  192.654210]  __do_softirq+0x124/0x240
+[  192.654428]  irq_exit+0xb8/0xd8
+[  192.654618]  __handle_domain_irq+0x64/0xb8
+[  192.654840]  gic_handle_irq+0x50/0xa0
+[  192.655045]  el1_irq+0xb8/0x180
+[  192.655254]  arch_cpu_idle+0x10/0x18
+[  192.655611]  do_idle+0x204/0x288
+[  192.655874]  cpu_startup_entry+0x24/0x40
+[  192.656193]  secondary_start_kernel+0x154/0x190
+[  192.657463] Code: 6b02007f 54000088 aa0503e0 d65f03c0 (d4210000) 
+[  192.660836] ---[ end trace b969efe03bfa8aba ]---
+[  192.661762] Kernel panic - not syncing: Fatal exception in interrupt
+[  192.662391] SMP: stopping secondary CPUs
+[  192.664609] Kernel Offset: disabled
+[  192.665257] CPU features: 0x0002,20006000
+[  192.665701] Memory Limit: none
+[  192.668750] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

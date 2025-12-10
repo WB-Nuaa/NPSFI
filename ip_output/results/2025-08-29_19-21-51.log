@@ -1,0 +1,119 @@
+[  192.901382] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  192.908745] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  192.909583] Modules linked in:
+[  192.913834] CPU: 7 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  192.914382] Hardware name: linux,dummy-virt (DT)
+[  192.915597] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  192.919545] pc : do_undefinstr+0x2ec/0x310
+[  192.920044] lr : do_undefinstr+0x1e0/0x310
+[  192.920649] sp : ffff800011fd3890
+[  192.921307] x29: ffff800011fd3890 x28: ffff000070728000 
+[  192.922558] x27: ffff800011fd3d80 x26: 0000000000000011 
+[  192.922869] x25: 0000000000000012 x24: 0000000000000000 
+[  192.923164] x23: 0000000060000005 x22: ffff800010b7914c 
+[  192.923457] x21: ffff800011fd3a30 x20: ffff000070728000 
+[  192.923749] x19: ffff800011fd38f0 x18: 0000000000000000 
+[  192.924043] x17: 0000000000000000 x16: 0000000000000000 
+[  192.924365] x15: 0000000000000001 x14: 0000000000000000 
+[  192.924659] x13: 0000000000000006 x12: 00000000c0a80164 
+[  192.924952] x11: 0000000000000000 x10: 0000000000000068 
+[  192.925334] x9 : ffff000070728000 x8 : ffff800011fd3c30 
+[  192.925784] x7 : 0000000003300000 x6 : ffff800011fd38e8 
+[  192.926197] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  192.926599] x3 : 00000000ae000000 x2 : 0000000000000000 
+[  192.926968] x1 : ffff000070728000 x0 : 0000000060000005 
+[  192.927791] Call trace:
+[  192.928469]  do_undefinstr+0x2ec/0x310
+[  192.928787]  el1_undef+0x10/0x84
+[  192.929049]  ip_output+0xc/0x1b0
+[  192.929294]  ip_local_out+0x44/0x58
+[  192.929568]  ip_send_skb+0x1c/0xa8
+[  192.929839]  udp_send_skb.isra.0+0x11c/0x368
+[  192.930175]  udp_sendmsg+0x710/0x860
+[  192.930459]  inet_sendmsg+0x40/0x68
+[  192.930842]  __sys_sendto+0xd4/0x150
+[  192.931133]  __arm64_sys_sendto+0x24/0x30
+[  192.931447]  el0_svc_common.constprop.0+0x68/0x160
+[  192.931793]  el0_svc_handler+0x20/0x80
+[  192.932087]  el0_svc+0x8/0xc
+[  192.933023] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  192.934996] ---[ end trace cc2207f58b0cf6e2 ]---
+[  192.936082] note: python3[493] exited with preempt_count 1
+[  192.950296] ------------[ cut here ]------------
+[  192.950827] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  192.952332] Internal error: Oops - BUG: 0 [#2] PREEMPT SMP
+[  192.953266] Modules linked in:
+[  192.953744] CPU: 7 PID: 493 Comm: python3 Tainted: G      D           5.4.18 #2
+[  192.954722] Hardware name: linux,dummy-virt (DT)
+[  192.955685] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  192.955962] pc : do_undefinstr+0x2ec/0x310
+[  192.956348] lr : do_undefinstr+0x1e0/0x310
+[  192.956735] sp : ffff80001003b8b0
+[  192.957254] x29: ffff80001003b8b0 x28: ffff000070728000 
+[  192.957800] x27: ffff0000782ce210 x26: ffff80001003bc60 
+[  192.958467] x25: 0000000000000001 x24: 0000000000000000 
+[  192.959720] x23: 0000000060000005 x22: ffff800010b7914c 
+[  192.960483] x21: ffff80001003ba50 x20: ffff000070728000 
+[  192.960933] x19: ffff80001003b910 x18: 0000000000000010 
+[  192.963458] x17: 0000000000000000 x16: 0000000000000000 
+[  192.966151] x15: 0000000000000001 x14: 0000000000000000 
+[  192.968503] x13: 0000000000000006 x12: 00000000c0a8016e 
+[  192.973584] x11: 0000000000000000 x10: 0000000000000068 
+[  192.974858] x9 : ffff000070728000 x8 : 00000000d006f800 
+[  192.980529] x7 : 0000000000000000 x6 : ffff80001003b908 
+[  192.983579] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  192.984732] x3 : 00000000ae000000 x2 : 0000000000000000 
+[  192.986931] x1 : ffff000070728000 x0 : 0000000060000005 
+[  192.987277] Call trace:
+[  192.987568]  do_undefinstr+0x2ec/0x310
+[  192.987875]  el1_undef+0x10/0x84
+[  192.988130]  ip_output+0xc/0x1b0
+[  192.988664]  ip_local_out+0x44/0x58
+[  192.989746]  ip_send_skb+0x1c/0xa8
+[  192.990806]  ip_push_pending_frames+0x2c/0x48
+[  192.991557]  icmp_push_reply+0xf4/0x148
+[  192.992185]  __icmp_send+0x358/0x4b0
+[  192.992586]  ipv4_link_failure+0xe4/0x1b8
+[  192.993008]  arp_error_report+0x30/0x40
+[  192.994665]  neigh_invalidate+0xc8/0x170
+[  192.996511]  neigh_timer_handler+0x254/0x288
+[  192.997122]  call_timer_fn.isra.0+0x20/0x78
+[  192.998619]  run_timer_softirq+0x1a0/0x410
+[  192.999405]  __do_softirq+0x124/0x240
+[  193.001051]  irq_exit+0xb8/0xd8
+[  193.001328]  __handle_domain_irq+0x64/0xb8
+[  193.002554]  gic_handle_irq+0x50/0xa0
+[  193.003338]  el1_irq+0xb8/0x180
+[  193.004200]  page_remove_rmap+0x170/0x3c8
+[  193.004678]  unmap_page_range+0x658/0xb38
+[  193.005214]  unmap_single_vma+0x48/0xa0
+[  193.005794]  unmap_vmas+0x6c/0xe8
+[  193.007097]  exit_mmap+0xc8/0x180
+[  193.008870]  mmput+0x74/0x148
+[  193.009978]  do_exit+0x2a0/0x980
+[  193.010481]  die+0x208/0x248
+[  193.011739]  bug_handler+0x44/0x80
+[  193.014167]  brk_handler+0x68/0xc8
+[  193.015106]  do_debug_exception+0xbc/0x178
+[  193.016048]  el1_dbg+0x18/0x8c
+[  193.017895]  do_undefinstr+0x2ec/0x310
+[  193.019454]  el1_undef+0x10/0x84
+[  193.024091]  ip_output+0xc/0x1b0
+[  193.024445]  ip_local_out+0x44/0x58
+[  193.027464]  ip_send_skb+0x1c/0xa8
+[  193.027612]  udp_send_skb.isra.0+0x11c/0x368
+[  193.027775]  udp_sendmsg+0x710/0x860
+[  193.029541]  inet_sendmsg+0x40/0x68
+[  193.033479]  __sys_sendto+0xd4/0x150
+[  193.034608]  __arm64_sys_sendto+0x24/0x30
+[  193.041909]  el0_svc_common.constprop.0+0x68/0x160
+[  193.061598]  el0_svc_handler+0x20/0x80
+[  193.073093]  el0_svc+0x8/0xc
+[  193.076392] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  193.111096] ---[ end trace cc2207f58b0cf6e3 ]---
+[  193.119900] Kernel panic - not syncing: Fatal exception in interrupt
+[  193.126922] SMP: stopping secondary CPUs
+[  193.137620] Kernel Offset: disabled
+[  193.141546] CPU features: 0x0002,20006000
+[  193.143458] Memory Limit: none
+[  193.147031] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

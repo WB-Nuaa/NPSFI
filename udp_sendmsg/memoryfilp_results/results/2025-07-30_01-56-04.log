@@ -1,0 +1,48 @@
+[  192.435499] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000008
+[  192.441394] Mem abort info:
+[  192.441900]   ESR = 0x96000006
+[  192.443396]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  192.446947]   SET = 0, FnV = 0
+[  192.449341]   EA = 0, S1PTW = 0
+[  192.451352] Data abort info:
+[  192.451876]   ISV = 0, ISS = 0x00000006
+[  192.453205]   CM = 0, WnR = 0
+[  192.463099] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000bb35d000
+[  192.477606] [0000000000000008] pgd=00000000b24a6003, pud=00000000b2791003, pmd=0000000000000000
+[  192.492275] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  192.498767] Modules linked in:
+[  192.504664] CPU: 3 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  192.506146] Hardware name: linux,dummy-virt (DT)
+[  192.508002] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  192.522990] pc : fib_table_lookup+0x20/0x390
+[  192.526913] lr : ip_route_output_key_hash_rcu+0x2e0/0x668
+[  192.529105] sp : ffff800011f7ba10
+[  192.530411] x29: ffff800011f7ba10 x28: 0000000000000012 
+[  192.532188] x27: ffff800011f7bd80 x26: 0000000000000011 
+[  192.532713] x25: 0000000000000000 x24: 0000000000000000 
+[  192.533227] x23: 0000000000000000 x22: ffff00007b229b40 
+[  192.536338] x21: ffff00007b229de8 x20: ffff800011f7bb18 
+[  192.536645] x19: ffff800011f7bc30 x18: 0000000000000000 
+[  192.537070] x17: 0000000000000000 x16: 0000000000000000 
+[  192.537450] x15: 0000000000000000 x14: 0000000000000000 
+[  192.538892] x13: 0000000000000000 x12: 000000006401a8c0 
+[  192.543567] x11: 0000000000000000 x10: 000000000000e7ea 
+[  192.548515] x9 : 000000006401a8c0 x8 : ffff00007b229b40 
+[  192.553344] x7 : 00000000000003e8 x6 : ffff800011f7bde8 
+[  192.556150] x5 : ffff800011f7bde8 x4 : 0000000000000001 
+[  192.559332] x3 : 0000000000000001 x2 : ffff800011f7bb18 
+[  192.564074] x1 : ffff800011f7bc30 x0 : 0000000000000000 
+[  192.569030] Call trace:
+[  192.570778]  fib_table_lookup+0x20/0x390
+[  192.574334]  ip_route_output_key_hash_rcu+0x2e0/0x668
+[  192.575717]  ip_route_output_key_hash+0x74/0xa8
+[  192.579125]  ip_route_output_flow+0x10/0x18
+[  192.583956]  udp_sendmsg+0x520/0x860
+[  192.590175]  inet_sendmsg+0x40/0x68
+[  192.591017]  __sys_sendto+0xd4/0x150
+[  192.593371]  __arm64_sys_sendto+0x24/0x30
+[  192.594979]  el0_svc_common.constprop.0+0x68/0x160
+[  192.596448]  el0_svc_handler+0x20/0x80
+[  192.598601]  el0_svc+0x8/0xc
+[  192.609223] Code: aa0003f5 f90023f9 f9401400 b9402c2c (f9400413) 
+[  192.616437] ---[ end trace 08aeab82fc4e5cb5 ]---

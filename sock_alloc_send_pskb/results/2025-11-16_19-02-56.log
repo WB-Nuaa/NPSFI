@@ -1,0 +1,45 @@
+[  192.622517] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  192.644443] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  192.648184] Modules linked in:
+[  192.657019] CPU: 2 PID: 1 Comm: systemd Not tainted 5.4.18 #2
+[  192.658647] Hardware name: linux,dummy-virt (DT)
+[  192.663172] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  192.679662] pc : do_undefinstr+0x2ec/0x310
+[  192.681293] lr : do_undefinstr+0x1e0/0x310
+[  192.685290] sp : ffff80001005b8e0
+[  192.686607] x29: ffff80001005b8e0 x28: ffff00007b0a8000 
+[  192.688392] x27: 000000000000003f x26: ffff80001005bc30 
+[  192.689116] x25: ffff0000797d1400 x24: 0000000000000000 
+[  192.692525] x23: 0000000080000005 x22: ffff800010af959c 
+[  192.693058] x21: ffff80001005ba80 x20: ffff00007b0a8000 
+[  192.696292] x19: ffff80001005b940 x18: 0000000000000000 
+[  192.697304] x17: 0000000000000000 x16: 0000000000000000 
+[  192.703265] x15: 0000000000000000 x14: 0000000000000000 
+[  192.704684] x13: 0000000000000000 x12: 0000000000000000 
+[  192.706263] x11: 0000000000000000 x10: 0000000000400100 
+[  192.707451] x9 : ffff00007b0a8000 x8 : 0000ffffffffffff 
+[  192.709018] x7 : ffff80001005bd58 x6 : ffff80001005b938 
+[  192.709870] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  192.710702] x3 : 00000000a1000000 x2 : 0000000000000000 
+[  192.712471] x1 : ffff00007b0a8000 x0 : 0000000080000005 
+[  192.718814] Call trace:
+[  192.720808]  do_undefinstr+0x2ec/0x310
+[  192.722355]  el1_undef+0x10/0x84
+[  192.723649]  sock_alloc_send_pskb+0x1c/0x260
+[  192.724980]  unix_stream_sendmsg+0x1cc/0x340
+[  192.726899]  ____sys_sendmsg+0x240/0x280
+[  192.731624]  ___sys_sendmsg+0x80/0xe0
+[  192.731879]  __sys_sendmsg+0x64/0xc0
+[  192.736824]  __arm64_sys_sendmsg+0x20/0x28
+[  192.737748]  el0_svc_common.constprop.0+0x68/0x160
+[  192.739761]  el0_svc_handler+0x20/0x80
+[  192.740970]  el0_svc+0x8/0xc
+[  192.743965] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  192.752326] ---[ end trace f8410cc631f58d96 ]---
+[  192.753760] note: systemd[1] exited with preempt_count 1
+[  192.755935] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  192.761037] SMP: stopping secondary CPUs
+[  192.765671] Kernel Offset: disabled
+[  192.767342] CPU features: 0x0002,20006000
+[  192.769212] Memory Limit: none
+[  192.773187] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

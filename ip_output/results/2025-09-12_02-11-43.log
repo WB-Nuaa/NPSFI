@@ -1,0 +1,45 @@
+[  192.690355] Unable to handle kernel read from unreadable memory at virtual address ffff800010c79210
+[  192.694341] Mem abort info:
+[  192.696834]   ESR = 0x8600000f
+[  192.697922]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  192.698803]   SET = 0, FnV = 0
+[  192.703731]   EA = 0, S1PTW = 0
+[  192.706332] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  192.713699] [ffff800010c79210] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=00000000bdffc003, pte=0060000040c79793
+[  192.753785] Internal error: Oops: 8600000f [#1] PREEMPT SMP
+[  192.757214] Modules linked in:
+[  192.766625] CPU: 6 PID: 498 Comm: python3 Not tainted 5.4.18 #2
+[  192.773378] Hardware name: linux,dummy-virt (DT)
+[  192.777446] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  192.803461] pc : default_pipe_buf_ops+0x10/0x20
+[  192.812273] lr : ip_local_out+0x44/0x58
+[  192.816362] sp : ffff800011fcba30
+[  192.818443] x29: ffff800011fcba30 x28: 000000000000001a 
+[  192.825209] x27: ffff800011fcbd80 x26: 0000000000000011 
+[  192.831858] x25: 0000000000000012 x24: ffff000079b78000 
+[  192.842186] x23: ffff00007ab7b300 x22: ffff00006febaa00 
+[  192.851271] x21: ffff800011963ac0 x20: ffff000076cc6100 
+[  192.858920] x19: ffff80001140c380 x18: 0000000000000000 
+[  192.863424] x17: 0000000000000000 x16: 0000000000000000 
+[  192.865016] x15: 0000000000000001 x14: 0000000000000000 
+[  192.868496] x13: 0000000000000006 x12: 00000000c0a80164 
+[  192.870015] x11: 0000000000000000 x10: 0000000000000068 
+[  192.872002] x9 : ffff00006febaa00 x8 : ffff800011fcbc30 
+[  192.874820] x7 : 0000000049a00000 x6 : 0000000000009dc5 
+[  192.876395] x5 : 00000000000014e3 x4 : 000000000000002e 
+[  192.877679] x3 : ffff80001140c3b0 x2 : ffff00006febaa00 
+[  192.882262] x1 : 0000000000000000 x0 : 0000000100000000 
+[  192.887978] Call trace:
+[  192.889065]  default_pipe_buf_ops+0x10/0x20
+[  192.890156]  ip_local_out+0x44/0x58
+[  192.891027]  ip_send_skb+0x1c/0xa8
+[  192.891923]  udp_send_skb.isra.0+0x11c/0x368
+[  192.892622]  udp_sendmsg+0x710/0x860
+[  192.893289]  inet_sendmsg+0x40/0x68
+[  192.893570]  __sys_sendto+0xd4/0x150
+[  192.894021]  __arm64_sys_sendto+0x24/0x30
+[  192.894639]  el0_svc_common.constprop.0+0x68/0x160
+[  192.895399]  el0_svc_handler+0x20/0x80
+[  192.896634]  el0_svc+0x8/0xc
+[  192.902211] Code: 10270468 ffff8000 10270860 ffff8000 (102707a8) 
+[  192.908308] ---[ end trace 13feaf0477c7d32d ]---

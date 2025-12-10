@@ -1,0 +1,53 @@
+[  192.980523] Unable to handle kernel write to read-only memory at virtual address ffff800010bd42bc
+[  192.982972] Mem abort info:
+[  192.983244]   ESR = 0x9600004e
+[  192.983542]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  192.983731]   SET = 0, FnV = 0
+[  192.983858]   EA = 0, S1PTW = 0
+[  192.983998] Data abort info:
+[  192.984125]   ISV = 0, ISS = 0x0000004e
+[  192.984267]   CM = 0, WnR = 1
+[  192.984594] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  192.985355] [ffff800010bd42bc] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0040000040a00791
+[  192.990728] Internal error: Oops: 9600004e [#1] PREEMPT SMP
+[  192.991900] Modules linked in:
+[  192.995748] CPU: 2 PID: 1 Comm: systemd Not tainted 5.4.18 #2
+[  192.996493] Hardware name: linux,dummy-virt (DT)
+[  192.997606] pstate: 20000005 (nzCv daif -PAN -UAO)
+[  193.002473] pc : _copy_from_iter+0xd8/0x360
+[  193.005787] lr : skb_copy_datagram_from_iter+0x64/0x1d8
+[  193.006035] sp : ffff80001005ba70
+[  193.006200] x29: ffff80001005ba70 x28: 0000000000000000 
+[  193.006492] x27: ffff00007720e500 x26: ffff800010bd42a4 
+[  193.006727] x25: ffff800010bd42b4 x24: ffff00007720e500 
+[  193.008853] x23: 0000000000000148 x22: ffff800010bd42b4 
+[  193.010171] x21: 0000000000000148 x20: 0000000000000148 
+[  193.010410] x19: 12800bc1b9404c88 x18: 0000000000000000 
+[  193.010640] x17: 0000000000000000 x16: 0000000000000000 
+[  193.011441] x15: 0000000000000000 x14: 0000ffff8f6742f9 
+[  193.012276] x13: 000000000000002e x12: 0000aaaaf3ecfbf0 
+[  193.012979] x11: 0000000000000001 x10: 0000000000400100 
+[  193.013496] x9 : ffff00007b0a8000 x8 : 0000ffffffffffff 
+[  193.013959] x7 : 0000000000000501 x6 : 0000000000000000 
+[  193.014565] x5 : ffff000078276400 x4 : ffff000078276400 
+[  193.015040] x3 : 370013c0b9008299 x2 : 00000000f809c3e1 
+[  193.015431] x1 : 0000000000000148 x0 : ffff000078276400 
+[  193.016467] Call trace:
+[  193.017746]  _copy_from_iter+0xd8/0x360
+[  193.018410]  skb_copy_datagram_from_iter+0x64/0x1d8
+[  193.018843]  unix_dgram_sendmsg+0x154/0x568
+[  193.019645]  ____sys_sendmsg+0x240/0x280
+[  193.021147]  ___sys_sendmsg+0x80/0xe0
+[  193.022120]  __sys_sendmsg+0x64/0xc0
+[  193.022526]  __arm64_sys_sendmsg+0x20/0x28
+[  193.023008]  el0_svc_common.constprop.0+0x68/0x160
+[  193.023291]  el0_svc_handler+0x20/0x80
+[  193.023533]  el0_svc+0x8/0xc
+[  193.025736] Code: cb971017 f90012d7 a94363f7 cb140063 (a9008ed3) 
+[  193.029960] ---[ end trace 6c93ff0294d53f36 ]---
+[  193.032045] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  193.034098] SMP: stopping secondary CPUs
+[  193.035560] Kernel Offset: disabled
+[  193.035934] CPU features: 0x0002,20006000
+[  193.036195] Memory Limit: none
+[  193.037797] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

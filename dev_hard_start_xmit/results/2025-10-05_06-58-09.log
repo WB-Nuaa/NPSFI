@@ -1,0 +1,53 @@
+[  193.851476] kernel BUG at net/core/skbuff.c:1622!
+[  193.853328] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  193.854812] Modules linked in:
+[  193.857637] CPU: 7 PID: 492 Comm: python3 Not tainted 5.4.18 #2
+[  193.858617] Hardware name: linux,dummy-virt (DT)
+[  193.860315] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  193.862059] pc : pskb_expand_head+0x26c/0x2c8
+[  193.862468] lr : __skb_pad+0x78/0x120
+[  193.863138] sp : ffff800011e3b6e0
+[  193.863742] x29: ffff800011e3b6e0 x28: ffff00007a47ec80 
+[  193.864904] x27: ffff000076dbac00 x26: ffff00007a86e090 
+[  193.865738] x25: ffff8000117b7000 x24: 0000000000000000 
+[  193.866403] x23: ffff8000117bf958 x22: 0000000000000001 
+[  193.866800] x21: ffff00007ab4f200 x20: 0000000000000000 
+[  193.867248] x19: ffff000076dbac00 x18: 0000000000000000 
+[  193.867822] x17: 0000000000000000 x16: 0000000000000000 
+[  193.868138] x15: 0000000000000001 x14: 0000000000000000 
+[  193.868433] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.868725] x11: 0000000000000000 x10: 0000000000000068 
+[  193.869017] x9 : ffff00007949d400 x8 : 0000000000000000 
+[  193.869307] x7 : fffffdffbff2a430 x6 : 0000000000000010 
+[  193.869643] x5 : 0000000000000000 x4 : 0000000000000000 
+[  193.870399] x3 : 0000000000000a20 x2 : 000000000000003c 
+[  193.871206] x1 : 0000000000000000 x0 : 0000000000000000 
+[  193.873099] Call trace:
+[  193.874018]  pskb_expand_head+0x26c/0x2c8
+[  193.874819]  __skb_pad+0x78/0x120
+[  193.875419]  e1000_xmit_frame+0xa18/0xf80
+[  193.876066]  dev_hard_start_xmit+0x94/0x158
+[  193.876816]  sch_direct_xmit+0x120/0x340
+[  193.877452]  __dev_queue_xmit+0x67c/0x7f0
+[  193.878090]  dev_queue_xmit+0x10/0x18
+[  193.878744]  ip_finish_output2+0x31c/0x588
+[  193.879410]  __ip_finish_output+0x1b0/0x1e0
+[  193.880067]  ip_output+0xf4/0x1b0
+[  193.880675]  ip_local_out+0x44/0x58
+[  193.881271]  ip_send_skb+0x1c/0xa8
+[  193.881845]  udp_send_skb.isra.0+0x11c/0x368
+[  193.882505]  udp_sendmsg+0x710/0x860
+[  193.883148]  inet_sendmsg+0x40/0x68
+[  193.883731]  __sys_sendto+0xd4/0x150
+[  193.884313]  __arm64_sys_sendto+0x24/0x30
+[  193.885039]  el0_svc_common.constprop.0+0x68/0x160
+[  193.885766]  el0_svc_handler+0x20/0x80
+[  193.886373]  el0_svc+0x8/0xc
+[  193.889710] Code: 17ffffcc 140012cf 17ffffd9 d4210000 (d4210000) 
+[  193.894733] ---[ end trace 2b3c32b855bcac11 ]---
+[  193.896298] Kernel panic - not syncing: Fatal exception in interrupt
+[  193.898410] SMP: stopping secondary CPUs
+[  193.902077] Kernel Offset: disabled
+[  193.903517] CPU features: 0x0002,20006000
+[  193.904378] Memory Limit: none
+[  193.905505] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

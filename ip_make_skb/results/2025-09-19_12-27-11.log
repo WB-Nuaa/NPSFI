@@ -1,0 +1,48 @@
+[  193.196119] Unable to handle kernel paging request at virtual address 00000000baa08993
+[  193.210233] Mem abort info:
+[  193.210944]   ESR = 0x96000005
+[  193.212633]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.214786]   SET = 0, FnV = 0
+[  193.215660]   EA = 0, S1PTW = 0
+[  193.218097] Data abort info:
+[  193.221985]   ISV = 0, ISS = 0x00000005
+[  193.223834]   CM = 0, WnR = 0
+[  193.226671] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b6dd8000
+[  193.228860] [00000000baa08993] pgd=00000000b0c2b003, pud=0000000000000000
+[  193.243526] Internal error: Oops: 96000005 [#1] PREEMPT SMP
+[  193.245823] Modules linked in:
+[  193.248046] CPU: 0 PID: 497 Comm: python3 Tainted: G        W         5.4.18 #2
+[  193.250486] Hardware name: linux,dummy-virt (DT)
+[  193.251172] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.251795] pc : ip_output+0x44/0x1b0
+[  193.252095] lr : ip_local_out+0x44/0x58
+[  193.254414] sp : ffff800011f2ba30
+[  193.257069] x29: ffff800011f2ba30 x28: 000000000000001a 
+[  193.259840] x27: ffff800011f2bd80 x26: 0000000000000011 
+[  193.262225] x25: 0000000000000012 x24: ffff000076d8c024 
+[  193.264436] x23: ffff800011f2bc30 x22: ffff00007a910e00 
+[  193.270876] x21: 00000000baa08813 x20: ffff00007a9fa000 
+[  193.271379] x19: ffff00007a9fa000 x18: 0000000000000000 
+[  193.271884] x17: 0000000000000000 x16: 0000000000000000 
+[  193.272630] x15: ffff8000117d2000 x14: 0000000000000001 
+[  193.276438] x13: 00000000000021a8 x12: 00000000000000f3 
+[  193.280392] x11: 000000000086a6bd x10: 00000000000009c0 
+[  193.282982] x9 : ffff00007a910e00 x8 : ffff800011f2bc30 
+[  193.283989] x7 : 0000000013c00000 x6 : 000000000000ddd0 
+[  193.285667] x5 : ffff000076d8c024 x4 : ffff000076d8c024 
+[  193.286282] x3 : ffff00007b3a2300 x2 : ffff00007a910e00 
+[  193.292148] x1 : ffff800011f2bc30 x0 : 0000000000000001 
+[  193.294430] Call trace:
+[  193.295794]  ip_output+0x44/0x1b0
+[  193.297494]  ip_local_out+0x44/0x58
+[  193.298467]  ip_send_skb+0x1c/0xa8
+[  193.300754]  udp_send_skb.isra.0+0x11c/0x368
+[  193.304799]  udp_sendmsg+0x710/0x860
+[  193.305726]  inet_sendmsg+0x40/0x68
+[  193.307034]  __sys_sendto+0xd4/0x150
+[  193.307748]  __arm64_sys_sendto+0x24/0x30
+[  193.308427]  el0_svc_common.constprop.0+0x68/0x160
+[  193.310505]  el0_svc_handler+0x20/0x80
+[  193.312749]  el0_svc+0x8/0xc
+[  193.319721] Code: f9402e83 b9401040 927ff863 11000400 (f940c2b3) 
+[  193.322676] ---[ end trace 254712ecd0c6e3ec ]---

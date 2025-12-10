@@ -1,0 +1,49 @@
+[  255.541705] Unable to handle kernel paging request at virtual address ffff80001140c3a8
+[  255.573340] Mem abort info:
+[  255.578318]   ESR = 0x96000006
+[  255.585555]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  255.586496]   SET = 0, FnV = 0
+[  255.588239]   EA = 0, S1PTW = 0
+[  255.589272] Data abort info:
+[  255.593269]   ISV = 0, ISS = 0x00000006
+[  255.600804]   CM = 0, WnR = 0
+[  255.611844] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  255.624791] [ffff80001140c3a8] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0000000000000000
+[  255.649880] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  255.653397] Modules linked in:
+[  255.660788] CPU: 4 PID: 262 Comm: systemd-timesyn Not tainted 5.4.18 #2
+[  255.668135] Hardware name: linux,dummy-virt (DT)
+[  255.671303] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  255.684278] pc : ip_output+0x60/0x1b0
+[  255.686562] lr : ip_local_out+0x44/0x58
+[  255.690046] sp : ffff800011d9ba30
+[  255.696150] x29: ffff800011d9ba30 x28: 0000000000000038 
+[  255.697279] x27: ffff800011d9bd80 x26: 0000000000000011 
+[  255.699149] x25: 0000000000000030 x24: ffff000079b90000 
+[  255.700474] x23: ffff000076fa1980 x22: ffff00007b376200 
+[  255.705549] x21: ffff800011963ac0 x20: ffff0000780ae100 
+[  255.713544] x19: ffff80001140c380 x18: 0000000000000000 
+[  255.717147] x17: 0000000000000000 x16: 0000000000000000 
+[  255.721501] x15: 0000000000000001 x14: 0000000000000000 
+[  255.724456] x13: 0000000000000000 x12: 00000000b97dbe38 
+[  255.724998] x11: 0000000000000000 x10: 0000000000000068 
+[  255.726466] x9 : ffff00007b376200 x8 : ffff800011d9bc30 
+[  255.728176] x7 : 0000000031100000 x6 : 000000000000c093 
+[  255.728882] x5 : ffff00007a8bfa24 x4 : 0000000000000001 
+[  255.733314] x3 : ffff80001140c3a8 x2 : ffff00007b376200 
+[  255.745849] x1 : ffff000076fa1980 x0 : ffff80001140c3a8 
+[  255.756293] Call trace:
+[  255.758432]  ip_output+0x60/0x1b0
+[  255.764612]  ip_local_out+0x44/0x58
+[  255.769998]  ip_send_skb+0x1c/0xa8
+[  255.777278]  udp_send_skb.isra.0+0x11c/0x368
+[  255.780481]  udp_sendmsg+0x710/0x860
+[  255.780870]  inet_sendmsg+0x40/0x68
+[  255.781454]  __sys_sendto+0xd4/0x150
+[  255.783938]  __arm64_sys_sendto+0x24/0x30
+[  255.788182]  el0_svc_common.constprop.0+0x68/0x160
+[  255.790968]  el0_svc_handler+0x20/0x80
+[  255.793087]  el0_svc+0x8/0xc
+[  255.801646] Code: d2800024 9100a263 d538d080 8b100060 (c85f7c05) 
+[  255.808751] ---[ end trace 85cac1b965f615e9 ]---
+[  255.812570] note: systemd-timesyn[262] exited with preempt_count 1

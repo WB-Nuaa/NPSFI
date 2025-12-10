@@ -1,0 +1,117 @@
+[  202.288257] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  202.292265] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  202.293981] Modules linked in:
+[  202.299139] CPU: 4 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  202.300725] Hardware name: linux,dummy-virt (DT)
+[  202.303015] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  202.311375] pc : do_undefinstr+0x2ec/0x310
+[  202.313316] lr : do_undefinstr+0x1e0/0x310
+[  202.314694] sp : ffff800011d1b790
+[  202.315664] x29: ffff800011d1b790 x28: ffff00007a9df000 
+[  202.317456] x27: 0000000000000000 x26: 7fffffffffffffff 
+[  202.319095] x25: ffff000074cc1100 x24: 0000000000000000 
+[  202.320143] x23: 0000000060000005 x22: ffff800010af95cc 
+[  202.321428] x21: ffff800011d1b930 x20: ffff00007a9df000 
+[  202.322702] x19: ffff800011d1b7f0 x18: 0000000000000000 
+[  202.323865] x17: 0000000000000000 x16: 0000000000000000 
+[  202.325164] x15: 0000000000000001 x14: 0000000000000000 
+[  202.326074] x13: 0000000000000006 x12: 00000000c0a80164 
+[  202.327450] x11: 0000000000000000 x10: 0000000000000068 
+[  202.328381] x9 : 0000000000000000 x8 : 00000000000005c8 
+[  202.330101] x7 : 0000000000000000 x6 : ffff800011d1b7e8 
+[  202.331438] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  202.332234] x3 : 0000000099400000 x2 : 0000000000000000 
+[  202.333304] x1 : ffff00007a9df000 x0 : 0000000060000005 
+[  202.335325] Call trace:
+[  202.336266]  do_undefinstr+0x2ec/0x310
+[  202.337298]  el1_undef+0x10/0x84
+[  202.337997]  sock_alloc_send_pskb+0x4c/0x260
+[  202.340333]  sock_alloc_send_skb+0x1c/0x28
+[  202.341351]  __ip_append_data.isra.0+0x788/0xc30
+[  202.341768]  ip_make_skb+0xec/0x140
+[  202.342101]  udp_sendmsg+0x6ec/0x860
+[  202.342481]  inet_sendmsg+0x40/0x68
+[  202.342889]  __sys_sendto+0xd4/0x150
+[  202.343747]  __arm64_sys_sendto+0x24/0x30
+[  202.344460]  el0_svc_common.constprop.0+0x68/0x160
+[  202.344936]  el0_svc_handler+0x20/0x80
+[  202.345558]  el0_svc+0x8/0xc
+[  202.348566] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  202.352929] ---[ end trace 403190f9fce5ec36 ]---
+[  202.355968] note: python3[494] exited with preempt_count 1
+[  202.483544] ------------[ cut here ]------------
+[  202.486603] WARNING: CPU: 4 PID: 0 at kernel/rcu/tree.c:569 rcu_idle_enter+0x74/0x80
+[  202.489203] Modules linked in:
+[  202.494865] CPU: 4 PID: 0 Comm: swapper/4 Tainted: G      D           5.4.18 #2
+[  202.496136] Hardware name: linux,dummy-virt (DT)
+[  202.496864] pstate: 200003c5 (nzCv DAIF -PAN -UAO)
+[  202.498342] pc : rcu_idle_enter+0x74/0x80
+[  202.499710] lr : do_idle+0x200/0x288
+[  202.508814] sp : ffff800011a63f20
+[  202.517240] x29: ffff800011a63f20 x28: 0000000000000000 
+[  202.520642] x27: 0000000000000000 x26: 0000000000000000 
+[  202.524767] x25: 0000000000000000 x24: ffff8000117ba214 
+[  202.525507] x23: ffff00007b0c4600 x22: ffff800011404ab8 
+[  202.532468] ------------[ cut here ]------------
+[  202.534412] x21: ffff8000117ba1f0 x20: 0000000000000004 
+[  202.535291] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  202.536298] x19: ffff8000117ba118 x18: 0000000000000010 
+[  202.540653] Internal error: Oops - BUG: 0 [#2] PREEMPT SMP
+[  202.540923] x17: 0000000000000000 x16: 0000000000000000 
+[  202.543392] Modules linked in:
+[  202.543668] x15: 000000000000002f x14: 0000000000000000 
+[  202.544148] x13: 0000000000000002 x12: 0000000000000000 
+[  202.544221] CPU: 5 PID: 1 Comm: systemd Tainted: G      D           5.4.18 #2
+[  202.545864] x11: 0000000000000000 x10: 00000000000009c0 
+[  202.546332] x9 : ffff800011a63e90 x8 : ffff00007b0c5020 
+[  202.546823] x7 : 0000000000000400 x6 : 000000f3c9788c89 
+[  202.550095] Hardware name: linux,dummy-virt (DT)
+[  202.550304] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  202.551114] x5 : 00ffffffffffffff x4 : ffff80006c799000 
+[  202.552082] pc : do_undefinstr+0x2ec/0x310
+[  202.552525] x3 : 4000000000000002 x2 : 4000000000000000 
+[  202.553759] lr : do_undefinstr+0x1e0/0x310
+[  202.554895] x1 : ffff800011406980 x0 : ffff00007db9f980 
+[  202.555020] Call trace:
+[  202.555092]  rcu_idle_enter+0x74/0x80
+[  202.555549]  do_idle+0x200/0x288
+[  202.557188] sp : ffff80001005b8f0
+[  202.557216] x29: ffff80001005b8f0 x28: ffff00007b0a8000 
+[  202.557265] x27: 0000000000000003 x26: 0000000000000003 
+[  202.557309] x25: ffff000078308000 x24: 0000000000000000 
+[  202.559434]  cpu_startup_entry+0x20/0x40
+[  202.562414] x23: 0000000080000005 x22: ffff800010af95cc 
+[  202.567669]  secondary_start_kernel+0x154/0x190
+[  202.569328] x21: ffff80001005ba90 x20: ffff00007b0a8000 
+[  202.569395] x19: ffff80001005b950 x18: 0000000000000000 
+[  202.569451] x17: 0000000000000000 x16: 0000000000000000 
+[  202.569507] x15: 0000000000000000 x14: 0000ffffbf31c2f9 
+[  202.569562] x13: 0000000000000010 x12: 0000aaaac4dfa320 
+[  202.569618] x11: 0000000000000001 x10: 0000000000400100 
+[  202.569674] x9 : ffff00007b0a8000 x8 : 0000ffffffffffff 
+[  202.570223] x7 : 0000000000000000 x6 : ffff80001005b948 
+[  202.570673] ---[ end trace 403190f9fce5ec37 ]---
+[  202.571268] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  202.604823] x3 : 0000000099400000 x2 : 0000000000000000 
+[  202.607497] x1 : ffff00007b0a8000 x0 : 0000000080000005 
+[  202.607976] Call trace:
+[  202.609074]  do_undefinstr+0x2ec/0x310
+[  202.609607]  el1_undef+0x10/0x84
+[  202.609744]  sock_alloc_send_pskb+0x4c/0x260
+[  202.609985]  unix_dgram_sendmsg+0x110/0x568
+[  202.610132]  ____sys_sendmsg+0x240/0x280
+[  202.610345]  ___sys_sendmsg+0x80/0xe0
+[  202.610535]  __sys_sendmsg+0x64/0xc0
+[  202.610692]  __arm64_sys_sendmsg+0x20/0x28
+[  202.611217]  el0_svc_common.constprop.0+0x68/0x160
+[  202.611454]  el0_svc_handler+0x20/0x80
+[  202.614505]  el0_svc+0x8/0xc
+[  202.616167] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  202.628852] ---[ end trace 403190f9fce5ec38 ]---
+[  202.630696] note: systemd[1] exited with preempt_count 1
+[  202.639135] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  202.643080] SMP: stopping secondary CPUs
+[  202.653163] Kernel Offset: disabled
+[  202.653727] CPU features: 0x0002,20006000
+[  202.654282] Memory Limit: none
+[  202.659875] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

@@ -1,0 +1,56 @@
+[  149.055015] Unable to handle kernel paging request at virtual address ffff000080000000
+[  149.068451] Mem abort info:
+[  149.069695]   ESR = 0x96000005
+[  149.076883]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  149.079290]   SET = 0, FnV = 0
+[  149.081268]   EA = 0, S1PTW = 0
+[  149.082930] Data abort info:
+[  149.084239]   ISV = 0, ISS = 0x00000005
+[  149.085128]   CM = 0, WnR = 0
+[  149.085962] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  149.088790] [ffff000080000000] pgd=00000000bdff8003, pud=0000000000000000
+[  149.096423] Internal error: Oops: 96000005 [#1] PREEMPT SMP
+[  149.099656] Modules linked in:
+[  149.110145] CPU: 0 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  149.111458] Hardware name: linux,dummy-virt (DT)
+[  149.115423] pstate: 20000005 (nzCv daif -PAN -UAO)
+[  149.129749] pc : do_csum+0x50/0xe0
+[  149.130164] lr : csum_partial+0x10/0x20
+[  149.130740] sp : ffff800011f9b810
+[  149.133555] x29: ffff800011f9b810 x28: ffff00007b1ea900 
+[  149.135195] x27: 0000000000000000 x26: ffff00007b1ea900 
+[  149.135917] x25: 0000000000000000 x24: 000000007206e5fc 
+[  149.136282] x23: 0000000000000014 x22: ffff800011f9b8c8 
+[  149.136819] x21: 000000007206e610 x20: 000000007206e5fc 
+[  149.137215] x19: ffff000078cbaa00 x18: 0000000000000000 
+[  149.137631] x17: 0000000000000000 x16: 0000000000000000 
+[  149.138892] x15: 0000000000000001 x14: 0000000000000000 
+[  149.139443] x13: 0000000000000006 x12: 00000000c0a80164 
+[  149.139910] x11: 0000000000000000 x10: 0000000000000068 
+[  149.140337] x9 : ffff000078cbaa00 x8 : 0000000000000000 
+[  149.140725] x7 : 0000000000000000 x6 : ffff0000e40dcc20 
+[  149.141135] x5 : 0000000000000000 x4 : ffff000080000000 
+[  149.141523] x3 : 0000000000000000 x2 : 0000000063479dc8 
+[  149.143584] x1 : 000000007206e5fc x0 : ffff00007206e624 
+[  149.149659] Call trace:
+[  149.151182]  do_csum+0x50/0xe0
+[  149.155487]  csum_partial_ext+0xc/0x18
+[  149.156097]  __skb_checksum+0x60/0x2b8
+[  149.156420]  skb_checksum+0x38/0x60
+[  149.156898]  skb_checksum_help+0x78/0x198
+[  149.158192]  ip_do_fragment+0x3bc/0x5c8
+[  149.158784]  ip_fragment.constprop.0+0x44/0xd8
+[  149.159126]  __ip_finish_output+0x184/0x1e0
+[  149.165507]  ip_output+0xf4/0x1b0
+[  149.166321]  ip_local_out+0x44/0x58
+[  149.166576]  ip_send_skb+0x1c/0xa8
+[  149.166806]  udp_send_skb.isra.0+0x11c/0x368
+[  149.167667]  udp_sendmsg+0x710/0x860
+[  149.168035]  inet_sendmsg+0x40/0x68
+[  149.168318]  __sys_sendto+0xd4/0x150
+[  149.168597]  __arm64_sys_sendto+0x24/0x30
+[  149.169333]  el0_svc_common.constprop.0+0x68/0x160
+[  149.169701]  el0_svc_handler+0x20/0x80
+[  149.170280]  el0_svc+0x8/0xc
+[  149.179401] Code: 927e7426 aa0003e4 8b060006 52800005 (b8404483) 
+[  149.186032] ---[ end trace 665c6f9e52e4a119 ]---

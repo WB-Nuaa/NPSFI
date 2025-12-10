@@ -1,0 +1,47 @@
+[  216.109875] kernel BUG at include/linux/skbuff.h:2257!
+[  216.119487] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  216.120485] Modules linked in:
+[  216.123018] CPU: 4 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  216.123510] Hardware name: linux,dummy-virt (DT)
+[  216.124445] pstate: 20000005 (nzCv daif -PAN -UAO)
+[  216.128959] pc : neigh_resolve_output+0x160/0x198
+[  216.130275] lr : ip_finish_output2+0x168/0x588
+[  216.131253] sp : ffff800011f73950
+[  216.132182] x29: ffff800011f73950 x28: 000000000000001a 
+[  216.133968] x27: ffff800011f73d80 x26: 0000000000000011 
+[  216.135124] x25: 0000000000000012 x24: ffff00007aafc000 
+[  216.136170] x23: ffff00007800cc98 x22: ffff00007a8b6200 
+[  216.137346] x21: ffff00007aafc000 x20: ffff000079150300 
+[  216.138444] x19: ffff00007800cc00 x18: 0000000000000000 
+[  216.139767] x17: 0000000000000000 x16: 0000000000000000 
+[  216.140845] x15: 0000000000000001 x14: 0000000000000000 
+[  216.144344] x13: 0000000000000006 x12: 00000000c0a80164 
+[  216.147339] x11: 0000000000000000 x10: 0000000000000068 
+[  216.148533] x9 : ffff00007a8b6200 x8 : ffff800011f73c30 
+[  216.149599] x7 : 0000000000000003 x6 : 00000000e3a97b2b 
+[  216.150862] x5 : ffff00007aa93400 x4 : 0000000000000000 
+[  216.152276] x3 : 000000006401a8c0 x2 : ffff00007832de10 
+[  216.153328] x1 : 000000000000002e x0 : 0000000000000000 
+[  216.155680] Call trace:
+[  216.158251]  neigh_resolve_output+0x160/0x198
+[  216.160422]  ip_finish_output2+0x168/0x588
+[  216.161314]  __ip_finish_output+0x1b0/0x1e0
+[  216.162523]  ip_output+0xf4/0x1b0
+[  216.163239]  ip_local_out+0x44/0x58
+[  216.164700]  ip_send_skb+0x1c/0xa8
+[  216.165491]  udp_send_skb.isra.0+0x11c/0x368
+[  216.166364]  udp_sendmsg+0x710/0x860
+[  216.167120]  inet_sendmsg+0x40/0x68
+[  216.168197]  __sys_sendto+0xd4/0x150
+[  216.168960]  __arm64_sys_sendto+0x24/0x30
+[  216.169893]  el0_svc_common.constprop.0+0x68/0x160
+[  216.170758]  el0_svc_handler+0x20/0x80
+[  216.171711]  el0_svc+0x8/0xc
+[  216.179320] Code: d63f0060 aa1603e0 94041b1c 17ffffc0 (d4210000) 
+[  216.188464] ---[ end trace 3e8999bde57dd67a ]---
+[  216.195536] Kernel panic - not syncing: Fatal exception in interrupt
+[  216.197830] SMP: stopping secondary CPUs
+[  216.202408] Kernel Offset: disabled
+[  216.204066] CPU features: 0x0002,20006000
+[  216.207082] Memory Limit: none
+[  216.211595] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

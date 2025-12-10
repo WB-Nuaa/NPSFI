@@ -1,0 +1,65 @@
+[  195.809715] Unable to handle kernel read from unreadable memory at virtual address ffff000076fae904
+[  195.809838] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  195.810916] Mem abort info:
+[  195.816037] Mem abort info:
+[  195.817174]   ESR = 0x8600000f
+[  195.817842]   EC = 0x21: IABT (current EL), IL = 32 bits
+[  195.818343]   SET = 0, FnV = 0
+[  195.818972]   EA = 0, S1PTW = 0
+[  195.822667]   ESR = 0x96000046
+[  195.824729] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  195.826654]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  195.829281] [ffff000076fae904] pgd=00000000bdff8003, pud=00000000bddfe003, pmd=00000000bdc46003, pte=00680000b6fae713
+[  195.834732] Internal error: Oops: 8600000f [#1] PREEMPT SMP
+[  195.837509]   SET = 0, FnV = 0
+[  195.845392] Modules linked in:
+[  195.848972]   EA = 0, S1PTW = 0
+[  195.862062] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.4.18 #2
+[  195.862345] Hardware name: linux,dummy-virt (DT)
+[  195.862732] Data abort info:
+[  195.865746] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  195.866312]   ISV = 0, ISS = 0x00000046
+[  195.867545] pc : 0xffff000076fae904
+[  195.867564]   CM = 0, WnR = 1
+[  195.869374] lr : skb_release_head_state+0x40/0xc8
+[  195.869442] sp : ffff800010003cd0
+[  195.869966] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b83e0000
+[  195.870029] [0000000000000000] pgd=00000000b21ad003, pud=00000000b1371003, pmd=0000000000000000
+[  195.870759] x29: ffff800010003cd0 x28: 0000000000000071 
+[  195.873627] x27: ffff000079b60c30 x26: ffff000079b60000 
+[  195.874340] x25: 000000000000003c x24: 0000000000000001 
+[  195.874966] x23: ffff00007aa3ad00 x22: ffff000079b60670 
+[  195.878742] x21: 0000000000000040 x20: 0000000000000002 
+[  195.879813] x19: ffff000076d76700 x18: 000000000000000e 
+[  195.880519] x17: 0000000000000001 x16: 0000000000000019 
+[  195.881590] x15: 0000000000000033 x14: 000000000000004c 
+[  195.882500] x13: 0000000000000068 x12: ffff800010e23e08 
+[  195.883463] x11: ffff00007db455f0 x10: ffff80006c741000 
+[  195.884087] x9 : 00000000902877f1 x8 : 000000000000001d 
+[  195.886161] x7 : 000000000000001d x6 : 0000000000000001 
+[  195.886934] x5 : 000000000000003c x4 : 0000000000000000 
+[  195.887302] x3 : 00000000111e6137 x2 : ffff00007a879c40 
+[  195.888891] x1 : ffff000076fae904 x0 : ffff000076d76700 
+[  195.892302] Call trace:
+[  195.896182]  0xffff000076fae904
+[  195.897030]  skb_release_all+0x14/0x30
+[  195.897232]  consume_skb+0x2c/0x58
+[  195.898785]  __dev_kfree_skb_any+0x3c/0x48
+[  195.899027]  e1000_unmap_and_free_tx_resource.isra.0+0x58/0x80
+[  195.904861]  e1000_clean+0x138/0x970
+[  195.905579]  net_rx_action+0x114/0x340
+[  195.906475]  __do_softirq+0x124/0x240
+[  195.907196]  irq_exit+0xb8/0xd8
+[  195.907589]  __handle_domain_irq+0x64/0xb8
+[  195.908222]  gic_handle_irq+0x50/0xa0
+[  195.909777]  el1_irq+0xb8/0x180
+[  195.910072]  arch_cpu_idle+0x10/0x18
+[  195.910361]  do_idle+0x204/0x288
+[  195.910875]  cpu_startup_entry+0x24/0x40
+[  195.911300]  rest_init+0xd4/0xe0
+[  195.911514]  arch_call_rest_init+0xc/0x14
+[  195.912304]  start_kernel+0x420/0x450
+[  195.914474] Code: ffff0000 00000000 00000000 00000000 (00000001) 
+[  195.918801] ---[ end trace 7e305dd5602d06af ]---
+[  195.922588] Kernel panic - not syncing: Fatal exception in interrupt
+[  195.924013] SMP: stopping secondary CPUs

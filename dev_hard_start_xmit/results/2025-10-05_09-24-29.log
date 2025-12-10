@@ -1,0 +1,76 @@
+[  194.952831] ------------[ cut here ]------------
+[  194.954347] Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: sch_direct_xmit+0x33c/0x340
+[  194.959144] dst_release underflow
+[  194.964386] WARNING: CPU: 0 PID: 0 at net/core/dst.c:175 dst_release+0xc4/0xd0
+[  194.964838] CPU: 4 PID: 492 Comm: python3 Not tainted 5.4.18 #2
+[  194.965493] Hardware name: linux,dummy-virt (DT)
+[  194.973204] Modules linked in:
+[  194.978175] Call trace:
+[  194.978291]  dump_backtrace+0x0/0x140
+[  194.978423]  show_stack+0x14/0x20
+[  194.978527]  dump_stack+0xb4/0xf8
+[  194.978580]  panic+0x158/0x324
+[  194.978622]  __stack_chk_fail+0x1c/0x20
+[  194.980352] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.4.18 #2
+[  194.980709]  sch_direct_xmit+0x33c/0x340
+[  194.981033] Hardware name: linux,dummy-virt (DT)
+[  194.982083]  __dev_queue_xmit+0x67c/0x7f0
+[  194.983362] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.984053] pc : dst_release+0xc4/0xd0
+[  194.984536]  dev_queue_xmit+0x10/0x18
+[  194.985131] lr : dst_release+0xc4/0xd0
+[  194.987015]  ip_finish_output2+0x31c/0x588
+[  194.987584] sp : ffff800010003ca0
+[  194.988156]  __ip_finish_output+0x1b0/0x1e0
+[  194.988908] x29: ffff800010003ca0 x28: 000000000000007f 
+[  194.990454]  ip_output+0xf4/0x1b0
+[  194.992780] x27: ffff000079b98c30 x26: ffff000079b98000 
+[  194.992911] x25: 000000000000003c x24: 0000000000000001 
+[  194.993023] x23: ffff00007a441580 x22: ffff000079b98670 
+[  194.993138] x21: 0000000000000040 x20: 0000000000000002 
+[  194.993248] x19: ffff000079b98000 x18: 0000000000000010 
+[  194.993359] x17: 0000000000000001 x16: 0000000000000019 
+[  194.993469] x15: ffff8000117c31f0 x14: ffffffffffffffff 
+[  194.993579] x13: ffff800090003987 x12: ffff80001000398f 
+[  194.993683] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  194.994337]  ip_local_out+0x44/0x58
+[  194.995186] x9 : ffff800010003ca0 x8 : 65646e7520657361 
+[  194.995952]  ip_send_skb+0x1c/0xa8
+[  194.996180] x7 : 656c65725f747364 x6 : ffff80001199260d 
+[  194.996499]  udp_send_skb.isra.0+0x11c/0x368
+[  194.996559]  udp_sendmsg+0x710/0x860
+[  194.996877] x5 : 0000000000000000 x4 : 0000000000000000 
+[  194.997166]  inet_sendmsg+0x40/0x68
+[  194.997483] x3 : 00000000ffffffff x2 : ffff80006c741000 
+[  194.998319]  __sys_sendto+0xd4/0x150
+[  194.999703] x1 : 0000000000000000 x0 : 0000000000000000 
+[  195.000494]  __arm64_sys_sendto+0x24/0x30
+[  195.002982] Call trace:
+[  195.004593]  el0_svc_common.constprop.0+0x68/0x160
+[  195.011266]  dst_release+0xc4/0xd0
+[  195.011785]  el0_svc_handler+0x20/0x80
+[  195.012185]  skb_release_head_state+0xb0/0xc8
+[  195.012538]  el0_svc+0x8/0xc
+[  195.012808]  skb_release_all+0x14/0x30
+[  195.017318] SMP: stopping secondary CPUs
+[  195.017568]  consume_skb+0x2c/0x58
+[  195.027508]  __dev_kfree_skb_any+0x3c/0x48
+[  195.028034]  e1000_unmap_and_free_tx_resource.isra.0+0x58/0x80
+[  195.029091]  e1000_clean+0x138/0x970
+[  195.029703]  net_rx_action+0x114/0x340
+[  195.030491]  __do_softirq+0x124/0x240
+[  195.031269]  irq_exit+0xb8/0xd8
+[  195.032035]  __handle_domain_irq+0x64/0xb8
+[  195.032732]  gic_handle_irq+0x50/0xa0
+[  195.033471]  el1_irq+0xb8/0x180
+[  195.034579]  arch_cpu_idle+0x10/0x18
+[  195.036536]  do_idle+0x204/0x288
+[  195.037691]  cpu_startup_entry+0x24/0x40
+[  195.041253]  rest_init+0xd4/0xe0
+[  195.041558]  arch_call_rest_init+0xc/0x14
+[  195.041919]  start_kernel+0x420/0x450
+[  195.043174] ---[ end trace 06bd3d2eb1ae1230 ]---
+[  195.047544] Kernel Offset: disabled
+[  195.049691] CPU features: 0x0002,20006000
+[  195.052508] Memory Limit: none
+[  195.060932] ---[ end Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: sch_direct_xmit+0x33c/0x340 ]---

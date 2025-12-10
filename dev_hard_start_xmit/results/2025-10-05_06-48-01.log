@@ -1,0 +1,56 @@
+[  192.629571] kernel BUG at net/core/skbuff.c:1622!
+[  192.633557] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  192.635651] Modules linked in:
+[  192.638416] CPU: 4 PID: 0 Comm: swapper/4 Not tainted 5.4.18 #2
+[  192.638848] Hardware name: linux,dummy-virt (DT)
+[  192.640216] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  192.644955] pc : pskb_expand_head+0x26c/0x2c8
+[  192.645917] lr : __skb_pad+0x78/0x120
+[  192.646676] sp : ffff800010023a10
+[  192.647459] x29: ffff800010023a10 x28: ffff00007a6d5e00 
+[  192.648699] x27: ffff00007b015400 x26: ffff00007b32a090 
+[  192.649750] x25: ffff8000117b7000 x24: 0000000000000000 
+[  192.650646] x23: ffff8000117bf958 x22: 0000000000000001 
+[  192.651578] x21: ffff00007a6fe800 x20: 0000000000000000 
+[  192.652417] x19: ffff00007b015400 x18: ffff00007a8c3e00 
+[  192.653300] x17: 0000000000000000 x16: 0000000000000000 
+[  192.654091] x15: 0000000000000000 x14: 003d0bf33136163b 
+[  192.654865] x13: 00001e8480000000 x12: 0000000000000000 
+[  192.655642] x11: 00001e85f9986dc0 x10: 0000000010000000 
+[  192.656370] x9 : 0000000000000001 x8 : 0000000000000000 
+[  192.657060] x7 : fffffdffbfee8440 x6 : 0000000000000010 
+[  192.657827] x5 : 0000000000000000 x4 : 0000000000000000 
+[  192.658595] x3 : 0000000000000a20 x2 : 000000000000003c 
+[  192.659294] x1 : 0000000000000000 x0 : 0000000000000000 
+[  192.660558] Call trace:
+[  192.661391]  pskb_expand_head+0x26c/0x2c8
+[  192.662084]  __skb_pad+0x78/0x120
+[  192.662511]  e1000_xmit_frame+0xa18/0xf80
+[  192.662967]  dev_hard_start_xmit+0x94/0x158
+[  192.663469]  sch_direct_xmit+0x120/0x340
+[  192.663895]  __dev_queue_xmit+0x67c/0x7f0
+[  192.664314]  dev_queue_xmit+0x10/0x18
+[  192.664701]  arp_xmit+0x1c/0x48
+[  192.666107]  arp_send_dst.part.0+0x60/0x88
+[  192.666569]  arp_solicit+0x16c/0x220
+[  192.667085]  neigh_probe+0x54/0x98
+[  192.667438]  neigh_timer_handler+0xa4/0x288
+[  192.667874]  call_timer_fn.isra.0+0x20/0x78
+[  192.668234]  run_timer_softirq+0x1a0/0x410
+[  192.668714]  __do_softirq+0x124/0x240
+[  192.669030]  irq_exit+0xb8/0xd8
+[  192.669311]  __handle_domain_irq+0x64/0xb8
+[  192.669673]  gic_handle_irq+0x50/0xa0
+[  192.670119]  el1_irq+0xb8/0x180
+[  192.670593]  arch_cpu_idle+0x10/0x18
+[  192.671050]  do_idle+0x204/0x288
+[  192.671410]  cpu_startup_entry+0x20/0x40
+[  192.671863]  secondary_start_kernel+0x154/0x190
+[  192.673658] Code: 17ffffcc 140012cf 17ffffd9 d4210000 (d4210000) 
+[  192.677554] ---[ end trace 4661637354e8c0fc ]---
+[  192.679026] Kernel panic - not syncing: Fatal exception in interrupt
+[  192.680005] SMP: stopping secondary CPUs
+[  192.682600] Kernel Offset: disabled
+[  192.683183] CPU features: 0x0002,20006000
+[  192.683632] Memory Limit: none
+[  192.685416] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

@@ -1,0 +1,54 @@
+[  193.497893] Unable to handle kernel paging request at virtual address ffff800011f4d9c8
+[  193.504543] Mem abort info:
+[  193.506607]   ESR = 0x96000007
+[  193.510138]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.516695]   SET = 0, FnV = 0
+[  193.517521]   EA = 0, S1PTW = 0
+[  193.519945] Data abort info:
+[  193.521008]   ISV = 0, ISS = 0x00000007
+[  193.529122]   CM = 0, WnR = 0
+[  193.538302] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  193.545557] [ffff800011f4d9c8] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=00000000bb322003, pte=0000000000000000
+[  193.560545] Internal error: Oops: 96000007 [#1] PREEMPT SMP
+[  193.569852] Modules linked in:
+[  193.578504] CPU: 1 PID: 498 Comm: python3 Not tainted 5.4.18 #2
+[  193.583720] Hardware name: linux,dummy-virt (DT)
+[  193.584856] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  193.596668] pc : sock_alloc_send_pskb+0x1a4/0x260
+[  193.602247] lr : sock_alloc_send_pskb+0x258/0x260
+[  193.603031] sp : ffff800011f4b930
+[  193.605035] x29: ffff800011f4b930 x28: 0000000000000000 
+[  193.605763] x27: 0000000000000000 x26: 7fffffffffffffff 
+[  193.606264] x25: ffff00007b22ee80 x24: ffff800011f4bac4 
+[  193.606858] x23: ffff00007aa28470 x22: ffff8000101271d8 
+[  193.607380] x21: 0000000000000000 x20: 0000000000000000 
+[  193.609359] x19: ffff00007826c700 x18: 0000000000000000 
+[  193.613249] x17: 0000000000000000 x16: 0000000000000000 
+[  193.615672] x15: 0000000000000001 x14: 0000000000000000 
+[  193.615908] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.616118] x11: 0000000000000000 x10: 0000000000000068 
+[  193.616326] x9 : 0000000000000000 x8 : 00000000000005c8 
+[  193.616564] x7 : 0000000000000001 x6 : 0000000000000301 
+[  193.619621] x5 : 0000000000000300 x4 : ffff00007b22efbc 
+[  193.621256] x3 : 0000000000000001 x2 : 0000000000000301 
+[  193.621674] x1 : 0000000000000001 x0 : 0000000000000001 
+[  193.624691] Call trace:
+[  193.625869]  sock_alloc_send_pskb+0x1a4/0x260
+[  193.630207]  sock_alloc_send_skb+0x1c/0x28
+[  193.634708]  __ip_append_data.isra.0+0x788/0xc30
+[  193.649534]  ip_make_skb+0xec/0x140
+[  193.653320]  udp_sendmsg+0x6ec/0x860
+[  193.656013]  inet_sendmsg+0x40/0x68
+[  193.661601]  __sys_sendto+0xd4/0x150
+[  193.663831]  __arm64_sys_sendto+0x24/0x30
+[  193.666662]  el0_svc_common.constprop.0+0x68/0x160
+[  193.670625]  el0_svc_handler+0x20/0x80
+[  193.680492]  el0_svc+0x8/0xc
+[  193.690985] Code: 34fff660 d2800013 b9000301 9111c2f7 (f9504fe0) 
+[  193.705092] ---[ end trace bf9f49acb2fa3720 ]---
+[  193.930429] Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: sock_alloc_send_pskb+0x260/0x260
+[  193.959367] SMP: stopping secondary CPUs
+[  193.963810] Kernel Offset: disabled
+[  193.965843] CPU features: 0x0002,20006000
+[  193.967348] Memory Limit: none
+[  193.970685] ---[ end Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: sock_alloc_send_pskb+0x260/0x260 ]---

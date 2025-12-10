@@ -1,0 +1,77 @@
+M
+[K[[0;1;31m*[0m[0;31m*    [0m] A start job is running for Raise nek interfaces (1min 32s / 5min 50s)
+M
+[K[[0;31m*[0;1;31m*[0m[0;31m*   [0m] A start job is running for Raise nek interfaces (1min 32s / 5min 50s)
+M
+[K[ [0;31m*[0;1;31m*[0m[0;31m*  [0m] A start job is running for Raise nek interfaces (1min 33s / 5min 50s)
+[  193.495795] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  193.503627] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  193.506833] Modules linked in:
+[  193.509908] CPU: 3 PID: 267 Comm: sd-resolve Not tainted 5.4.18 #2
+[  193.510376] Hardware name: linux,dummy-virt (DT)
+[  193.511290] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  193.513857] pc : do_undefinstr+0x2ec/0x310
+[  193.514233] lr : do_undefinstr+0x1e0/0x310
+[  193.514556] sp : ffff800011cab7d0
+[  193.514901] x29: ffff800011cab7d0 x28: ffff00007a987000 
+[  193.515401] x27: ffff800011cabd78 x26: 0000000000000011 
+[  193.515784] x25: 000000000000002b x24: 0000000000000000 
+[  193.517421] x23: 0000000060000005 x22: ffff800010baab68 
+[  193.517786] x21: ffff800011cab970 x20: ffff00007a987000 
+[  193.518134] x19: ffff800011cab830 x18: 0000000000000000 
+[  193.518504] x17: 0000000000000000 x16: 0000000000000000 
+[  193.518914] x15: 0000000000000000 x14: 0000000000000000 
+[  193.519286] x13: 0000000000000000 x12: 0000000000000000 
+[  193.519637] x11: 0000000000000000 x10: 0000000000400040 
+[  193.520098] x9 : 000000003500007f x8 : ffff000076fd9888 
+[  193.521039] x7 : ffff800011caba10 x6 : ffff800011cab828 
+[  193.522792] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  193.523405] x3 : 000000009ff00000 x2 : 0000000000000000 
+[  193.524821] x1 : ffff00007a987000 x0 : 0000000060000005 
+[  193.525382] Call trace:
+[  193.525644]  do_undefinstr+0x2ec/0x310
+[  193.525886]  el1_undef+0x10/0x84
+[  193.526124]  udp_sendmsg+0x6e8/0x860
+[  193.526362]  inet_sendmsg+0x40/0x68
+[  193.526656]  ____sys_sendmsg+0x1bc/0x280
+[  193.526933]  ___sys_sendmsg+0x80/0xe0
+[  193.527191]  __sys_sendmmsg+0xbc/0x278
+[  193.527454]  __arm64_sys_sendmmsg+0x24/0x30
+[  193.527744]  el0_svc_common.constprop.0+0x68/0x160
+[  193.529409]  el0_svc_handler+0x20/0x80
+[  193.529713]  el0_svc+0x8/0xc
+[  193.530589] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  193.534730] ---[ end trace fbbc66c60f7a6d9f ]---
+[  193.540100] note: sd-resolve[267] exited with preempt_count 1
+[  193.619499] ------------[ cut here ]------------
+[  193.621473] WARNING: CPU: 3 PID: 0 at kernel/rcu/tree.c:569 rcu_idle_enter+0x74/0x80
+[  193.622797] Modules linked in:
+[  193.628651] CPU: 3 PID: 0 Comm: swapper/3 Tainted: G      D           5.4.18 #2
+[  193.631767] Hardware name: linux,dummy-virt (DT)
+[  193.634345] pstate: 20000085 (nzCv daIf -PAN -UAO)
+[  193.635285] pc : rcu_idle_enter+0x74/0x80
+[  193.636436] lr : do_idle+0x200/0x288
+[  193.637022] sp : ffff800011a5bf20
+[  193.637500] x29: ffff800011a5bf20 x28: 0000000000000000 
+[  193.639135] x27: 0000000000000000 x26: 0000000000000000 
+[  193.641953] x25: 0000000000000000 x24: ffff8000117ba214 
+[  193.643522] x23: ffff00007b0c3800 x22: ffff800011404ab8 
+[  193.645627] x21: ffff8000117ba1f0 x20: 0000000000000003 
+[  193.647561] x19: ffff8000117ba118 x18: 0000000000000000 
+[  193.649323] x17: 0000000000000000 x16: 0000000000000000 
+[  193.649576] x15: 0000000000000000 x14: 0000000000000000 
+[  193.649801] x13: 0000000000001506 x12: 000000000000018d 
+[  193.649985] x11: 0000000000543c84 x10: 00000000000009c0 
+[  193.650830] x9 : ffff800011a5be90 x8 : ffff00007b0c4220 
+[  193.651254] x7 : ffff00007db47800 x6 : 0000037f71b107f7 
+[  193.651544] x5 : 00ffffffffffffff x4 : ffff80006c783000 
+[  193.651898] x3 : 4000000000000002 x2 : 4000000000000000 
+[  193.653233] x1 : ffff800011406980 x0 : ffff00007db89980 
+[  193.654116] Call trace:
+[  193.654352]  rcu_idle_enter+0x74/0x80
+[  193.654715]  do_idle+0x200/0x288
+[  193.656332]  cpu_startup_entry+0x24/0x40
+[  193.656889]  secondary_start_kernel+0x154/0x190
+[  193.657728] ---[ end trace fbbc66c60f7a6da0 ]---
+M
+[K[  [0;31m*[0;1;31m*[0m[0;31m* [0m] A start job is running for Raise nek interfaces (1min 33s / 5min 50s)

@@ -1,0 +1,104 @@
+[  194.175437] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  194.176241] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  194.186625] Mem abort info:
+[  194.186752]   ESR = 0x96000004
+[  194.186844]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.186882]   SET = 0, FnV = 0
+[  194.186919]   EA = 0, S1PTW = 0
+[  194.186969] Data abort info:
+[  194.187236]   ISV = 0, ISS = 0x00000004
+[  194.187338]   CM = 0, WnR = 0
+[  194.190172] Mem abort info:
+[  194.194854] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b9691000
+[  194.195088] [0000000000000000] pgd=0000000000000000
+[  194.196290]   ESR = 0x96000004
+[  194.199819] Internal error: Oops: 96000004 [#1] PREEMPT SMP
+[  194.201633] Modules linked in:
+[  194.202965]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.204325] CPU: 3 PID: 269 Comm: dbus-daemon Not tainted 5.4.18 #2
+[  194.204349] Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: unix_dgram_sendmsg+0x4fc/0x568
+[  194.204404] Hardware name: linux,dummy-virt (DT)
+[  194.206015]   SET = 0, FnV = 0
+[  194.207991] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.210324] SMP: stopping secondary CPUs
+[  194.210997]   EA = 0, S1PTW = 0
+[  194.211082] Data abort info:
+[  194.211235]   ISV = 0, ISS = 0x00000004
+[  194.211322]   CM = 0, WnR = 0
+[  194.211409] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b5e79000
+[  194.211468] [0000000000000000] pgd=0000000000000000
+[  194.211757] pc : refcount_inc_not_zero_checked+0x4/0xa0
+[  194.226027] lr : refcount_inc_checked+0xc/0x48
+[  194.226426] sp : ffff800011e3baa0
+[  194.226738] x29: ffff800011e3baa0 x28: ffff000073ec0b48 
+[  194.227288] x27: 000000000000043c x26: ffff000075f7f400 
+[  194.228134] x25: ffff800011e3bb20 x24: ffff000073104300 
+[  194.229613] x23: 0000000000000000 x22: 0000000000000001 
+[  194.230765] x21: 0000000000000000 x20: ffff000075c28380 
+[  194.233070] x19: 0000000000000000 x18: 0000000000000000 
+[  194.234365] x17: 0000000000000000 x16: 0000000000000000 
+[  194.235370] x15: 0000000000000000 x14: 0000000000000000 
+[  194.237061] x13: 0000000000000000 x12: 0000000000000000 
+[  194.238514] x11: 0000000000000000 x10: 0000000000400100 
+[  194.239849] x9 : ffff00007978e200 x8 : 0000000000000000 
+[  194.241325] x7 : 0000000000000000 x6 : ffff000075c28390 
+[  194.243885] x5 : 0000000000000900 x4 : 0000000000000000 
+[  194.245252] x3 : 0000000000000000 x2 : 0000000000000010 
+[  194.246722] x1 : ffff000073ec0c10 x0 : 0000000000000000 
+[  194.249636] Call trace:
+[  194.251544]  refcount_inc_not_zero_checked+0x4/0xa0
+[  194.253085]  scm_fp_dup+0x88/0xc0
+[  194.254778]  unix_attach_fds+0x3c/0xb8
+[  194.255997]  unix_scm_to_skb+0x80/0xa0
+[  194.256756]  unix_stream_sendmsg+0xcc/0x340
+[  194.258257]  ____sys_sendmsg+0x240/0x280
+[  194.259555]  ___sys_sendmsg+0x80/0xe0
+[  194.261420]  __sys_sendmsg+0x64/0xc0
+[  194.262684]  __arm64_sys_sendmsg+0x20/0x28
+[  194.263163]  el0_svc_common.constprop.0+0x68/0x160
+[  194.267149]  el0_svc_handler+0x20/0x80
+[  194.268138]  el0_svc+0x8/0xc
+[  194.270206] Code: 97f1f2a2 d4210000 17fffff4 aa0003e3 (b9400000) 
+[  194.273642] ---[ end trace e83e6c9c78a6df85 ]---
+[  194.275588] Internal error: Oops: 96000004 [#2] PREEMPT SMP
+[  194.277433] Modules linked in:
+[  194.278776] CPU: 0 PID: 293 Comm: gdbus Tainted: G      D           5.4.18 #2
+[  194.280190] Hardware name: linux,dummy-virt (DT)
+[  194.281906] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.283230] pc : refcount_inc_not_zero_checked+0x4/0xa0
+[  194.286177] lr : refcount_inc_checked+0xc/0x48
+[  194.287674] sp : ffff800011e9baa0
+[  194.290286] x29: ffff800011e9baa0 x28: ffff000073d80b48 
+[  194.292204] x27: 0000000000000088 x26: ffff000071b7dd00 
+[  194.293999] x25: ffff800011e9bb20 x24: ffff000073070300 
+[  194.295229] x23: 0000000000000000 x22: 0000000000000001 
+[  194.296829] x21: 0000000000000000 x20: ffff000075c33100 
+[  194.299291] x19: 0000000000000000 x18: 0000000000000000 
+[  194.300932] x17: 0000000000000000 x16: 0000000000000000 
+[  194.302582] x15: 0000000000000000 x14: 0000000000000000 
+[  194.304271] x13: 0000000000000000 x12: 0000000000000000 
+[  194.306260] x11: 0000000000000000 x10: 0000000000400040 
+[  194.309895] x9 : ffff000073db0000 x8 : 0000000000000000 
+[  194.310433] x7 : 0000000000000000 x6 : ffff000075c33110 
+[  194.311684] x5 : 0000000000000300 x4 : 0000000000000000 
+[  194.312793] x3 : 0000000000000000 x2 : 0000000000000010 
+[  194.313622] x1 : ffff000073d80410 x0 : 0000000000000000 
+[  194.314476] Call trace:
+[  194.314997]  refcount_inc_not_zero_checked+0x4/0xa0
+[  194.315818]  scm_fp_dup+0x88/0xc0
+[  194.316683]  unix_attach_fds+0x3c/0xb8
+[  194.317310]  unix_scm_to_skb+0x80/0xa0
+[  194.318121]  unix_stream_sendmsg+0xcc/0x340
+[  194.319560]  ____sys_sendmsg+0x240/0x280
+[  194.320856]  ___sys_sendmsg+0x80/0xe0
+[  194.322481]  __sys_sendmsg+0x64/0xc0
+[  194.323889]  __arm64_sys_sendmsg+0x20/0x28
+[  194.325227]  el0_svc_common.constprop.0+0x68/0x160
+[  194.326141]  el0_svc_handler+0x20/0x80
+[  194.328342]  el0_svc+0x8/0xc
+[  194.329823] Code: 97f1f2a2 d4210000 17fffff4 aa0003e3 (b9400000) 
+[  194.334367] ---[ end trace e83e6c9c78a6df86 ]---
+[  194.338577] Kernel Offset: disabled
+[  194.340936] CPU features: 0x0002,20006000
+[  194.341976] Memory Limit: none
+[  194.346087] ---[ end Kernel panic - not syncing: stack-protector: Kernel stack is corrupted in: unix_dgram_sendmsg+0x4fc/0x568 ]---

@@ -1,0 +1,121 @@
+[  192.373099] skbuff: skb_over_panic: text:0000000008cd3536 len:-2056793746 put:-2056793746 head:00000000a189e879 data:00000000e36a4f39 tail:0x8567d17e end:0xc0 dev:<NULL>
+[  192.409918] kernel BUG at net/core/skbuff.c:108!
+[  192.414135] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  192.420727] Modules linked in:
+[  192.426559] CPU: 2 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  192.427354] Hardware name: linux,dummy-virt (DT)
+[  192.429185] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  192.435530] pc : skb_panic+0x54/0x58
+[  192.436364] lr : skb_panic+0x54/0x58
+[  192.437172] sp : ffff800011fdb9b0
+[  192.438054] x29: ffff800011fdb9c0 x28: ffff0000781aa530 
+[  192.439068] x27: 000000000000001a x26: ffff800011fdb9d0 
+[  192.439763] x25: ffff0000781aa530 x24: ffff000076ebc0c0 
+[  192.440940] x23: ffff800011fdbd80 x22: 0000000000000000 
+[  192.442941] x21: 000000007a982ec0 x20: 0000000000000000 
+[  192.444889] x19: 0000000000000000 x18: 0000000000000010 
+[  192.445634] x17: 0000000000000000 x16: 0000000000000000 
+[  192.446359] x15: ffff0000781aa070 x14: 303a6c6961742039 
+[  192.447404] x13: 3366346136336530 x12: 303030303030303a 
+[  192.448248] x11: 6174616420393738 x10: 6539383161303030 
+[  192.450695] x9 : 30303030303a6461 x8 : ffff800011993000 
+[  192.451712] x7 : ffff800010691a68 x6 : 000000000000014c 
+[  192.452542] x5 : 0000000000000000 x4 : ffff00007db69188 
+[  192.453445] x3 : ffff00007db6ff20 x2 : 0000000000000000 
+[  192.454273] x1 : 0000000000000000 x0 : 000000000000009d 
+[  192.455903] Call trace:
+[  192.456490]  skb_panic+0x54/0x58
+[  192.457725]  pskb_put+0x0/0x38
+[  192.458332]  __ip_append_data.isra.0+0x7e0/0xc30
+[  192.459148]  ip_make_skb+0xec/0x140
+[  192.459758]  udp_sendmsg+0x6ec/0x860
+[  192.460135]  inet_sendmsg+0x40/0x68
+[  192.460619]  __sys_sendto+0xd4/0x150
+[  192.461305]  __arm64_sys_sendto+0x24/0x30
+[  192.462154]  el0_svc_common.constprop.0+0x68/0x160
+[  192.462659]  el0_svc_handler+0x20/0x80
+[  192.463633]  el0_svc+0x8/0xc
+[  192.470537] Code: f90007e9 b940b508 f90003e8 97d8dd19 (d4210000) 
+[  192.475584] ---[ end trace abc330156ee6c183 ]---
+[  192.478664] note: python3[493] exited with preempt_count 1
+[  192.640934] ------------[ cut here ]------------
+[  192.648185] WARNING: CPU: 2 PID: 0 at kernel/rcu/tree.c:569 rcu_idle_enter+0x74/0x80
+[  192.660338] Modules linked in:
+[  192.670954] CPU: 2 PID: 0 Comm: swapper/2 Tainted: G      D           5.4.18 #2
+[  192.684527] Hardware name: linux,dummy-virt (DT)
+[  192.687645] pstate: 200003c5 (nzCv DAIF -PAN -UAO)
+[  192.690699] pc : rcu_idle_enter+0x74/0x80
+[  192.691547] lr : do_idle+0x200/0x288
+[  192.692495] sp : ffff800011a53f20
+[  192.699939] x29: ffff800011a53f20 x28: 0000000000000000 
+[  192.704039] x27: 0000000000000000 x26: 0000000000000000 
+[  192.709947] x25: 0000000000000000 x24: ffff8000117ba214 
+[  192.712697] x23: ffff00007b0c2a00 x22: ffff800011404ab8 
+[  192.715175] x21: ffff8000117ba1f0 x20: 0000000000000002 
+[  192.715554] x19: ffff8000117ba118 x18: 0000000000000010 
+[  192.716107] x17: 0000000000000000 x16: 0000000000000000 
+[  192.716606] x15: ffff0000781aa070 x14: 0000000000000000 
+[  192.719318] x13: 00000000000037e2 x12: 0000000000000388 
+[  192.720150] x11: 0000000000dfa62c x10: 00000000000009c0 
+[  192.722019] x9 : ffff800011a53e90 x8 : ffff00007b0c3420 
+[  192.724777] x7 : 0000000000000002 x6 : 0000002eaa56c9e1 
+[  192.727374] x5 : 00ffffffffffffff x4 : ffff80006c76d000 
+[  192.731311] x3 : 4000000000000002 x2 : 4000000000000000 
+[  192.732635] x1 : ffff800011406980 x0 : ffff00007db73980 
+[  192.735896] Call trace:
+[  192.736544]  rcu_idle_enter+0x74/0x80
+[  192.738794]  do_idle+0x200/0x288
+[  192.739878]  cpu_startup_entry+0x20/0x40
+[  192.741195]  secondary_start_kernel+0x154/0x190
+[  192.743604] ---[ end trace abc330156ee6c184 ]---
+[  192.754507] Unable to handle kernel paging request at virtual address 0005bc3078031460
+[  192.761970] Mem abort info:
+[  192.762754]   ESR = 0x96000004
+[  192.763473]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  192.764250]   SET = 0, FnV = 0
+[  192.765472]   EA = 0, S1PTW = 0
+[  192.766723] Data abort info:
+[  192.768473]   ISV = 0, ISS = 0x00000004
+[  192.773423]   CM = 0, WnR = 0
+[  192.775508] [0005bc3078031460] address between user and kernel address ranges
+[  192.786409] Internal error: Oops: 96000004 [#2] PREEMPT SMP
+[  192.789405] Modules linked in:
+[  192.792584] CPU: 1 PID: 1 Comm: systemd Tainted: G      D W         5.4.18 #2
+[  192.797603] Hardware name: linux,dummy-virt (DT)
+[  192.799690] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  192.804235] pc : unix_stream_sendmsg+0x108/0x340
+[  192.809292] lr : unix_stream_sendmsg+0x108/0x340
+[  192.813444] sp : ffff80001005bb20
+[  192.814211] x29: ffff80001005bb20 x28: ffff000078031b48 
+[  192.815457] x27: 00000000000000dc x26: ffff00007b246400 
+[  192.817078] x25: ffff80001005bb20 x24: ffff0000784b0c00 
+[  192.820117] x23: 0000000000000000 x22: ffff80001005be00 
+[  192.823568] x21: 1005bc3078031400 x20: 0000000000000000 
+[  192.824723] x19: 00000000000000dc x18: 0000000000000000 
+[  192.827526] x17: 0000000000000000 x16: 0000000000000000 
+[  192.828092] x15: 0000000000000000 x14: 7374696e5564656c 
+[  192.829245] x13: 6961464e0000000c x12: 0000000000000018 
+[  192.830306] x11: 0000000072656761 x10: 6e614d2e31646d65 
+[  192.830803] x9 : 747379732e706f74 x8 : 6b73656465657266 
+[  192.831205] x7 : 2e67726f00000020 x6 : ffff0000780160dc 
+[  192.831467] x5 : ffff0000780160dc x4 : 0000000000000000 
+[  192.831699] x3 : ffff000078031b48 x2 : 0000000000000001 
+[  192.838357] x1 : 0000000000000000 x0 : 0000000000000000 
+[  192.839557] Call trace:
+[  192.839797]  unix_stream_sendmsg+0x108/0x340
+[  192.843448]  ____sys_sendmsg+0x240/0x280
+[  192.847789]  ___sys_sendmsg+0x80/0xe0
+[  192.848416]  __sys_sendmsg+0x64/0xc0
+[  192.854105]  __arm64_sys_sendmsg+0x20/0x28
+[  192.855922]  el0_svc_common.constprop.0+0x68/0x160
+[  192.858227]  el0_svc_handler+0x20/0x80
+[  192.863152]  el0_svc+0x8/0xc
+[  192.867398] Code: b90097e0 35000e40 aa1c03e0 940187bb (f94032a0) 
+[  192.879682] ---[ end trace abc330156ee6c185 ]---
+[  192.887504] note: systemd[1] exited with preempt_count 1
+[  192.901291] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  192.911731] SMP: stopping secondary CPUs
+[  192.918965] Kernel Offset: disabled
+[  192.922139] CPU features: 0x0002,20006000
+[  192.926791] Memory Limit: none
+[  192.934425] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

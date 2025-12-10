@@ -1,0 +1,67 @@
+[  194.538254] Unable to handle kernel NULL pointer dereference at virtual address 000000000000001c
+[  194.565925] Mem abort info:
+[  194.575428]   ESR = 0x96000046
+[  194.577735]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.581702] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  194.587474]   SET = 0, FnV = 0
+[  194.590669] Mem abort info:
+[  194.591726]   ESR = 0x96000044
+[  194.592607]   EA = 0, S1PTW = 0
+[  194.593843]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.594583] Data abort info:
+[  194.598686]   SET = 0, FnV = 0
+[  194.599035]   EA = 0, S1PTW = 0
+[  194.599463] Data abort info:
+[  194.599671]   ISV = 0, ISS = 0x00000044
+[  194.601090]   ISV = 0, ISS = 0x00000046
+[  194.602116]   CM = 0, WnR = 1
+[  194.602256]   CM = 0, WnR = 1
+[  194.603471] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000ba48e000
+[  194.609437] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b4b21000
+[  194.611126] [0000000000000000] pgd=0000000000000000
+[  194.618855] Internal error: Oops: 96000044 [#1] PREEMPT SMP
+[  194.621605] [000000000000001c] pgd=00000000b2595003, pud=00000000b190a003, pmd=0000000000000000
+[  194.628213] Modules linked in:
+[  194.637690] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.4.18 #2
+[  194.640975] Hardware name: linux,dummy-virt (DT)
+[  194.642938] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  194.650192] pc : __nlmsg_put+0x50/0x88
+[  194.650749] lr : __nlmsg_put+0x3c/0x88
+[  194.651184] sp : ffff800010003c80
+[  194.651538] x29: ffff800010003c80 x28: ffff800010003e80 
+[  194.653202] x27: 0000000000000000 x26: ffff0000782ada50 
+[  194.654376] x25: 000000000000001c x24: 0000000000000000 
+[  194.656338] x23: 0000000000000000 x22: 0000000000000000 
+[  194.657417] x21: 000000000000001c x20: 000000000000000c 
+[  194.658329] x19: 0000000000000000 x18: 00000000000040e4 
+[  194.659772] x17: 00000000000040e0 x16: 00000000000040dc 
+[  194.660506] x15: 00000000000040d8 x14: 0000000000000000 
+[  194.663689] x13: 0000000000000089 x12: 00000000000003ef 
+[  194.664402] x11: 0000000000022717 x10: 0000000000000000 
+[  194.664877] x9 : 0000000000000001 x8 : 0000000000001000 
+[  194.665248] x7 : ffff8000117b7000 x6 : 0000000000000000 
+[  194.665596] x5 : 0000000000000000 x4 : 000000000000001c 
+[  194.666371] x3 : 000000000000001c x2 : 0000000000000000 
+[  194.668393] x1 : 000000000000001c x0 : 000000000000001c 
+[  194.669770] Call trace:
+[  194.670722]  __nlmsg_put+0x50/0x88
+[  194.673321]  neigh_fill_info+0x64/0x298
+[  194.673662]  __neigh_notify+0x60/0xe0
+[  194.674017]  neigh_timer_handler+0xc8/0x288
+[  194.674561]  call_timer_fn.isra.0+0x20/0x78
+[  194.675249]  run_timer_softirq+0x1a0/0x410
+[  194.676176]  __do_softirq+0x124/0x240
+[  194.677121]  irq_exit+0xb8/0xd8
+[  194.677955]  __handle_domain_irq+0x64/0xb8
+[  194.678345]  gic_handle_irq+0x50/0xa0
+[  194.678853]  el1_irq+0xb8/0x180
+[  194.679178]  arch_cpu_idle+0x10/0x18
+[  194.679528]  do_idle+0x204/0x288
+[  194.680805]  cpu_startup_entry+0x24/0x40
+[  194.681416]  rest_init+0xd4/0xe0
+[  194.681627]  arch_call_rest_init+0xc/0x14
+[  194.682103]  start_kernel+0x420/0x450
+[  194.683676] Code: 11004283 93407e80 91004000 4b0302a2 (b9000263) 
+[  194.686201] ---[ end trace d5f362948745009a ]---
+[  194.687413] Kernel panic - not syncing: Fatal exception in interrupt
+[  194.688070] SMP: stopping secondary CPUs

@@ -1,0 +1,92 @@
+[  193.764256] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000260
+[  193.767707] Mem abort info:
+[  193.768009]   ESR = 0x96000006
+[  193.771693]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.772717]   SET = 0, FnV = 0
+[  193.773006]   EA = 0, S1PTW = 0
+[  193.773273] Data abort info:
+[  193.774449]   ISV = 0, ISS = 0x00000006
+[  193.775290]   CM = 0, WnR = 0
+[  193.776146] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b5c1f000
+[  193.778394] [0000000000000260] pgd=00000000b43d7003, pud=00000000af1e7003, pmd=0000000000000000
+[  193.784423] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  193.788224] Modules linked in:
+[  193.788835] CPU: 7 PID: 492 Comm: python3 Tainted: G        W         5.4.18 #2
+[  193.790574] Hardware name: linux,dummy-virt (DT)
+[  193.791063] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.794030] pc : skb_segment+0xde0/0xfc0
+[  193.795185] lr : __ip_append_data.isra.0+0x5cc/0xc30
+[  193.795658] sp : ffff8000120eb9e0
+[  193.795990] x29: ffff8000120eb9e0 x28: ffff8000120ebd80 
+[  193.796618] x27: 00000000120ebcbe x26: ffff8000120ebcd8 
+[  193.797157] x25: ffff00007a81fb40 x24: ffff000075fac0c0 
+[  193.797817] x23: 00000000120ebcbe x22: 0000000000000000 
+[  193.798275] x21: 00000000ef590614 x20: ffff00007b379730 
+[  193.801547] x19: 000000000000002c x18: 0000000000000000 
+[  193.804090] x17: 0000000000000000 x16: 0000000000000000 
+[  193.804566] x15: ffff8000117d2000 x14: ffff800011992f70 
+[  193.806916] x13: 0000000000000000 x12: ffff800011992000 
+[  193.807439] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  193.808494] x9 : 0000000010a679ec x8 : 0000000000000001 
+[  193.809016] x7 : ffff00007b378e00 x6 : 0000000000000060 
+[  193.810763] x5 : ffffffffef590614 x4 : 0000000000000260 
+[  193.812984] x3 : 0000000000000001 x2 : 0000000000000260 
+[  193.815116] x1 : 0000000000000000 x0 : ffff00007b379730 
+[  193.815747] Call trace:
+[  193.816035]  skb_segment+0xde0/0xfc0
+[  193.816328]  ip_make_skb+0xec/0x140
+[  193.816766]  udp_sendmsg+0x6ec/0x860
+[  193.820294]  inet_sendmsg+0x40/0x68
+[  193.821772]  __sys_sendto+0xd4/0x150
+[  193.822194]  __arm64_sys_sendto+0x24/0x30
+[  193.822665]  el0_svc_common.constprop.0+0x68/0x160
+[  193.823174]  el0_svc_handler+0x20/0x80
+[  193.823568]  el0_svc+0x8/0xc
+[  193.824738] Code: 35ffffa1 d5033bbf 17ffe8ad f9800051 (885f7c44) 
+[  193.827990] ---[ end trace 1fc0793393adf458 ]---
+[  193.881597] skbuff: skb_over_panic: text:0000000025baeccb len:-2062206876 put:-2062206876 head:00000000d85b07af data:00000000d85b07af tail:0x85153864 end:0x2c0 dev:<NULL>
+[  193.883146] ------------[ cut here ]------------
+[  193.883467] kernel BUG at net/core/skbuff.c:108!
+[  193.884136] Internal error: Oops - BUG: 0 [#2] PREEMPT SMP
+[  193.884614] Modules linked in:
+[  193.886097] CPU: 0 PID: 1 Comm: systemd Tainted: G      D W         5.4.18 #2
+[  193.886814] Hardware name: linux,dummy-virt (DT)
+[  193.887220] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.887743] pc : skb_panic+0x54/0x58
+[  193.888080] lr : skb_panic+0x54/0x58
+[  193.888497] sp : ffff80001005bb00
+[  193.889849] x29: ffff80001005bb10 x28: ffff00007aeac900 
+[  193.890424] x27: ffff00007976df00 x26: ffff80001005be00 
+[  193.891006] x25: 0000000000000000 x24: 0000000000000000 
+[  193.891572] x23: ffff000079598400 x22: ffff0000795b8c00 
+[  193.892305] x21: 0000000000000164 x20: 0000000000000000 
+[  193.892948] x19: 0000000000000000 x18: 0000000000000010 
+[  193.895046] x17: 0000000000000000 x16: 0000000000000000 
+[  193.895277] x15: ffff00007b0a8470 x14: 6e65203436383335 
+[  193.895481] x13: 31353878303a6c69 x12: 6174206661373062 
+[  193.897087] x11: 3538643030303030 x10: 3030303a61746164 
+[  193.897504] x9 : 2066613730623538 x8 : ffff800011993000 
+[  193.899018] x7 : ffff800010691a68 x6 : 00000000000001c4 
+[  193.899514] x5 : 0000000000000000 x4 : ffff00007db3d188 
+[  193.899923] x3 : ffff00007db43f20 x2 : 0000000000000000 
+[  193.900352] x1 : 0000000000000000 x0 : 000000000000009e 
+[  193.903273] Call trace:
+[  193.903532]  skb_panic+0x54/0x58
+[  193.903801]  pskb_put+0x0/0x38
+[  193.904242]  unix_dgram_sendmsg+0x13c/0x568
+[  193.904714]  ____sys_sendmsg+0x240/0x280
+[  193.905845]  ___sys_sendmsg+0x80/0xe0
+[  193.906147]  __sys_sendmsg+0x64/0xc0
+[  193.906450]  __arm64_sys_sendmsg+0x20/0x28
+[  193.906938]  el0_svc_common.constprop.0+0x68/0x160
+[  193.907929]  el0_svc_handler+0x20/0x80
+[  193.908229]  el0_svc+0x8/0xc
+[  193.908551] Code: f90007e9 b940b508 f90003e8 97d8dd19 (d4210000) 
+[  193.912160] ---[ end trace 1fc0793393adf459 ]---
+[  193.912381] note: systemd[1] exited with preempt_count 1
+[  193.913539] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  193.915883] SMP: stopping secondary CPUs
+[  193.918004] Kernel Offset: disabled
+[  193.919589] CPU features: 0x0002,20006000
+[  193.920650] Memory Limit: none
+[  193.924286] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

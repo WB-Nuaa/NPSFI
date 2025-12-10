@@ -1,0 +1,49 @@
+[  156.141306] Unable to handle kernel write to read-only memory at virtual address ffff800010b78688
+[  156.153131] Mem abort info:
+[  156.155566]   ESR = 0x9600004e
+[  156.160233]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  156.161197]   SET = 0, FnV = 0
+[  156.161437]   EA = 0, S1PTW = 0
+[  156.162092] Data abort info:
+[  156.162288]   ISV = 0, ISS = 0x0000004e
+[  156.162527]   CM = 0, WnR = 1
+[  156.165548] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  156.167568] [ffff800010b78688] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0040000040a00791
+[  156.175223] Internal error: Oops: 9600004e [#1] PREEMPT SMP
+[  156.176043] Modules linked in:
+[  156.180803] CPU: 7 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  156.181589] Hardware name: linux,dummy-virt (DT)
+[  156.183553] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  156.198946] pc : ip_finish_output2+0x0/0x588
+[  156.201807] lr : __ip_finish_output+0x1b0/0x1e0
+[  156.203658] sp : ffff800011f9b9f0
+[  156.204599] x29: ffff800011f9b9f0 x28: 000000000000001a 
+[  156.205458] x27: ffff800011f9bd80 x26: 0000000000000011 
+[  156.205830] x25: 0000000000000012 x24: ffff800011963ac0 
+[  156.206080] x23: ffff000077e41540 x22: ffff000078cbaa00 
+[  156.206268] x21: 00000000000005dc x20: ffff000078c0de00 
+[  156.206475] x19: ffff000078c0de00 x18: 0000000000000000 
+[  156.206657] x17: 0000000000000000 x16: 0000000000000000 
+[  156.206837] x15: 0000000000000001 x14: 0000000000000000 
+[  156.210529] x13: 0000000000000006 x12: 00000000c0a80164 
+[  156.212390] x11: 0000000000000000 x10: 0000000000000068 
+[  156.214553] x9 : ffff000078cbaa00 x8 : ffff800011f9bc30 
+[  156.217139] x7 : 0000000098a00000 x6 : 000000000000e8ba 
+[  156.217360] x5 : 00000000000048a0 x4 : 0000000000000007 
+[  156.217554] x3 : 00000000000000c0 x2 : ffff000078c0de00 
+[  156.217738] x1 : ffff000077e41540 x0 : ffff800011963ac0 
+[  156.220039] Call trace:
+[  156.221423]  ip_finish_output2+0x0/0x588
+[  156.227835]  ip_output+0xf4/0x1b0
+[  156.232671]  ip_local_out+0x44/0x58
+[  156.235857]  ip_send_skb+0x1c/0xa8
+[  156.236099]  udp_send_skb.isra.0+0x11c/0x368
+[  156.236738]  udp_sendmsg+0x710/0x860
+[  156.236987]  inet_sendmsg+0x40/0x68
+[  156.238256]  __sys_sendto+0xd4/0x150
+[  156.239033]  __arm64_sys_sendto+0x24/0x30
+[  156.241139]  el0_svc_common.constprop.0+0x68/0x160
+[  156.241618]  el0_svc_handler+0x20/0x80
+[  156.242086]  el0_svc+0x8/0xc
+[  156.249845] Code: f94037e5 34fffc00 17ffffef d503201f (a9ba7bdd) 
+[  156.261516] ---[ end trace 665c6f9e52e4a119 ]---

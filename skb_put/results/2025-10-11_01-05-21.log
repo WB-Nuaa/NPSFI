@@ -1,0 +1,52 @@
+[  196.955086] skbuff: skb_over_panic: text:00000000599dbe70 len:28 put:28 head:0000000028331e95 data:0000000052b46d65 tail:0x771581d4 end:0xc0 dev:<NULL>
+[  196.961924] kernel BUG at net/core/skbuff.c:108!
+[  196.975026] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  196.981059] Modules linked in:
+[  197.005753] CPU: 5 PID: 0 Comm: swapper/5 Not tainted 5.4.18 #2
+[  197.012479] Hardware name: linux,dummy-virt (DT)
+[  197.019709] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  197.024219] pc : skb_panic+0x54/0x58
+[  197.028547] lr : skb_panic+0x54/0x58
+[  197.030149] sp : ffff80001002bc50
+[  197.032300] x29: ffff80001002bc60 x28: ffff80001002bd68 
+[  197.032885] x27: 000000000f02000a x26: 000000000202000a 
+[  197.033185] x25: 0000000000000806 x24: 0000000000000000 
+[  197.033590] x23: 0000000000000001 x22: ffff000079b73f90 
+[  197.033924] x21: 0000000000000010 x20: ffff000077158100 
+[  197.034295] x19: ffff000079bb2000 x18: 0000000000000010 
+[  197.035673] x17: 0000000000000000 x16: 0000000000000000 
+[  197.037838] x15: ffff00007b0c5870 x14: 306378303a646e65 
+[  197.042018] x13: 2034643138353137 x12: 3778303a6c696174 
+[  197.046856] x11: 2035366436346232 x10: 3530303030303030 
+[  197.051479] x9 : 303a617461642035 x8 : ffff800011993000 
+[  197.053684] x7 : ffff800010691a68 x6 : 0000000000000146 
+[  197.058816] x5 : 0000000000000000 x4 : 0000000000000020 
+[  197.062076] x3 : ffff8000117bca98 x2 : 0000000000000000 
+[  197.065585] x1 : 0000000000000000 x0 : 000000000000008b 
+[  197.068574] Call trace:
+[  197.072660]  skb_panic+0x54/0x58
+[  197.080031]  pskb_put+0x0/0x38
+[  197.082651]  arp_create+0xac/0x1c0
+[  197.083982]  arp_send_dst.part.0+0x14/0x88
+[  197.088633]  arp_solicit+0x16c/0x220
+[  197.091233]  neigh_probe+0x54/0x98
+[  197.097644]  neigh_timer_handler+0xa4/0x288
+[  197.101917]  call_timer_fn.isra.0+0x20/0x78
+[  197.103117]  run_timer_softirq+0x1a0/0x410
+[  197.106493]  __do_softirq+0x124/0x240
+[  197.110718]  irq_exit+0xb8/0xd8
+[  197.111087]  __handle_domain_irq+0x64/0xb8
+[  197.112180]  gic_handle_irq+0x50/0xa0
+[  197.112790]  el1_irq+0xb8/0x180
+[  197.113027]  arch_cpu_idle+0x10/0x18
+[  197.113905]  do_idle+0x204/0x288
+[  197.114275]  cpu_startup_entry+0x20/0x40
+[  197.114756]  secondary_start_kernel+0x154/0x190
+[  197.118923] Code: f90007e9 b940b508 f90003e8 97d8dd19 (d4210000) 
+[  197.134227] ---[ end trace d908f0e8915a570e ]---
+[  197.138722] Kernel panic - not syncing: Fatal exception in interrupt
+[  197.140633] SMP: stopping secondary CPUs
+[  197.143203] Kernel Offset: disabled
+[  197.143672] CPU features: 0x0002,20006000
+[  197.144368] Memory Limit: none
+[  197.147960] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

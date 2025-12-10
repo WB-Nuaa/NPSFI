@@ -1,0 +1,78 @@
+[  193.426828] kernel BUG at arch/arm64/kernel/traps.c:405!
+[  193.439811] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  193.457587] Modules linked in:
+[  193.464761] CPU: 4 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  193.467356] Hardware name: linux,dummy-virt (DT)
+[  193.468680] pstate: 00000005 (nzcv daif -PAN -UAO)
+[  193.473930] pc : do_undefinstr+0x2ec/0x310
+[  193.476239] lr : do_undefinstr+0x1e0/0x310
+[  193.477046] sp : ffff8000120bb9c0
+[  193.479814] x29: ffff8000120bb9c0 x28: ffff00007a893800 
+[  193.485616] x27: ffff8000120bbd80 x26: 0000000000000011 
+[  193.488813] x25: 0000000000000012 x24: 0000000000000000 
+[  193.490234] x23: 0000000080000005 x22: ffff800010baab78 
+[  193.490787] x21: ffff8000120bbb60 x20: ffff00007a893800 
+[  193.492430] x19: ffff8000120bba20 x18: 0000000000000000 
+[  193.497764] x17: 0000000000000000 x16: 0000000000000000 
+[  193.500242] x15: 0000000000000001 x14: 0000000000000000 
+[  193.500463] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.500651] x11: 0000000000000000 x10: 0000000000000068 
+[  193.500945] x9 : ffff00007a893800 x8 : ffff000076d2c200 
+[  193.502974] x7 : 000000002b400000 x6 : ffff8000120bba18 
+[  193.503689] x5 : 00000000d5300000 x4 : ffff8000117c51f0 
+[  193.504411] x3 : 00000000d9400000 x2 : 0000000000000000 
+[  193.508677] x1 : ffff00007a893800 x0 : 0000000080000005 
+[  193.514903] Call trace:
+[  193.515130]  do_undefinstr+0x2ec/0x310
+[  193.515284]  el1_undef+0x10/0x84
+[  193.515409]  udp_sendmsg+0x6f8/0x860
+[  193.515534]  inet_sendmsg+0x40/0x68
+[  193.515658]  __sys_sendto+0xd4/0x150
+[  193.515779]  __arm64_sys_sendto+0x24/0x30
+[  193.515916]  el0_svc_common.constprop.0+0x68/0x160
+[  193.516064]  el0_svc_handler+0x20/0x80
+[  193.516189]  el0_svc+0x8/0xc
+[  193.518626] Code: f9401bf7 17ffff7c a9025bf5 f9001bf7 (d4210000) 
+[  193.520337] ---[ end trace 66c971f47b89bb22 ]---
+[  193.524300] note: python3[494] exited with preempt_count 1
+[  193.577168] ------------[ cut here ]------------
+[  193.581437] WARNING: CPU: 4 PID: 0 at kernel/rcu/tree.c:569 rcu_idle_enter+0x74/0x80
+[  193.590043] Modules linked in:
+[  193.596144] CPU: 4 PID: 0 Comm: swapper/4 Tainted: G      D           5.4.18 #2
+[  193.596553] Hardware name: linux,dummy-virt (DT)
+[  193.597659] pstate: 200003c5 (nzCv DAIF -PAN -UAO)
+[  193.600717] pc : rcu_idle_enter+0x74/0x80
+[  193.603776] lr : do_idle+0x200/0x288
+[  193.610260] sp : ffff800011a63f20
+[  193.612969] x29: ffff800011a63f20 x28: 0000000000000000 
+[  193.620061] x27: 0000000000000000 x26: 0000000000000000 
+[  193.620620] x25: 0000000000000000 x24: ffff8000117ba214 
+[  193.623490] x23: ffff00007b0c4600 x22: ffff800011404ab8 
+[  193.634138] x21: ffff8000117ba1f0 x20: 0000000000000004 
+[  193.636125] x19: ffff8000117ba118 x18: 0000000000000010 
+[  193.638272] x17: 0000000000000000 x16: 0000000000000000 
+[  193.645462] x15: 0000000000000000 x14: 0000000000000000 
+[  193.653098] x13: 0000000000000002 x12: 0000000000000000 
+[  193.674167] x11: 0000000000000000 x10: 00000000000009c0 
+[  193.674983] x9 : ffff800011a63e90 x8 : ffff00007b0c5020 
+[  193.675510] x7 : 0000000000000337 x6 : 000003e8d5174731 
+[  193.676241] x5 : 00ffffffffffffff x4 : ffff80006c799000 
+[  193.676860] x3 : 4000000000000002 x2 : 4000000000000000 
+[  193.682471] x1 : ffff800011406980 x0 : ffff00007db9f980 
+[  193.690502] Call trace:
+[  193.694508]  rcu_idle_enter+0x74/0x80
+[  193.695487]  do_idle+0x200/0x288
+[  193.698101]  cpu_startup_entry+0x24/0x40
+[  193.704667]  secondary_start_kernel+0x154/0x190
+[  193.711942] ---[ end trace 66c971f47b89bb23 ]---
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.18 aarch64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.

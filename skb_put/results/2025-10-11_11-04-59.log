@@ -1,0 +1,50 @@
+[  196.187107] skbuff: skb_over_panic: text:0000000010f782cb len:64 put:64 head:000000001691bfee data:00000000a7c308a2 tail:0x4120 end:0x80 dev:enp0s1
+[  196.210768] kernel BUG at net/core/skbuff.c:108!
+[  196.213365] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  196.218430] Modules linked in:
+[  196.225229] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.4.18 #2
+[  196.226057] Hardware name: linux,dummy-virt (DT)
+[  196.228013] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  196.235255] pc : skb_panic+0x54/0x58
+[  196.241426] lr : skb_panic+0x54/0x58
+[  196.242707] sp : ffff800010003c80
+[  196.242983] x29: ffff800010003c90 x28: 0000000000000040 
+[  196.244160] x27: ffff0000712f6240 x26: ffff00007b3eef00 
+[  196.245503] x25: 0000000000000007 x24: 0000000000000003 
+[  196.247397] x23: ffff800011d5d030 x22: ffff00007a906a00 
+[  196.256788] x21: 0000000000000040 x20: ffff000079b607c0 
+[  196.258078] x19: ffff000078223030 x18: 0000000000000010 
+[  196.258694] x17: 00000000000040e0 x16: 00000000000040dc 
+[  196.261649] x15: ffff8000117c31f0 x14: 7665642030387830 
+[  196.264448] x13: 3a646e6520303231 x12: 3478303a6c696174 
+[  196.266730] x11: 2032613830336337 x10: 6130303030303030 
+[  196.269915] x9 : 303a617461642065 x8 : ffff800011993000 
+[  196.271362] x7 : ffff800010691a68 x6 : 0000000000000143 
+[  196.275354] x5 : 0000000000000000 x4 : 0000000000000001 
+[  196.277254] x3 : ffff8000117bca98 x2 : 0000000000000000 
+[  196.278612] x1 : 0000000000000000 x0 : 0000000000000087 
+[  196.282182] Call trace:
+[  196.285176]  skb_panic+0x54/0x58
+[  196.287273]  pskb_put+0x0/0x38
+[  196.288699]  e1000_clean_rx_irq+0x24c/0x4a0
+[  196.289066]  e1000_clean+0x250/0x970
+[  196.289315]  net_rx_action+0x114/0x340
+[  196.291948]  __do_softirq+0x124/0x240
+[  196.297937]  irq_exit+0xb8/0xd8
+[  196.304352]  __handle_domain_irq+0x64/0xb8
+[  196.305348]  gic_handle_irq+0x50/0xa0
+[  196.307834]  el1_irq+0xb8/0x180
+[  196.312062]  arch_cpu_idle+0x10/0x18
+[  196.314961]  do_idle+0x204/0x288
+[  196.318942]  cpu_startup_entry+0x24/0x40
+[  196.319905]  rest_init+0xd4/0xe0
+[  196.320234]  arch_call_rest_init+0xc/0x14
+[  196.321062]  start_kernel+0x420/0x450
+[  196.324539] Code: f90007e9 b940b508 f90003e8 97d8dd19 (d4210000) 
+[  196.336252] ---[ end trace 0ebf9faef43e3e7e ]---
+[  196.338469] Kernel panic - not syncing: Fatal exception in interrupt
+[  196.339835] SMP: stopping secondary CPUs
+[  196.343792] Kernel Offset: disabled
+[  196.345421] CPU features: 0x0002,20006000
+[  196.346689] Memory Limit: none
+[  196.354350] ---[ end Kernel panic - not syncing: Fatal exception in interrupt ]---

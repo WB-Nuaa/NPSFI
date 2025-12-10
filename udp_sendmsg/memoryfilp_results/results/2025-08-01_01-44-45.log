@@ -1,0 +1,47 @@
+[  193.173734] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000590
+[  193.197056] Mem abort info:
+[  193.210824]   ESR = 0x96000006
+[  193.219240]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.221134]   SET = 0, FnV = 0
+[  193.224746]   EA = 0, S1PTW = 0
+[  193.225110] Data abort info:
+[  193.227012]   ISV = 0, ISS = 0x00000006
+[  193.227623]   CM = 0, WnR = 0
+[  193.231196] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b3adb000
+[  193.232517] [0000000000000590] pgd=00000000b1f16003, pud=00000000b1f1e003, pmd=0000000000000000
+[  193.240435] Internal error: Oops: 96000006 [#1] PREEMPT SMP
+[  193.242994] Modules linked in:
+[  193.244483] CPU: 7 PID: 493 Comm: python3 Tainted: G        W         5.4.18 #2
+[  193.246401] Hardware name: linux,dummy-virt (DT)
+[  193.248934] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.251895] pc : __ip_select_ident+0x18/0x70
+[  193.252614] lr : __ip_make_skb+0x2fc/0x3b0
+[  193.254731] sp : ffff800011faba40
+[  193.256163] x29: ffff800011faba40 x28: 0000000000000000 
+[  193.256820] x27: ffff000071fa1400 x26: 0000000000000010 
+[  193.257426] x25: ffff000071fa1410 x24: ffff800011fabc30 
+[  193.259288] x23: ffff000071e17000 x22: ffff00007ebfbfc0 
+[  193.260878] x21: 0000000000000000 x20: 0000000000000001 
+[  193.262943] x19: ffff000071fa1410 x18: 0000000000000000 
+[  193.263949] x17: 0000000000000000 x16: 0000000000000000 
+[  193.264925] x15: ffff8000117d2000 x14: ffff800011992f70 
+[  193.268305] x13: 0000000000000000 x12: ffff800011992000 
+[  193.270663] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  193.271220] x9 : 0000000000000000 x8 : ffff000078300600 
+[  193.271695] x7 : 0000000000000012 x6 : ffff000071fa143e 
+[  193.272456] x5 : ffff000071fa14c8 x4 : ffff800011fabb40 
+[  193.273133] x3 : 0000000000000590 x2 : 0000000000000001 
+[  193.273611] x1 : ffff000071fa1410 x0 : 0000000000000000 
+[  193.274903] Call trace:
+[  193.275275]  __ip_select_ident+0x18/0x70
+[  193.275808]  __ip_make_skb+0x2fc/0x3b0
+[  193.276074]  ip_make_skb+0x108/0x140
+[  193.276294]  udp_sendmsg+0x6ec/0x860
+[  193.276531]  inet_sendmsg+0x40/0x68
+[  193.276742]  __sys_sendto+0xd4/0x150
+[  193.277003]  __arm64_sys_sendto+0x24/0x30
+[  193.277620]  el0_svc_common.constprop.0+0x68/0x160
+[  193.278160]  el0_svc_handler+0x20/0x80
+[  193.278446]  el0_svc+0x8/0xc
+[  193.280163] Code: 910003fd a90153f3 aa0103f3 2a0203f4 (f942c801) 
+[  193.282527] ---[ end trace 69bcbc7ffb5ea832 ]---

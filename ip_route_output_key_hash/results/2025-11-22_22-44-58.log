@@ -1,0 +1,51 @@
+[  193.585317] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+[  193.588913] Mem abort info:
+[  193.594414]   ESR = 0x96000046
+[  193.595797]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.599144]   SET = 0, FnV = 0
+[  193.600117]   EA = 0, S1PTW = 0
+[  193.603207] Data abort info:
+[  193.604747]   ISV = 0, ISS = 0x00000046
+[  193.607520]   CM = 0, WnR = 1
+[  193.623225] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b27be000
+[  193.624849] [0000000000000000] pgd=00000000b6f7e003, pud=00000000b5df2003, pmd=0000000000000000
+[  193.657558] Internal error: Oops: 96000046 [#1] PREEMPT SMP
+[  193.663287] Modules linked in:
+[  193.665858] CPU: 4 PID: 493 Comm: python3 Not tainted 5.4.18 #2
+[  193.667970] Hardware name: linux,dummy-virt (DT)
+[  193.675923] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  193.682458] pc : __mutex_lock.isra.0+0x118/0x5b8
+[  193.694328] lr : __mutex_lock.isra.0+0xe4/0x5b8
+[  193.701718] sp : ffff800011fbb9f0
+[  193.712824] x29: ffff800011fbb9f0 x28: ffff800011963ba8 
+[  193.715360] x27: ffff800011963bb8 x26: 0000000000000011 
+[  193.719998] x25: 0000000000000012 x24: ffff00007a995848 
+[  193.727737] x23: ffff800011963bb0 x22: 0000000000000002 
+[  193.730703] x21: ffff00007abd0e00 x20: ffff800011fbba68 
+[  193.736014] x19: ffff800011963ac0 x18: 0000000000000000 
+[  193.738139] x17: 0000000000000000 x16: 0000000000000000 
+[  193.739795] x15: 0000000000000000 x14: 0000000000000000 
+[  193.741964] x13: 0000000000000000 x12: 0000000000000000 
+[  193.742377] x11: 0000000000000000 x10: 0000000000005da0 
+[  193.742678] x9 : 000000006401a8c0 x8 : ffff800011963ac0 
+[  193.742996] x7 : 00000000000003e8 x6 : ffff800011fbbde8 
+[  193.743322] x5 : ffff800011fbbde8 x4 : 0000000000000000 
+[  193.743809] x3 : ffff00007abd0e00 x2 : 0000000000000001 
+[  193.744793] x1 : ffff800011963b70 x0 : 0000000000000000 
+[  193.746692] Call trace:
+[  193.747393]  __mutex_lock.isra.0+0x118/0x5b8
+[  193.748085]  __mutex_lock_slowpath+0x10/0x18
+[  193.749373]  mutex_lock+0x34/0x50
+[  193.751008]  devlink_resource_size_get+0x28/0x70
+[  193.757162]  ip_route_output_key_hash+0x74/0xa8
+[  193.758987]  ip_route_output_flow+0x10/0x18
+[  193.760707]  udp_sendmsg+0x520/0x860
+[  193.762806]  inet_sendmsg+0x40/0x68
+[  193.767223]  __sys_sendto+0xd4/0x150
+[  193.769615]  __arm64_sys_sendto+0x24/0x30
+[  193.771112]  el0_svc_common.constprop.0+0x68/0x160
+[  193.772353]  el0_svc_handler+0x20/0x80
+[  193.777140]  el0_svc+0x8/0xc
+[  193.783763] Code: a9046bf9 f9400f80 f9000f94 a90783fb (f9000014) 
+[  193.797432] ---[ end trace c007c418c3f83de9 ]---
+[  193.811609] note: python3[493] exited with preempt_count 2

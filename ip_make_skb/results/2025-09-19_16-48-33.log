@@ -1,0 +1,46 @@
+[  193.465291] Unable to handle kernel write to read-only memory at virtual address ffff800010b79d54
+[  193.472837] Mem abort info:
+[  193.473561]   ESR = 0x9600004e
+[  193.474250]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  193.475105]   SET = 0, FnV = 0
+[  193.476980]   EA = 0, S1PTW = 0
+[  193.477816] Data abort info:
+[  193.478494]   ISV = 0, ISS = 0x0000004e
+[  193.479198]   CM = 0, WnR = 1
+[  193.484002] swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000000412a6000
+[  193.489481] [ffff800010b79d54] pgd=00000000bdfff003, pud=00000000bdffe003, pmd=0040000040a00791
+[  193.511629] Internal error: Oops: 9600004e [#1] PREEMPT SMP
+[  193.516194] Modules linked in:
+[  193.523163] CPU: 7 PID: 496 Comm: python3 Not tainted 5.4.18 #2
+[  193.524128] Hardware name: linux,dummy-virt (DT)
+[  193.525188] pstate: a0000005 (NzCv daif -PAN -UAO)
+[  193.528851] pc : __ip_make_skb+0x48/0x3b0
+[  193.529467] lr : ip_make_skb+0x108/0x140
+[  193.529962] sp : ffff800011feba70
+[  193.530376] x29: ffff800011feba70 x28: ffff800011febb40 
+[  193.531112] x27: 000000000000001a x26: ffff800011febd80 
+[  193.531718] x25: ffff800010b762e8 x24: ffff800011febc30 
+[  193.533414] x23: ffff0000744bc0c0 x22: ffff00007a978000 
+[  193.534606] x21: ffff800011963ac0 x20: ffff800011febc68 
+[  193.537407] x19: 350001402a0003f3 x18: 0000000000000000 
+[  193.537793] x17: 0000000000000000 x16: 0000000000000000 
+[  193.538178] x15: 0000000000000001 x14: 0000000000000000 
+[  193.539889] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.541896] x11: 0000000000000000 x10: 0000000000000068 
+[  193.543410] x9 : 0000000000000000 x8 : ffff00007a963e00 
+[  193.545377] x7 : 0000000000000012 x6 : ffff00007468c03e 
+[  193.546345] x5 : ffff00007468c03e x4 : 0000000000000000 
+[  193.547168] x3 : ffff800011febc68 x2 : ffff800010b79d44 
+[  193.548919] x1 : ffff800011febc30 x0 : 00000000aa1703e0 
+[  193.550910] Call trace:
+[  193.553113]  __ip_make_skb+0x48/0x3b0
+[  193.554941]  ip_make_skb+0x108/0x140
+[  193.561721]  udp_sendmsg+0x6ec/0x860
+[  193.562348]  inet_sendmsg+0x40/0x68
+[  193.563041]  __sys_sendto+0xd4/0x150
+[  193.564995]  __arm64_sys_sendto+0x24/0x30
+[  193.566454]  el0_svc_common.constprop.0+0x68/0x160
+[  193.567391]  el0_svc_handler+0x20/0x80
+[  193.569886]  el0_svc+0x8/0xc
+[  193.575380] Code: b9401040 f9400c77 51000400 f9401ad5 (b9001040) 
+[  193.599398] ---[ end trace c138e1575ccd78a3 ]---

@@ -1,0 +1,140 @@
+[  194.066869] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000012
+[  194.074626] Mem abort info:
+[  194.076588]   ESR = 0x96000046
+[  194.084378]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  194.088179]   SET = 0, FnV = 0
+[  194.092621]   EA = 0, S1PTW = 0
+[  194.095725] Data abort info:
+[  194.099472]   ISV = 0, ISS = 0x00000046
+[  194.099846]   CM = 0, WnR = 1
+[  194.100602] user pgtable: 4k pages, 48-bit VAs, pgdp=00000000b25fe000
+[  194.102295] [0000000000000012] pgd=00000000b809f003, pud=00000000bb2dc003, pmd=0000000000000000
+[  194.107029] Internal error: Oops: 96000046 [#1] PREEMPT SMP
+[  194.109039] Modules linked in:
+[  194.118775] CPU: 4 PID: 494 Comm: python3 Not tainted 5.4.18 #2
+[  194.120251] Hardware name: linux,dummy-virt (DT)
+[  194.123311] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  194.124669] pc : rtm_getroute_parse_ip_proto+0x38/0x78
+[  194.130692] lr : inet_rtm_getroute+0x224/0x6a8
+[  194.131250] sp : ffff800012013b60
+[  194.134559] x29: ffff800012013b70 x28: 0000000000000000 
+[  194.136907] x27: ffff800012013d80 x26: 0000000000000011 
+[  194.140369] x25: 0000000000000012 x24: 0000000000000000 
+[  194.144900] x23: 000000000000ffff x22: 0000000000000000 
+[  194.149959] x21: ffff000079515400 x20: ffff800010b762e8 
+[  194.156718] x19: ffff00007b3db740 x18: 0000000000000001 
+[  194.166840] x17: 0000000000000000 x16: 0000000000000000 
+[  194.170940] x15: ffff8000117d2000 x14: ffff800011992f72 
+[  194.178992] x13: 0000000000000000 x12: ffff800011992000 
+[  194.182319] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  194.184255] x9 : 0000000000000000 x8 : 0000000000000000 
+[  194.186535] x7 : 0000000000000004 x6 : 0000000000000000 
+[  194.192001] x5 : 0000000000000000 x4 : ffff8000117cfba8 
+[  194.199268] x3 : 0000000000000012 x2 : 0000000000000002 
+[  194.202317] x1 : ffff800010eca5c0 x0 : 00000000ffffffa1 
+[  194.205559] Call trace:
+[  194.215221]  rtm_getroute_parse_ip_proto+0x38/0x78
+[  194.226428]  inet_sendmsg+0x40/0x68
+[  194.231117]  __sys_sendto+0xd4/0x150
+[  194.231912]  __arm64_sys_sendto+0x24/0x30
+[  194.232425]  el0_svc_common.constprop.0+0x68/0x160
+[  194.233113]  el0_svc_handler+0x20/0x80
+[  194.233506]  el0_svc+0x8/0xc
+[  194.238808] Code: 12800bc0 b4000083 b0001801 91170021 (f9000061) 
+[  194.246000] ---[ end trace 03a8e66fa045ea13 ]---
+[  194.383181] ------------[ cut here ]------------
+[  194.388300] refcount_t: underflow; use-after-free.
+[  194.389740] WARNING: CPU: 4 PID: 527 at lib/refcount.c:190 refcount_sub_and_test_checked+0xb4/0xc0
+[  194.393524] Modules linked in:
+[  194.398083] CPU: 4 PID: 527 Comm: journal-offline Tainted: G      D           5.4.18 #2
+[  194.400987] Hardware name: linux,dummy-virt (DT)
+[  194.405082] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.407457] pc : refcount_sub_and_test_checked+0xb4/0xc0
+[  194.408968] lr : refcount_sub_and_test_checked+0xb4/0xc0
+[  194.412926] sp : ffff800010023dd0
+[  194.414372] x29: ffff800010023dd0 x28: 0000000000000000 
+[  194.415139] x27: ffff8000117d3400 x26: 0000000000000000 
+[  194.416151] x25: ffff00007094aa00 x24: 000000000000000a 
+[  194.420946] x23: ffff800010023e98 x22: ffff00007b3d3a00 
+[  194.423422] x21: ffff00007b3db740 x20: ffff00007b3db600 
+[  194.424447] x19: 0000000000000000 x18: 0000000000000010 
+[  194.425331] x17: 0000000000000000 x16: 0000000000000000 
+[  194.431968] x15: ffff00007094ae70 x14: ffffffffffffffff 
+[  194.432476] x13: ffff800090023b37 x12: ffff800010023b3f 
+[  194.433015] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  194.435010] x9 : 0000000000000000 x8 : ffff800011993000 
+[  194.435693] x7 : ffff800010691a68 x6 : 0000000000000178 
+[  194.435954] x5 : ffff00007db95180 x4 : 0000000000000001 
+[  194.436219] x3 : ffff00007db95180 x2 : 0000000000000007 
+[  194.436517] x1 : 0000000000000000 x0 : 0000000000000000 
+[  194.436810] Call trace:
+[  194.437856]  refcount_sub_and_test_checked+0xb4/0xc0
+[  194.438490]  refcount_dec_and_test_checked+0x14/0x20
+[  194.439289]  __sk_destruct+0xdc/0x178
+[  194.439670]  rcu_core+0x2bc/0x4b8
+[  194.440101]  rcu_core_si+0xc/0x18
+[  194.440900]  __do_softirq+0x124/0x240
+[  194.441284]  irq_exit+0xb8/0xd8
+[  194.441599]  __handle_domain_irq+0x64/0xb8
+[  194.445079]  gic_handle_irq+0x50/0xa0
+[  194.447894]  el1_irq+0xb8/0x180
+[  194.449218]  arch_counter_read+0x14/0x20
+[  194.449477]  ktime_get+0x40/0x98
+[  194.450465]  blk_mq_get_request+0x1ec/0x3d0
+[  194.453016]  blk_mq_make_request+0x128/0x3c0
+[  194.453357] ------------[ cut here ]------------
+[  194.456361]  generic_make_request+0xac/0x350
+[  194.456529]  submit_bio+0x3c/0x1e8
+[  194.456687]  ext4_io_submit+0x4c/0x60
+[  194.456771]  ext4_bio_write_page+0x18c/0x710
+[  194.456857]  mpage_submit_page+0x58/0x88
+[  194.457059]  mpage_process_page_bufs+0x134/0x140
+[  194.457147]  mpage_prepare_extent_to_map+0x180/0x2b0
+[  194.457228]  ext4_writepages+0x2cc/0xb08
+[  194.457955]  do_writepages+0x50/0x100
+[  194.461863] refcount_t: increment on 0; use-after-free.
+[  194.462308] WARNING: CPU: 1 PID: 277 at lib/refcount.c:156 refcount_inc_checked+0x40/0x48
+[  194.462371] Modules linked in:
+[  194.462637] CPU: 1 PID: 277 Comm: systemd-logind Tainted: G      D           5.4.18 #2
+[  194.462718] Hardware name: linux,dummy-virt (DT)
+[  194.462816] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  194.462902] pc : refcount_inc_checked+0x40/0x48
+[  194.462982] lr : refcount_inc_checked+0x40/0x48
+[  194.463038] sp : ffff800011e73d20
+[  194.463140] x29: ffff800011e73d20 x28: ffff000075ec8e00 
+[  194.463330] x27: 0000000000000001 x26: ffff800011e73e50 
+[  194.463793] x25: 0000000000000000 x24: 0000000000000000 
+[  194.463926] x23: 0000000000000001 x22: 0000000000000000 
+[  194.464042] x21: ffff800011963ac0 x20: ffff80001196a4f0 
+[  194.464157] x19: ffff000070950000 x18: 0000000000000010 
+[  194.464265] x17: 0000000000000000 x16: 0000000000000000 
+[  194.464334] x15: ffff8000117d2000 x14: ffff800011992f70 
+[  194.464601] x13: 0000000000000000 x12: ffff800011992000 
+[  194.464719] x11: ffff8000117d2000 x10: ffff8000119925c0 
+[  194.464830] x9 : 0000000000000000 x8 : ffff80001199c4df 
+[  194.464926] x7 : 0000000000000000 x6 : 00000b2ee7c2ffad 
+[  194.464989] x5 : ffff00007db53180 x4 : 0000000000000001 
+[  194.465053] x3 : ffff00007db53180 x2 : 0000000000000007 
+[  194.465117] x1 : 0000000000000000 x0 : 0000000000000000 
+[  194.465183] Call trace:
+[  194.465244]  refcount_inc_checked+0x40/0x48
+[  194.465308]  sk_alloc+0x94/0xd0
+[  194.465408]  unix_create1+0xbc/0x210
+[  194.466166]  unix_create+0x50/0xe8
+[  194.468281]  __filemap_fdatawrite_range+0xe0/0x120
+[  194.468982]  __sock_create+0x110/0x1c8
+[  194.470269]  file_write_and_wait_range+0x54/0xb8
+[  194.470791]  __sys_socket+0x58/0xf8
+[  194.471034]  ext4_sync_file+0x54/0x358
+[  194.471593]  __arm64_sys_socket+0x1c/0x28
+[  194.472822]  vfs_fsync_range+0x30/0x78
+[  194.476318]  el0_svc_common.constprop.0+0x68/0x160
+[  194.482125]  do_fsync+0x38/0x78
+[  194.482176]  __arm64_sys_fsync+0x14/0x20
+[  194.482395]  el0_svc_common.constprop.0+0x68/0x160
+[  194.482715]  el0_svc_handler+0x20/0x80
+[  194.483511]  el0_svc_handler+0x20/0x80
+[  194.484511]  el0_svc+0x8/0xc
+[  194.484839]  el0_svc+0x8/0xc
+[  194.485539] ---[ end trace 03a8e66fa045ea14 ]---
+[  194.486947] ---[ end trace 03a8e66fa045ea15 ]---

@@ -1,0 +1,42 @@
+[  208.107994] kernel BUG at net/core/skbuff.c:1862!
+[  208.111271] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+[  208.112621] Modules linked in:
+[  208.114287] CPU: 7 PID: 1 Comm: systemd Not tainted 5.4.18 #2
+[  208.114621] Hardware name: linux,dummy-virt (DT)
+[  208.115283] pstate: 40000005 (nZcv daif -PAN -UAO)
+[  208.117627] pc : skb_put+0x3c/0x60
+[  208.117977] lr : unix_stream_sendmsg+0xe0/0x340
+[  208.118338] sp : ffff80001005bb20
+[  208.118624] x29: ffff80001005bb20 x28: ffff000079bd2348 
+[  208.119539] x27: 000000000000040c x26: ffff000076d5b800 
+[  208.119927] x25: ffff000079bd1c00 x24: ffff00007717c000 
+[  208.120304] x23: 0000000000000000 x22: ffff80001005be00 
+[  208.120681] x21: ffff000079bd2000 x20: 0000000000000000 
+[  208.121055] x19: 000000000000040c x18: 0000000000000000 
+[  208.121456] x17: 0000000000000000 x16: 0000000000000000 
+[  208.121838] x15: 0000000000000000 x14: 0000000000000000 
+[  208.122216] x13: 0000000000000000 x12: 0000000000000000 
+[  208.122593] x11: 0000000000000000 x10: 0000000000400100 
+[  208.122974] x9 : ffff00007b0a8000 x8 : 0000ffffffffffff 
+[  208.124041] x7 : 0000000000000001 x6 : 00000000ffff0000 
+[  208.124435] x5 : ffff000073d9e000 x4 : ffff000079bd1d3c 
+[  208.124827] x3 : 0000000000000000 x2 : 00000000ffffffff 
+[  208.125147] x1 : 000000000000040c x0 : ffff000076d5b800 
+[  208.125732] Call trace:
+[  208.126019]  skb_put+0x3c/0x60
+[  208.126250]  ____sys_sendmsg+0x240/0x280
+[  208.126473]  ___sys_sendmsg+0x80/0xe0
+[  208.126682]  __sys_sendmsg+0x64/0xc0
+[  208.126888]  __arm64_sys_sendmsg+0x20/0x28
+[  208.127125]  el0_svc_common.constprop.0+0x68/0x160
+[  208.127378]  el0_svc_handler+0x20/0x80
+[  208.128429]  el0_svc+0x8/0xc
+[  208.129498] Code: 6b02007f 54000088 aa0503e0 d65f03c0 (d4210000) 
+[  208.132113] ---[ end trace 4e24761febfc8747 ]---
+[  208.132894] note: systemd[1] exited with preempt_count 1
+[  208.133898] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[  208.134815] SMP: stopping secondary CPUs
+[  208.136635] Kernel Offset: disabled
+[  208.137407] CPU features: 0x0002,20006000
+[  208.138210] Memory Limit: none
+[  208.140010] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---

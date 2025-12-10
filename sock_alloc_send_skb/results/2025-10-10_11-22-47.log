@@ -1,0 +1,48 @@
+[  206.214201] Unable to handle kernel paging request at virtual address fff800011cc3ac40
+[  206.225640] Mem abort info:
+[  206.226030]   ESR = 0x96000044
+[  206.226512]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  206.226955]   SET = 0, FnV = 0
+[  206.227169]   EA = 0, S1PTW = 0
+[  206.227401] Data abort info:
+[  206.227616]   ISV = 0, ISS = 0x00000044
+[  206.227942]   CM = 0, WnR = 1
+[  206.228323] [fff800011cc3ac40] address between user and kernel address ranges
+[  206.230572] Internal error: Oops: 96000044 [#1] PREEMPT SMP
+[  206.232877] Modules linked in:
+[  206.235331] CPU: 5 PID: 244 Comm: systemd-timesyn Not tainted 5.4.18 #2
+[  206.235832] Hardware name: linux,dummy-virt (DT)
+[  206.237019] pstate: 80000005 (Nzcv daif -PAN -UAO)
+[  206.242795] pc : alloc_skb_with_frags+0x38/0x1d8
+[  206.247022] lr : sock_alloc_send_pskb+0x248/0x260
+[  206.248683] sp : ffff800011cc38d0
+[  206.249398] x29: ffff800011cc38d0 x28: 0000000000000000 
+[  206.252080] x27: 0000000000000000 x26: 0000000000000cc0 
+[  206.253052] x25: ffff00006eab0440 x24: 0000000000000000 
+[  206.254345] x23: ffff00007925c600 x22: ffff8000101271d8 
+[  206.256661] x21: 0000000000000000 x20: 0000000000000000 
+[  206.257687] x19: 0000000000000000 x18: 0000000000000000 
+[  206.258219] x17: 0000000000000000 x16: 0000000000000000 
+[  206.258981] x15: 0000000000000001 x14: 0000000000000000 
+[  206.259420] x13: 0000000000000000 x12: 00000000b97dbe3a 
+[  206.260009] x11: 0000000000000000 x10: 0000000000000068 
+[  206.260631] x9 : 0000000000000000 x8 : 00000000000005c8 
+[  206.266396] x7 : 0000000000000000 x6 : 0000000000000010 
+[  206.267738] x5 : 0000000000000000 x4 : 0000000000000cc0 
+[  206.277245] x3 : fff800011cc3ac40 x2 : 0000000000000000 
+[  206.281203] x1 : 00000000ffffff97 x0 : 000000000000006b 
+[  206.286771] Call trace:
+[  206.288761]  alloc_skb_with_frags+0x38/0x1d8
+[  206.293741]  sock_alloc_send_pskb+0x248/0x260
+[  206.297071]  sock_alloc_send_skb+0x1c/0x28
+[  206.298650]  __ip_append_data.isra.0+0x788/0xc30
+[  206.300155]  ip_make_skb+0xec/0x140
+[  206.300708]  udp_sendmsg+0x6ec/0x860
+[  206.300858]  inet_sendmsg+0x40/0x68
+[  206.301758]  __sys_sendto+0xd4/0x150
+[  206.303672]  __arm64_sys_sendto+0x24/0x30
+[  206.304032]  el0_svc_common.constprop.0+0x68/0x160
+[  206.304786]  el0_svc_handler+0x20/0x80
+[  206.306075]  el0_svc+0x8/0xc
+[  206.309051] Code: 12800d01 a9046bf9 2a0203f5 2a0403fa (b9000061) 
+[  206.310552] ---[ end trace ba5be8b05d796150 ]---

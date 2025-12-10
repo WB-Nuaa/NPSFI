@@ -1,0 +1,60 @@
+[  193.077867] Insufficient stack space to handle exception!
+[  193.079141] ESR: 0x96000044 -- DABT (current EL)
+[  193.083708] FAR: 0xffffffffffffff50
+[  193.085177] Task stack:     [0xffff800011f30000..0xffff800011f34000]
+[  193.088988] IRQ stack:      [0xffff800010020000..0xffff800010024000]
+[  193.090076] Overflow stack: [0xffff00007db932a0..0xffff00007db942a0]
+[  193.093591] CPU: 4 PID: 492 Comm: python3 Not tainted 5.4.18 #2
+[  193.094754] Hardware name: linux,dummy-virt (DT)
+[  193.096959] pstate: 60000005 (nZCv daif -PAN -UAO)
+[  193.103874] pc : e1000_xmit_frame+0x0/0xf80
+[  193.105631] lr : dev_hard_start_xmit+0x94/0x158
+[  193.107608] sp : 0000000000000000
+[  193.108343] x29: ffff800011f33810 x28: ffff00007b2ea000 
+[  193.109842] x27: 0000000000000000 x26: ffff00007b2ea090 
+[  193.111074] x25: ffff8000117b7000 x24: 0000000000000000 
+[  193.112085] x23: ffff8000117bf958 x22: ffff8000117bf148 
+[  193.112975] x21: ffff00007b3cf600 x20: ffff800011406c62 
+[  193.113824] x19: ffff0000797a6e00 x18: 0000000000000000 
+[  193.114746] x17: 0000000000000000 x16: 0000000000000000 
+[  193.117126] x15: 0000000000000001 x14: 0000000000000000 
+[  193.119938] x13: 0000000000000006 x12: 00000000c0a80164 
+[  193.120853] x11: 0000000000000000 x10: 0000000000000068 
+[  193.121679] x9 : ffff0000795e7000 x8 : 0000000000000000 
+[  193.122587] x7 : fffffdffbfee8470 x6 : 0000000000000010 
+[  193.123420] x5 : 0000000000000001 x4 : 0000000000000000 
+[  193.124288] x3 : ffff800010e60998 x2 : ffff80001084f9e0 
+[  193.125116] x1 : ffff00007b2ea000 x0 : ffff0000797a6e00 
+[  193.127971] Kernel panic - not syncing: kernel stack overflow
+[  193.129708] CPU: 4 PID: 492 Comm: python3 Not tainted 5.4.18 #2
+[  193.130625] Hardware name: linux,dummy-virt (DT)
+[  193.133390] Call trace:
+[  193.134555]  dump_backtrace+0x0/0x140
+[  193.135840]  show_stack+0x14/0x20
+[  193.136323]  dump_stack+0xb4/0xf8
+[  193.136904]  panic+0x158/0x324
+[  193.137392]  nmi_panic+0x84/0x88
+[  193.137925]  handle_bad_stack+0x108/0x130
+[  193.138558]  __bad_stack+0x90/0x94
+[  193.139182]  e1000_xmit_frame+0x0/0xf80
+[  193.139828]  sch_direct_xmit+0x120/0x340
+[  193.140467]  __dev_queue_xmit+0x67c/0x7f0
+[  193.141183]  dev_queue_xmit+0x10/0x18
+[  193.141795]  ip_finish_output2+0x31c/0x588
+[  193.142658]  __ip_finish_output+0x1b0/0x1e0
+[  193.143370]  ip_output+0xf4/0x1b0
+[  193.143930]  ip_local_out+0x44/0x58
+[  193.144505]  ip_send_skb+0x1c/0xa8
+[  193.145147]  udp_send_skb.isra.0+0x11c/0x368
+[  193.145821]  udp_sendmsg+0x710/0x860
+[  193.146416]  inet_sendmsg+0x40/0x68
+[  193.147061]  __sys_sendto+0xd4/0x150
+[  193.147893]  __arm64_sys_sendto+0x24/0x30
+[  193.149894]  el0_svc_common.constprop.0+0x68/0x160
+[  193.151005]  el0_svc_handler+0x20/0x80
+[  193.151743]  el0_svc+0x8/0xc
+[  193.156775] SMP: stopping secondary CPUs
+[  193.162111] Kernel Offset: disabled
+[  193.163419] CPU features: 0x0002,20006000
+[  193.164610] Memory Limit: none
+[  193.168876] ---[ end Kernel panic - not syncing: kernel stack overflow ]---
