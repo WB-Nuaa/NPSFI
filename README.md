@@ -10,8 +10,8 @@ The most important files in each folder are as follows:
 - analyse.py or analyse-origin.py: a program for analyzing functions.
   
 ## Environmental configuration
-- Linux kernel: 5.4.18
-- QEMU: 6.2.0
+- [Linux kernel]: 5.4.18
+- [QEMU]: 6.2.0
   - qemu-system-aarch64 \
       -machine virt \
       -nographic \
@@ -28,5 +28,5 @@ The most important files in each folder are as follows:
       -device e1000,netdev=net0 \
       -netdev user,id=user0 \
       -device e1000,netdev=user0 
-- [numpy 1.18.5](https://numpy.org/)
+- [numpy 1.18.5]
 - 
