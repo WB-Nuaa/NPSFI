@@ -5,18 +5,15 @@ Each folder is a function and contains the error information, instruction inform
 The most important files in each folder are as follows:
 - error.log: the error information after each bit of each instruction in the function is flipped.
 - received_data.log: the packet received by the client.
-- main.py: Data division, model building, and training module.
-  - `def train_model` : Building the graphs. Model building and training.
-  - `G` : Semantic enhanced Graph of instrcution layer.
-  - `BB_G` : Graph of basic block layer. 
+- result: contains detailed error information.
+- addr_instruction.json: the information and addresses of each instruction in the function.
+- analyse.py or analyse-origin.py: a program for analyzing functions.
   
 ## Setup
 
 To run the code, you need the following dependencies:
-- [Pytorch 1.10.2](https://pytorch.org/)
-- [DGL 0.9.0](https://www.dgl.ai/pages/start.html)
-- [sklearn](https://github.com/scikit-learn/scikit-learn)
 - [numpy 1.18.5](https://numpy.org/)
+- 
 
 It is noteworthy that we have modified the HGTConv source code to return the attention coefficient
   
